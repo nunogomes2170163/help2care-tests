@@ -7,7 +7,7 @@ Feature: Web Server Forgot Password
   Scenario: Forgot Password Button on the Login Page
     Given I access the login page of the Help2care website
     When I click the "Esqueceu-se da sua password?" button
-    Then I should be redirect to the "reset password" page
+    Then I should be redirected to the "reset password" page
     And should be present the field to fill with an email
     And should be present the button "Enviar o link de reset password"
 

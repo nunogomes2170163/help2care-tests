@@ -28,7 +28,7 @@ Feature: Web Server Authentication
     When I fill the "username" field with "admin"
     And I fill the "password" field with "adminpw"
     And I press the "Login" button
-    Then I should be redirect to the "admin" dashboard
+    Then I should be redirecteded to the "admin" dashboard
     And the "users" table should be displayed
 
   #HEALTHCAREPRO
@@ -37,7 +37,7 @@ Feature: Web Server Authentication
     When I fill the "username" field with "healthcarePro"
     And I fill the "password" field with "propw"
     And I press the "Login" button
-    Then I should be redirect to the "healthcare professional" dashboard
+    Then I should be redirected to the "healthcare professional" dashboard
     And the "my caregivers" table should be displayed
     And the "other caregivers" table should be displayed
     And the "help requests" table should be displayed

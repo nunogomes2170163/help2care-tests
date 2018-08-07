@@ -1,14 +1,19 @@
 Feature: Manage Users
   As an admin
-  I want to managing all the users
+  I want to manage all the users
   So that she/he can use the Web or Mobile App
 
   #CREATES
-  Scenario: Access New Admin Page
+  Scenario: Access User Create Page
     Given I access the "admin" dashboard
-    When I press the "Novo Administrador" button
-    Then I should be redirect to the "new admin" page
-    And the "Novo Administrador" text should be shown
+    When I press the <text> button
+    Then I should be redirected to the <page> page
+    And the <text> text should be shown
+    Examples:
+    | text                      | page                        |
+    | Novo Administrador        | new admin                   |
+    | Novo Profissional de Saude| new healthcare professional |
+    | Novo Cuidador             | new caregiver               |
 
   Scenario: Create New Admin Successfully
     Given I access the "new admin" page
@@ -18,15 +23,8 @@ Feature: Manage Users
     And I fill the "password" field with "cucumber"
     And I fill the "password_confirmation" field with "cucumber"
     And I press the "Criar" button
-    Then I should be redirect to the "admin" dashboard
+    Then I should be redirected to the "admin" dashboard
     And the "Cucumber" user should be present in the "users" table
-
-
-  Scenario: Access New Healthcare Professional Page
-    Given I access the "admin" dashboard
-    When I press the "Novo Profissional de Saúde" button
-    Then I should be redirect to "new healthecare professional" page
-    And the "Novo Profissional de Saúde" text should be shown
 
   Scenario: Create New Healthcare Professional Successfully
     Given I access the "new healthcare professional" page
@@ -38,15 +36,8 @@ Feature: Manage Users
     And I fill the "password" field with "cucumber"
     And I fill the "password_confirmation" field with "cucumber"
     And I press the "Criar" button
-    Then I should be redirect to the "admin" dashboard
+    Then I should be redirected to the "admin" dashboard
     And the "Cucumber" user should be present in the "users" table
-
-
-  Scenario: Access New Caregiver Page
-    Given I access the "admin" dashboard
-    When I press the "Novo Cuidador" button
-    Then I should be redirect to "new caregiver" page
-    And the "Novo Cuidador" text should be shown
 
   Scenario: Create New Caregiver Successfully
     Given I access the "new caregiver" page
@@ -60,7 +51,7 @@ Feature: Manage Users
     And I fill the "password" field with "cucumber"
     And I fill the "password_confirmation" field with "cucumber"
     And I press the "Criar" button
-    Then I should be redirect to the "admin" dashboard
+    Then I should be redirected to the "admin" dashboard
     And the "Cucumber" user should be present in the "users" table
 
 
@@ -68,7 +59,7 @@ Feature: Manage Users
   Scenario: Access Admin User Details
     Given I access the "admin" dashboard
     When I press the "Detalhes" button of the "Admin" user
-    Then I should be redirect to the "details" page of "Admin" user
+    Then I should be redirected to the "details" page of "Admin" user
     And the field "Utilizador" should show "admin"
     And the field "Nome" should show "Admin"
     And the field "Email" should show "admin@mail.com"
@@ -81,7 +72,7 @@ Feature: Manage Users
   Scenario: Access Healthcare Professional User Details
     Given I access the "admin" dashboard
     When I press the "Detalhes" button of the "Alexandra Teixeira" user
-    Then I should be redirect to the "details" page of "Alexandra Teixeira" user
+    Then I should be redirected to the "details" page of "Alexandra Teixeira" user
     And the field "Utilizador" should show "alexandra.teixeira"
     And the field "Nome" should show "Alexandra Teixeira"
     And the field "Email" should show "maxxabersi@gmail.com"
@@ -96,7 +87,7 @@ Feature: Manage Users
   Scenario: Access Caregiver User Details
     Given I access the "admin" dashboard
     When I press the "Detalhes" button of the "Ana Luisa Roque" user
-    Then I should be redirect to the "details" page of "Ana Luisa Roque" user
+    Then I should be redirected to the "details" page of "Ana Luisa Roque" user
     And the field "Utilizador" should show "ana.roque.cuidador"
     And the field "Nome" should show "Ana Luisa Roque"
     And the field "Função" should show "Cuidador"
@@ -117,21 +108,21 @@ Feature: Manage Users
   Scenario: Block User on the Admin Dashboard
     Given I access the "admin" dashboard
     When I press the "Bloquear" button of the "Alexandra Teixeira" user
-    Then I should be redirect to the "admin" dashboard
+    Then I should be redirected to the "admin" dashboard
     And the "Desbloquear" button should be present in the "Alexandra Teixeira" user options
 
   Scenario: Unblock User on the Admin Dashboard
     Given I access the "admin" dashboard
     And the "Alexandra Teixeira" user is blocked
     When I press the "Desbloquear" button of the "Alexandra Teixeira" user
-    Then I should be redirect to the "admin" dashboard
+    Then I should be redirected to the "admin" dashboard
     And the "Bloquear" button should be present in the "Alexandra Teixeira" user options
 
   #EDIT
   Scenario: Access Admin Edit Page
     Given I access the "details" page of the "admin" user
     When I press the "Editar" button
-    Then I should be redirect to the "edit" page of the user
+    Then I should be redirected to the "edit" page of the user
     And the field "name" should show "Admin"
     And the field "email" should show "admin@mail.com"
     And the field "password" should be empty
@@ -144,7 +135,7 @@ Feature: Manage Users
     When I fill the "name" field with "Clemens Mann"
     And I fill the "email" field with "nella.kunze@example.org"
     And I press the "Guardar" button
-    Then I should be redirect to the "details" page of the "admin"
+    Then I should be redirected to the "details" page of the "admin"
     And the field "Utilizador" should show "teresa.olson"
     And the field "Nome" should show the new name
     And the field "Email" should show the new email
@@ -160,7 +151,7 @@ Feature: Manage Users
     And I fill the "password" field with "123123"
     And I fill the "password_confirmation" field with "123123"
     And I press the "Guardar" button
-    Then I should be redirect to the "details" page of the "admin"
+    Then I should be redirected to the "details" page of the "admin"
     And the field "Utilizador" should show "teresa.olson"
     And the field "Nome" should show the new name
     And the field "Email" should show the new email
@@ -172,7 +163,7 @@ Feature: Manage Users
   Scenario: Access Healthcare Professional Edit Page
     Given I access the "details" page of the "healthcare professional" user
     When I press the "Editar" button
-    Then I should be redirect to the "edit" page of the user
+    Then I should be redirected to the "edit" page of the user
     And the field "name" should show "Alexandra Teixeira"
     And the field "email" should show "maxxabersi@gmail.com"
     And the field "job" should show "Enfermeira"
@@ -189,7 +180,7 @@ Feature: Manage Users
     And I fill the "job" field with "Enfermeira"
     And I fill the "facility" field with "Leiria"
     And I press the "Guardar" button
-    Then I should be redirHealthcare Professional ect to the "details" page of the "healthcare professional"
+    Then I should be redirected to the "details" page of the "healthcare professional"
     And the field "Utilizador" should show "ana.margarida.carvalho"
     And the field "Nome" should show the new name
     And the field "Email" should show the new email
@@ -209,7 +200,7 @@ Feature: Manage Users
     And I fill the "password_confirmation" field with "123123"
     And I press the "Guardar" button
     And I press the "Guardar" button
-    Then I should be redirect to the "details" page of the "healthcare professional"
+    Then I should be redirected to the "details" page of the "healthcare professional"
     And the field "Utilizador" should show "ana.margarida.carvalho"
     And the field "Nome" should show the new name
     And the field "Email" should show the new email
@@ -223,7 +214,7 @@ Feature: Manage Users
   Scenario: Access Caregiver Edit Page
     Given I access the "details" page of the "caregiver" user
     When I press the "Editar" button
-    Then I should be redirect to the "edit" page of the user
+    Then I should be redirected to the "edit" page of the user
     And the field "name" should show "Ana Luisa Roque"
     And the field "email" should show "roque.ana2@gmail.com"
     And the field "gender" should show "Feminino"
@@ -246,7 +237,7 @@ Feature: Manage Users
     And I fill the "experienceNumber" field with "0"
     And I fill the "experiencePeriod" field with "Ano/s"
     And I press the "Guardar" button
-    Then I should be redirHealthcare Professional ect to the "details" page of the "healthcare professional"
+    Then I should be redirected to the "details" page of the "healthcare professional"
     And the field "Utilizador" should show "ana.margarida.carvalho.cuidador"
     And the field "Nome" should show the new name
     And the field "Email" should show the new email
@@ -273,7 +264,7 @@ Feature: Manage Users
     And I fill the "facility" field with "Leiria"
     And I fill the "password_confirmation" field with "123123"
     And I press the "Guardar" button
-    Then I should be redirHealthcare Professional ect to the "details" page of the "healthcare professional"
+    Then I should be redirected to the "details" page of the "healthcare professional"
     And the field "Utilizador" should show "ana.margarida.carvalho.cuidador"
     And the field "Nome" should show the new name
     And the field "Email" should show the new email

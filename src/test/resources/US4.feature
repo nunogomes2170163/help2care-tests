@@ -62,3 +62,34 @@ Feature: Manage Needs
     And I press the "Sim" button from the modal
     Then I should be redirected to the "needs" page
     And the "Cucumber" need should not be present in the "needs" table
+
+  #ERRORS
+  Scenario: Description field already exists
+    Given I access the <page> page
+    When I fill the "description" field with "Acamado"
+    And I press the <button> button
+    Then the "Já existe uma necessidade com essa descrição. Escolha outra." error message should be shown
+    Examples:
+      | page      | button  |
+      | new need  | Criar   |
+      | edit need | Guardar |
+
+  Scenario: Description field empty
+    Given I access the <page> page
+    When the "description" field is empty
+    And I press the <button> button
+    Then the "A descrição tem que ser preenchida." error message should be shown
+    Examples:
+      | page      | button  |
+      | new need  | Criar   |
+      | edit need | Guardar |
+
+  Scenario: Description field min length
+    Given I access the <page> page
+    When I fill the "description" field with "12"
+    And I press the <button> button
+    Then the "A descrição tem que ter pelo menos 5 letras." error message should be shown
+    Examples:
+      | page      | button  |
+      | new need  | Criar   |
+      | edit need | Guardar |

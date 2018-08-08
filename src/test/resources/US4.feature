@@ -39,7 +39,7 @@ Feature: Manage Needs
     And the "Cancelar" button should be present
 
   Scenario: Edit Need Successfully
-    Given I access the "edit" page of the "need"
+    Given I access the "edit need" page of the need
     When I fill the "description" field with "Alimentation"
     And I press the "Guardar" button
     Then I should be redirected to the "details" page of the "need"

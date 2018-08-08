@@ -15,7 +15,7 @@ Feature: Manage Questions
     When I fill the "question" field with "Cucumber"
     And I fill the "selectType" field with "Text"
     And I press the "Criar" button
-    Then I should be redirected to the "questions " page
+    Then I should be redirected to the "questions" page
     And the "Cucumber" question should be present in the "questions" table
 
   Scenario: Create New Question Successfully with Multiple Answers
@@ -67,7 +67,7 @@ Feature: Manage Questions
     And the "Cancelar" button should be present
 
   Scenario: Edit Question Successfully With Text Answer
-    Given I access the "edit" page of the "question"
+    Given I access the "edit question" page of the question
     When I fill the "question" field with "Ajusta as roupas?"
     And I press the "Guardar" button
     Then I should be redirected to the "details" page of the "question"

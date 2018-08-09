@@ -47,14 +47,6 @@ Feature: Manage Needs
     And the field "Data da última atualização" should different from the previous
     And should be present a log at the "Registos" section
 
-  #MATERIALS
-  Scenario: Access Need Materials Page
-    Given I access the "details" page of the "Acamado" need
-    When I press the "Materiais" button
-    Then I should be redirected to the "materials" page of the "need"
-    And should be present the text "Materiais de Acamado"
-    And should be present the "Alimentação por sonda de gastrostomia" material
-
   #DELETE
   Scenario: Delete Need
     Given I access the "details" page of the "Cucumber" need

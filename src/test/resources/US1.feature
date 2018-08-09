@@ -45,3 +45,10 @@ Feature: Web Server Authentication
     And the "dau" graph should be displayed
     And the "sessions per dau" graph should be displayed
     And the "stickiness" graph should be displayed
+
+  #LOGOUT
+  Scenario: Logout
+    Given I access the "admin" dashboard
+    When I press the "picture" button
+    And I press the "logout" button
+    Then I should be redirect to the "login" page

@@ -130,12 +130,12 @@ Feature: Manage Quizs
     When the "name" field is empty
     And I press the <button> button
     Then the "O nome tem que ser preenchido." error message should be shown
-    Examples:
+    Examples Outline:
       | page      | button  |
       | new quiz  | Criar   |
       | edit quiz | Guardar |
 
-  Scenario: Quiz name field min length
+  Scenario Outline: Quiz name field min length
     Given I access the <page> page
     When I fill the "description" field with "12"
     And I press the <button> button

@@ -56,7 +56,7 @@ Feature: Manage Needs
     And the "Cucumber" need should not be present in the "needs" table
 
   #ERRORS
-  Scenario: Description field already exists
+  Scenario Outline: Description field already exists
     Given I access the <page> page
     When I fill the "description" field with "Acamado"
     And I press the <button> button
@@ -66,7 +66,7 @@ Feature: Manage Needs
       | new need  | Criar   |
       | edit need | Guardar |
 
-  Scenario: Description field empty
+  Scenario Outline: Description field empty
     Given I access the <page> page
     When the "description" field is empty
     And I press the <button> button
@@ -76,7 +76,7 @@ Feature: Manage Needs
       | new need  | Criar   |
       | edit need | Guardar |
 
-  Scenario: Description field min length
+  Scenario Outline: Description field min length
     Given I access the <page> page
     When I fill the "description" field with "12"
     And I press the <button> button

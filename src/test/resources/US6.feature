@@ -89,7 +89,7 @@ Feature: Manage Questions
     And should be present a log at the "Registos" section
 
   #ERRORS
-  Scenario: Question with Text Answer with empty question
+  Scenario Outline: Question with Text Answer with empty question
     Given I access the <page> page
     When the "question" field is empty
     And I press the <button> button
@@ -99,7 +99,7 @@ Feature: Manage Questions
       | new question  | Criar   |
       | edit question | Guardar |
 
-  Scenario: Create with Text Answer with question less then min legth
+  Scenario Outline: Create with Text Answer with question less then min legth
     Given I access the <page> page
     When I fill the "question" field with "12"
     And I press the <button> button
@@ -109,7 +109,7 @@ Feature: Manage Questions
       | new question  | Criar   |
       | edit question | Guardar |
 
-  Scenario: Question with Multiple Answers with no options
+  Scenario Outline: Question with Multiple Answers with no options
     Given I access the <page> page
     When I fill the "question" field with "Cucumber"
     And the "values" field is empty
@@ -121,7 +121,7 @@ Feature: Manage Questions
       | new question  | Criar   |
       | edit question | Guardar |
 
-  Scenario: Question of Multiple Answers with options less then min length
+  Scenario Outline: Question of Multiple Answers with options less then min length
     Given I access the <page> page
     When I fill the "question" field with "Cucumber"
     And I fill the "values" field with ";sim;sim;sim"

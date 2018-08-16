@@ -7,7 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 2638021769,
+  "duration": 2669725055,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1626770258,
   "status": "passed"
 });
 formatter.scenario({
@@ -48,7 +52,7 @@ formatter.match({
   "location": "US1StepDefs.iAccessTheLoginPageOfTheHelpCareWebsite(int)"
 });
 formatter.result({
-  "duration": 510432002,
+  "duration": 737491452,
   "status": "passed"
 });
 formatter.match({
@@ -61,7 +65,7 @@ formatter.match({
   "location": "US1StepDefs.theFieldIsEmpty(String)"
 });
 formatter.result({
-  "duration": 61052364,
+  "duration": 61839008,
   "status": "passed"
 });
 formatter.match({
@@ -74,7 +78,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 782933840,
+  "duration": 350423841,
   "status": "passed"
 });
 formatter.match({
@@ -87,15 +91,23 @@ formatter.match({
   "location": "US1StepDefs.theErrorMessageShouldBeShown(String)"
 });
 formatter.result({
-  "duration": 32233396,
+  "duration": 57465124,
   "status": "passed"
 });
 formatter.after({
-  "duration": 534555813,
+  "duration": 528518316,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 517849452,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1646566773,
+  "duration": 1640880903,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1631721419,
   "status": "passed"
 });
 formatter.scenario({
@@ -136,7 +148,7 @@ formatter.match({
   "location": "US1StepDefs.iAccessTheLoginPageOfTheHelpCareWebsite(int)"
 });
 formatter.result({
-  "duration": 341667071,
+  "duration": 432979175,
   "status": "passed"
 });
 formatter.match({
@@ -149,7 +161,7 @@ formatter.match({
   "location": "US1StepDefs.theFieldIsEmpty(String)"
 });
 formatter.result({
-  "duration": 61139521,
+  "duration": 65984243,
   "status": "passed"
 });
 formatter.match({
@@ -162,7 +174,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 249749926,
+  "duration": 351377095,
   "status": "passed"
 });
 formatter.match({
@@ -175,15 +187,23 @@ formatter.match({
   "location": "US1StepDefs.theErrorMessageShouldBeShown(String)"
 });
 formatter.result({
-  "duration": 56816694,
+  "duration": 59500727,
   "status": "passed"
 });
 formatter.after({
-  "duration": 535452907,
+  "duration": 529336643,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 83801057,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1639926818,
+  "duration": 1633061956,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1597519496,
   "status": "passed"
 });
 formatter.scenario({
@@ -229,7 +249,7 @@ formatter.match({
   "location": "US1StepDefs.iAccessTheLoginPageOfTheHelpCareWebsite(int)"
 });
 formatter.result({
-  "duration": 227899848,
+  "duration": 241329815,
   "status": "passed"
 });
 formatter.match({
@@ -246,7 +266,7 @@ formatter.match({
   "location": "US1StepDefs.iFillTheFieldWith(String,String)"
 });
 formatter.result({
-  "duration": 97092211,
+  "duration": 111086597,
   "status": "passed"
 });
 formatter.match({
@@ -263,7 +283,7 @@ formatter.match({
   "location": "US1StepDefs.iFillTheFieldWith(String,String)"
 });
 formatter.result({
-  "duration": 83348072,
+  "duration": 78811240,
   "status": "passed"
 });
 formatter.match({
@@ -276,7 +296,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 454395342,
+  "duration": 350597790,
   "status": "passed"
 });
 formatter.match({
@@ -289,15 +309,23 @@ formatter.match({
   "location": "US1StepDefs.theErrorMessageShouldBeShown(String)"
 });
 formatter.result({
-  "duration": 38211472,
+  "duration": 63466178,
   "status": "passed"
 });
 formatter.after({
-  "duration": 535097351,
+  "duration": 539162019,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 81586764,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1611321547,
+  "duration": 1623132283,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1585220545,
   "status": "passed"
 });
 formatter.scenario({
@@ -354,7 +382,7 @@ formatter.match({
   "location": "US1StepDefs.iAccessTheLoginPageOfTheHelpCareWebsite(int)"
 });
 formatter.result({
-  "duration": 235191837,
+  "duration": 631741841,
   "status": "passed"
 });
 formatter.match({
@@ -371,7 +399,7 @@ formatter.match({
   "location": "US1StepDefs.iFillTheFieldWith(String,String)"
 });
 formatter.result({
-  "duration": 102980212,
+  "duration": 64432196,
   "status": "passed"
 });
 formatter.match({
@@ -388,7 +416,7 @@ formatter.match({
   "location": "US1StepDefs.iFillTheFieldWith(String,String)"
 });
 formatter.result({
-  "duration": 74632401,
+  "duration": 78621975,
   "status": "passed"
 });
 formatter.match({
@@ -401,7 +429,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 955980756,
+  "duration": 919697248,
   "status": "passed"
 });
 formatter.match({
@@ -414,7 +442,7 @@ formatter.match({
   "location": "US1StepDefs.iShouldBeRedirectedToTheDashboard(String)"
 });
 formatter.result({
-  "duration": 120763829,
+  "duration": 204467240,
   "status": "passed"
 });
 formatter.match({
@@ -427,15 +455,23 @@ formatter.match({
   "location": "US1StepDefs.theTableShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 14529644,
+  "duration": 23929093,
   "status": "passed"
 });
 formatter.after({
-  "duration": 542426538,
+  "duration": 532487779,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 83111460,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1666599324,
+  "duration": 1590104606,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1625220035,
   "status": "passed"
 });
 formatter.scenario({
@@ -522,7 +558,7 @@ formatter.match({
   "location": "US1StepDefs.iAccessTheLoginPageOfTheHelpCareWebsite(int)"
 });
 formatter.result({
-  "duration": 261818396,
+  "duration": 234806186,
   "status": "passed"
 });
 formatter.match({
@@ -539,7 +575,7 @@ formatter.match({
   "location": "US1StepDefs.iFillTheFieldWith(String,String)"
 });
 formatter.result({
-  "duration": 99368497,
+  "duration": 111881583,
   "status": "passed"
 });
 formatter.match({
@@ -556,7 +592,7 @@ formatter.match({
   "location": "US1StepDefs.iFillTheFieldWith(String,String)"
 });
 formatter.result({
-  "duration": 73401632,
+  "duration": 75197698,
   "status": "passed"
 });
 formatter.match({
@@ -569,7 +605,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 1088931572,
+  "duration": 962781504,
   "status": "passed"
 });
 formatter.match({
@@ -582,7 +618,7 @@ formatter.match({
   "location": "US1StepDefs.iShouldBeRedirectedToTheDashboard(String)"
 });
 formatter.result({
-  "duration": 434562632,
+  "duration": 426205744,
   "status": "passed"
 });
 formatter.match({
@@ -595,7 +631,7 @@ formatter.match({
   "location": "US1StepDefs.theTableShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 35468405,
+  "duration": 41810454,
   "status": "passed"
 });
 formatter.match({
@@ -608,7 +644,7 @@ formatter.match({
   "location": "US1StepDefs.theTableShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 19757952,
+  "duration": 12822257,
   "status": "passed"
 });
 formatter.match({
@@ -621,7 +657,7 @@ formatter.match({
   "location": "US1StepDefs.theTableShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 10820561,
+  "duration": 11529857,
   "status": "passed"
 });
 formatter.match({
@@ -634,7 +670,7 @@ formatter.match({
   "location": "US1StepDefs.theGraphShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 12071022,
+  "duration": 11985698,
   "status": "passed"
 });
 formatter.match({
@@ -647,7 +683,7 @@ formatter.match({
   "location": "US1StepDefs.theGraphShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 11948128,
+  "duration": 12473265,
   "status": "passed"
 });
 formatter.match({
@@ -660,7 +696,7 @@ formatter.match({
   "location": "US1StepDefs.theGraphShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 11475148,
+  "duration": 24574564,
   "status": "passed"
 });
 formatter.match({
@@ -673,15 +709,23 @@ formatter.match({
   "location": "US1StepDefs.theGraphShouldBeDisplayed(String)"
 });
 formatter.result({
-  "duration": 35281329,
+  "duration": 22124328,
   "status": "passed"
 });
 formatter.after({
-  "duration": 537248189,
+  "duration": 534112761,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 83789022,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1660016257,
+  "duration": 1626930349,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1626152138,
   "status": "passed"
 });
 formatter.scenario({
@@ -728,7 +772,7 @@ formatter.match({
   "location": "US1StepDefs.iAccessTheDashboard(String)"
 });
 formatter.result({
-  "duration": 1631293563,
+  "duration": 1630418079,
   "status": "passed"
 });
 formatter.match({
@@ -741,7 +785,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 53432169,
+  "duration": 61288352,
   "status": "passed"
 });
 formatter.match({
@@ -754,7 +798,7 @@ formatter.match({
   "location": "US1StepDefs.iPressTheButton(String)"
 });
 formatter.result({
-  "duration": 255452309,
+  "duration": 255077976,
   "status": "passed"
 });
 formatter.match({
@@ -767,11 +811,319 @@ formatter.match({
   "location": "US1StepDefs.iShouldBeRedirectToThePage(String)"
 });
 formatter.result({
-  "duration": 60799282,
+  "duration": 51970965,
   "status": "passed"
 });
 formatter.after({
-  "duration": 543065079,
+  "duration": 537419977,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 82742412,
+  "status": "passed"
+});
+formatter.uri("US2.feature");
+formatter.feature({
+  "line": 1,
+  "name": "Web Server Forgot Password",
+  "description": "As a user\r\nI want to reset my password\r\nSo that I can login if I forgot my password",
+  "id": "web-server-forgot-password",
+  "keyword": "Feature"
+});
+formatter.before({
+  "duration": 1604021610,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1619207675,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 7,
+  "name": "Forgot Password Button on the Login Page",
+  "description": "",
+  "id": "web-server-forgot-password;forgot-password-button-on-the-login-page",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 8,
+  "name": "I access the login page of the Help2care website - UStwo",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 9,
+  "name": "I press the \"Esqueceu-se da sua password?\" button - UStwo",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 10,
+  "name": "I should be redirected to the \"reset password\" page - UStwo",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 11,
+  "name": "should be present the field to fill with an email",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 12,
+  "name": "should be present the button \"Enviar o link de reset password\"",
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "2",
+      "offset": 35
+    }
+  ],
+  "location": "US2StepDefs.iAccessTheLoginPageOfTheHelpCareWebsiteUStwo(int)"
+});
+formatter.result({
+  "duration": 664417244,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Esqueceu-se da sua password?",
+      "offset": 13
+    }
+  ],
+  "location": "US2StepDefs.iPressTheButtonUStwo(String)"
+});
+formatter.result({
+  "duration": 647395416,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "reset password",
+      "offset": 31
+    }
+  ],
+  "location": "US2StepDefs.iShouldBeRedirectedToThePageUStwo(String)"
+});
+formatter.result({
+  "duration": 25754644,
+  "status": "passed"
+});
+formatter.match({
+  "location": "US2StepDefs.shouldBePresentTheFieldToFillWithAnEmail()"
+});
+formatter.result({
+  "duration": 24510381,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Enviar o link de reset password",
+      "offset": 30
+    }
+  ],
+  "location": "US2StepDefs.shouldBePresentTheButton(String)"
+});
+formatter.result({
+  "duration": 24905322,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 517454512,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 86697287,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1622431382,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1623394118,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 14,
+  "name": "Send Password Reset Email Successfully",
+  "description": "",
+  "id": "web-server-forgot-password;send-password-reset-email-successfully",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 15,
+  "name": "I access the reset password page",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 16,
+  "name": "I fill the \"email\" field with \"zecoroados@gmail.com\" - UStwo",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 17,
+  "name": "I press the \"Enviar o link de reset password\" button - UStwo",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 18,
+  "name": "the \"O email com o link para efetuar o reset da password foi enviado!\" message should be shown - UStwo",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "US2StepDefs.iAccessTheResetPasswordPage()"
+});
+formatter.result({
+  "duration": 635735736,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "email",
+      "offset": 12
+    },
+    {
+      "val": "zecoroados@gmail.com",
+      "offset": 31
+    }
+  ],
+  "location": "US2StepDefs.iFillTheFieldWithUStwo(String,String)"
+});
+formatter.result({
+  "duration": 84692317,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Enviar o link de reset password",
+      "offset": 13
+    }
+  ],
+  "location": "US2StepDefs.iPressTheButtonUStwo(String)"
+});
+formatter.result({
+  "duration": 1313887648,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "O email com o link para efetuar o reset da password foi enviado!",
+      "offset": 5
+    }
+  ],
+  "location": "US2StepDefs.theMessageShouldBeShownUStwo(String)"
+});
+formatter.result({
+  "duration": 24152273,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 520276349,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 562368695,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1646445809,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1594992680,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 20,
+  "name": "Send Password Reset Email Unsuccessfully",
+  "description": "",
+  "id": "web-server-forgot-password;send-password-reset-email-unsuccessfully",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 21,
+  "name": "I access the reset password page",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 22,
+  "name": "I fill the \"email\" field with \"ze@mail.com\" - UStwo",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 23,
+  "name": "I press the \"Enviar o link de reset password\" button - UStwo",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 24,
+  "name": "the \"Não encontramos um utilizador associado ao email fornecido.\" error message should be shown - UStwo",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "US2StepDefs.iAccessTheResetPasswordPage()"
+});
+formatter.result({
+  "duration": 498284033,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "email",
+      "offset": 12
+    },
+    {
+      "val": "ze@mail.com",
+      "offset": 31
+    }
+  ],
+  "location": "US2StepDefs.iFillTheFieldWithUStwo(String,String)"
+});
+formatter.result({
+  "duration": 76899990,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Enviar o link de reset password",
+      "offset": 13
+    }
+  ],
+  "location": "US2StepDefs.iPressTheButtonUStwo(String)"
+});
+formatter.result({
+  "duration": 318104723,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Não encontramos um utilizador associado ao email fornecido.",
+      "offset": 5
+    }
+  ],
+  "location": "US2StepDefs.theErrorMessageShouldBeShownUStwo(String)"
+});
+formatter.result({
+  "duration": 25904890,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 519514548,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 569113317,
   "status": "passed"
 });
 });

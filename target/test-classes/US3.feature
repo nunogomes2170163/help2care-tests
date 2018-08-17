@@ -44,10 +44,11 @@ Feature: Manage Users
     When I fill the "username" field with "cucumber" - USthree
     And I fill the "name" field with "Cucumber" - USthree
     And I fill the "email" field with "cucumber@gmail.com" - USthree
-    And I fill the "gender" field with "male" - USthree
+    And I fill the "gender" field with "Masculino" - USthree
     And I fill the "birthDate" field with "12-12-1994" - USthree
+    And I fill the "location" field with "Leiria" - USthree
     And I fill the "experienceNumber" field with "7" - USthree
-    And I fill the "experiencePeriod" field with "years" - USthree
+    And I fill the "experiencePeriod" field with "Ano/s" - USthree
     And I fill the "password" field with "cucumber" - USthree
     And I fill the "password_confirmation" field with "cucumber" - USthree
     And I press the "Criar" button - USthree
@@ -60,48 +61,48 @@ Feature: Manage Users
     Given I access the "admin" dashboard - USthree
     When I press the "Detalhes" button of the "Admin" user
     Then I should be redirected to the "details" page of "Admin" user
-    And the field "Utilizador" should show "admin"
-    And the field "Nome" should show "Admin"
-    And the field "Email" should show "admin@mail.com"
-    And the field "Função" should show "Administador"
-    And the field "Data da criação" should show "2018-01-26 19:36:10"
-    And the "Editar" button should be present
-    And the "Bloquear" button should be present
-    And the "Voltar Atrás" button should be present
+    And the field "utilizador" should show "admin"
+    And the field "nome" should show "Admin"
+    And the field "email" should show "admin@mail.com"
+    And the field "função" should show "Administador"
+    And the field "created_at" should show "2018-01-26 19:36:10"
+    And the "edit" button should be present
+    And the "block" button should be present
+    And the "back" button should be present
 
   Scenario: Access Healthcare Professional User Details
     Given I access the "admin" dashboard - USthree
     When I press the "Detalhes" button of the "Alexandra Teixeira" user
     Then I should be redirected to the "details" page of "Alexandra Teixeira" user
-    And the field "Utilizador" should show "alexandra.teixeira"
-    And the field "Nome" should show "Alexandra Teixeira"
-    And the field "Email" should show "maxxabersi@gmail.com"
-    And the field "Função" should show "Profissional de Saúde"
-    And the field "Trabalho/Estatuto" should show "Enfermeira"
-    And the field "Local de Trabalho" should show "Leiria"
-    And the field "Data da criação" should show "2018-06-13 14:34:58"
-    And the "Editar" button should be present
-    And the "Bloquear" button should be present
-    And the "Voltar Atrás" button should be present
+    And the field "utilizador" should show "alexandra.teixeira"
+    And the field "nome" should show "Alexandra Teixeira"
+    And the field "email" should show "maxxabersi@gmail.com"
+    And the field "função" should show "Profissional de Saúde"
+    And the field "job" should show "Enfermeira"
+    And the field "facility" should show "Leiria"
+    And the field "created_at" should show "2018-06-13 14:34:58"
+    And the "edit" button should be present
+    And the "block" button should be present
+    And the "back" button should be present
 
   Scenario: Access Caregiver User Details
     Given I access the "admin" dashboard - USthree
     When I press the "Detalhes" button of the "Ana Luisa Roque" user
     Then I should be redirected to the "details" page of "Ana Luisa Roque" user
-    And the field "Utilizador" should show "ana.roque.cuidador"
-    And the field "Nome" should show "Ana Luisa Roque"
-    And the field "Função" should show "Cuidador"
-    And the field "Email" should show "roque.ana2@gmail.com"
-    And the field "Data de Nascimento" should show "26-07-1992"
-    And the field "Localização" should show "Leiria"
-    And the field "Género" should show "Feminino"
-    And the field "Tempo de experiência como cuidador" should show "0 Ano/s"
-    And the field "Nº Profissionais de Saúde" should show "1/2"
-    And the field "Criador" should show "admin"
-    And the field "Data da criação" should show "2018-04-14 10:46:17"
-    And the "Editar" button should be present
-    And the "Bloquear" button should be present
-    And the "Voltar Atrás" button should be present
+    And the field "utilizador" should show "ana.roque.cuidador"
+    And the field "nome" should show "Ana Luisa Roque"
+    And the field "função" should show "Cuidador"
+    And the field "email" should show "roque.ana2@gmail.com"
+    And the field "birthDate" should show "26-07-1992"
+    And the field "location" should show "Leiria"
+    And the field "gender" should show "Feminino"
+    And the field "experienceTime" should show "0 Ano/s"
+    And the field "healthcareProsCount" should show "1/2"
+    And the field "created_by" should show "admin"
+    And the field "created_at" should show "2018-04-14 10:46:17"
+    And the "edit" button should be present
+    And the "block" button should be present
+    And the "back" button should be present
 
 
   #DASHBOARD USER BLOCK & UNBLOCK
@@ -120,163 +121,151 @@ Feature: Manage Users
 
   #EDIT
   Scenario: Access Admin Edit Page
-    Given I access the "details" page of the "admin" user
+    Given I access the "details" page of the Cucumber "admin"
     When I press the "Editar" button - USthree
-    Then I should be redirected to the "edit" page of the user
-    And the field "name" should show "Admin"
-    And the field "email" should show "admin@mail.com"
+    Then I should be redirected to the "edit" page of the "amdin"
+    And the editable field "name" should show "Admin"
+    And the editable field "email" should show "admin@mail.com"
     And the field "password" should be empty
     And the field "password_confirmation" should be empty
-    And the "Guardar" button should be present
-    And the "Cancelar" button should be present
+    And the "save" button should be present
+    And the "cancel" button should be present
 
   Scenario: Edit Admin User Successfully Without Password
-    Given I access the "edit" page of the "admin"
-    When I fill the "name" field with "Clemens Mann" - USthree
-    And I fill the "email" field with "nella.kunze@example.org" - USthree
+    Given I access the "edit" page of the Cucumber "admin"
+    When I edit the "name" field with "Cucumber" - USthree
+    And I edit the "email" field with "cucumber@gmail.com" - USthree
     And I press the "Guardar" button - USthree
-    Then I should be redirected to the "details" page of the "admin"
-    And the field "Utilizador" should show "teresa.olson"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Administador"
-    And the field "Data da criação" should show "2018-01-26 19:36:10"
-    And the field "Data da última atualização" should different from the previous
+    Then I should be redirected to the "details" page of the "cucumber"
+    And the field "utilizador" should show "cucumber"
+    And the field "name" should show the new "name"
+    And the field "email" should show the new "email"
+    And the field "função" should show "Administador"
     And should be present a log at the "Registos" section
 
   Scenario: Edit Admin User Successfully With Password
-    Given I access the "edit" page of the "admin"
-    When I fill the "name" field with "Clemens Mann" - USthree
-    And I fill the "email" field with "nella.kunze@example.org" - USthree
+    Given I access the "edit" page of the Cucumber "admin"
+    When I edit the "name" field with "Clemens Mann" - USthree
+    And I edit the "email" field with "nella.kunze@example.org" - USthree
     And I fill the "password" field with "123123" - USthree
     And I fill the "password_confirmation" field with "123123" - USthree
     And I press the "Guardar" button - USthree
-    Then I should be redirected to the "details" page of the "admin"
+    Then I should be redirected to the "details" page of the "cucumber"
     And the field "Utilizador" should show "teresa.olson"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Administador"
-    And the field "Data da criação" should show "2018-01-26 19:36:10"
-    And the field "Data da última atualização" should different from the previous
+    And the field "name" should show the new "name"
+    And the field "email" should show the new "email"
+    And the field "função" should show "Administador"
     And should be present a log at the "Registos" section
 
   Scenario: Access Healthcare Professional Edit Page
-    Given I access the "details" page of the "healthcare professional" user
+    Given I access the "details" page of the Cucumber "healthcare professional"
     When I press the "Editar" button - USthree
-    Then I should be redirected to the "edit" page of the user
-    And the field "name" should show "Alexandra Teixeira"
-    And the field "email" should show "maxxabersi@gmail.com"
-    And the field "job" should show "Enfermeira"
-    And the field "facility" should show "Leiria"
+    Then I should be redirected to the "edit" page of the "alexandra.teixeira"
+    And the editable field "name" should show "Alexandra Teixeira"
+    And the editable field "email" should show "maxxabersi@gmail.com"
+    And the editable field "job" should show "Enfermeira"
+    And the editable field "facility" should show "Leiria"
     And the field "password" should be empty
     And the field "password_confirmation" should be empty
     And the "Guardar" button should be present
     And the "Cancelar" button should be present
 
   Scenario: Edit Healthcare Professional User Successfully Without Password
-    Given I access the "edit" page of the "healthcare professional"
-    When I fill the "name" field with "Ana Margarida Carvalho" - USthree
-    And I fill the "email" field with "amargarida.carvalho@live.com.pt" - USthree
-    And I fill the "job" field with "Enfermeira" - USthree
-    And I fill the "facility" field with "Leiria" - USthree
+    Given I access the "edit" page of the Cucumber "healthcare professional"
+    When I edit the "name" field with "Ana Margarida Carvalho" - USthree
+    And I edit the "email" field with "amargarida.carvalho@live.com.pt" - USthree
+    And I edit the "job" field with "Enfermeira" - USthree
+    And I edit the "facility" field with "Leiria" - USthree
     And I press the "Guardar" button - USthree
-    Then I should be redirected to the "details" page of the "healthcare professional"
-    And the field "Utilizador" should show "ana.margarida.carvalho"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Profissional de Saúde"
-    And the field "Trabalho/Estatuto" should show the new job
-    And the field "Local de Trabalho" should show the new facility
-    And the field "Data da criação" should show "2018-04-14 10:01:42"
-    And the field "Data da última atualização" should different from the previous
+    Then I should be redirected to the "details" page of the "ana.margarida.carvalho"
+    And the field "utilizador" should show "ana.margarida.carvalho"
+    And the field "name" should show the new "name"
+    And the field "email" should show the new "email"
+    And the field "função" should show "Profissional de Saúde"
+    And the field "job" should show the new "job"
+    And the field "facility" should show the new "facility"
     And should be present a log at the "Registos" section
 
   Scenario: Edit Healthcare Professional User Successfully With Password
-    Given I access the "edit" page of the "healthcare professional"
-    When I fill the "name" field with "Ana Margarida Carvalho" - USthree
-    And I fill the "email" field with "amargarida.carvalho@live.com.pt" - USthree
-    And I fill the "job" field with "Enfermeira" - USthree
-    And I fill the "facility" field with "Leiria" - USthree
+    Given I access the "edit" page of the Cucumber "healthcare professional"
+    When I edit the "name" field with "Ana Margarida Carvalho" - USthree
+    And I edit the "email" field with "amargarida.carvalho@live.com.pt" - USthree
+    And I edit the "job" field with "Enfermeira" - USthree
+    And I edit the "facility" field with "Leiria" - USthree
+    And I fill the "password" field with "123123" - USthree
     And I fill the "password_confirmation" field with "123123" - USthree
     And I press the "Guardar" button - USthree
-    And I press the "Guardar" button - USthree
-    Then I should be redirected to the "details" page of the "healthcare professional"
-    And the field "Utilizador" should show "ana.margarida.carvalho"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Profissional de Saúde"
-    And the field "Trabalho/Estatuto" should show the new job
-    And the field "Local de Trabalho" should show the new facility
-    And the field "Data da criação" should show "2018-04-14 10:01:42"
-    And the field "Data da última atualização" should different from the previous
+    Then I should be redirected to the "details" page of the "ana.margarida.carvalho"
+    And the field "utilizador" should show "ana.margarida.carvalho"
+    And the field "name" should show the new "name"
+    And the field "email" should show the new "email"
+    And the field "função" should show "Profissional de Saúde"
+    And the field "job" should show the new "job"
+    And the field "facility" should show the new "facility"
     And should be present a log at the "Registos" section
 
   Scenario: Access Caregiver Edit Page
-    Given I access the "details" page of the "caregiver" user
+    Given I access the "details" page of the Cucumber "caregiver"
     When I press the "Editar" button - USthree
-    Then I should be redirected to the "edit" page of the user
-    And the field "name" should show "Ana Luisa Roque"
-    And the field "email" should show "roque.ana2@gmail.com"
-    And the field "gender" should show "Feminino"
-    And the field "birthDate" should show "26-07-1992"
-    And the field "location" should show "Leiria"
-    And the field "experienceNumber" should show "0"
-    And the field "experiencePeriod" should show "Ano/s"
+    Then I should be redirected to the "edit" page of the "ana.roque.cuidador"
+    And the editable field "name" should show "Ana Luisa Roque"
+    And the editable field "email" should show "roque.ana2@gmail.com"
+    And the editable field "gender" should show "Feminino"
+    And the editable field "birthDate" should show "26-07-1992"
+    And the editable field "location" should show "Leiria"
+    And the editable field "experienceNumber" should show "0"
+    And the editable field "experiencePeriod" should show "Ano/s"
     And the field "password" should be empty
     And the field "password_confirmation" should be empty
     And the "Guardar" button should be present
     And the "Cancelar" button should be present
 
   Scenario: Edit Caregiver User Successfully Without Password
-    Given I access the "edit" page of the "caregiver"
-    When I fill the "name" field with "Ana Margarida Carvalho" - USthree
-    And I fill the "email" field with "amargarida.carvalho@live.com.pt" - USthree
-    And I fill the "gender" field with "Feminino" - USthree
-    And I fill the "birthDate" field with "26-07-1992" - USthree
-    And I fill the "location" field with "Leiria" - USthree
-    And I fill the "experienceNumber" field with "0" - USthree
-    And I fill the "experiencePeriod" field with "Ano/s" - USthree
+    Given I access the "edit" page of the Cucumber "caregiver"
+    When I edit the "name" field with "Ana Margarida Carvalho" - USthree
+    And I edit the "email" field with "amargarida.carvalho@live.com.pt" - USthree
+    And I fill the "gender" field with "Masculino" - USthree
+    And I fill the "birthDate" field with "26-07-1991" - USthree
+    And I edit the "location" field with "Leiria" - USthree
+    And I fill the "experienceNumber" field with "2" - USthree
+    And I fill the "experiencePeriod" field with "Mês/Meses" - USthree
     And I press the "Guardar" button - USthree
-    Then I should be redirected to the "details" page of the "healthcare professional"
-    And the field "Utilizador" should show "ana.margarida.carvalho.cuidador"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Cuidador"
-    And the field "Data de Nascimento" should show the new birthDate
-    And the field "Localização" should show the new location
-    And the field "Género" should show the new gender
-    And the field "Tempo de experiência como cuidador" should show the new experienceNumber and experiencePeriod
+    Then I should be redirected to the "details" page of the "ana.margarida.carvalho.cuidador"
+    And the field "utilizador" should show "ana.margarida.carvalho.cuidador"
+    And the field "name" should show the new "name"
+    And the field "email" should show the new "email"
+    And the field "função" should show "Cuidador"
+    And the field "birthDate" should show the new "birthDate"
+    And the field "location" should show the new "location"
+    And the field "gender" should show the new "gender"
+    And the field "experienceTime" should show the new "experienceTime"
     And the field "Nº Profissionais de Saúde" should show "1/2"
     And the field "Criador" should show "admin"
-    And the field "Data da criação" should show "2018-04-14 10:41:04"
-    And the field "Data da última atualização" should different from the previous
     And should be present a log at the "Registos" section
 
   Scenario: Edit Caregiver User Successfully With Password
-    Given I access the "edit" page of the "caregiver"
-    When I fill the "name" field with "Ana Margarida Carvalho" - USthree
-    And I fill the "email" field with "amargarida.carvalho@live.com.pt" - USthree
-    And I fill the "gender" field with "Feminino" - USthree
-    And I fill the "birthDate" field with "26-07-1992" - USthree
-    And I fill the "location" field with "Leiria" - USthree
-    And I fill the "experienceNumber" field with "0" - USthree
-    And I fill the "experiencePeriod" field with "Ano/s" - USthree
-    And I fill the "facility" field with "Leiria" - USthree
+    Given I access the "edit" page of the Cucumber "caregiver"
+    When I edit the "name" field with "Ana Margarida Carvalho" - USthree
+    And I edit the "email" field with "amargarida.carvalho@live.com.pt" - USthree
+    And I fill the "gender" field with "Masculino" - USthree
+    And I fill the "birthDate" field with "26-07-1991" - USthree
+    And I edit the "location" field with "Leiria" - USthree
+    And I fill the "experienceNumber" field with "2" - USthree
+    And I fill the "experiencePeriod" field with "Mês/Meses" - USthree
+    And I fill the "password" field with "123123" - USthree
     And I fill the "password_confirmation" field with "123123" - USthree
     And I press the "Guardar" button - USthree
-    Then I should be redirected to the "details" page of the "healthcare professional"
-    And the field "Utilizador" should show "ana.margarida.carvalho.cuidador"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Cuidador"
-    And the field "Data de Nascimento" should show the new birthDate
-    And the field "Localização" should show the new location
-    And the field "Género" should show the new gender
-    And the field "Tempo de experiência como cuidador" should show the new experienceNumber and experiencePeriod
+    Then I should be redirected to the "details" page of the "ana.margarida.carvalho.cuidador"
+    And the field "utilizador" should show "ana.margarida.carvalho.cuidador"
+    And the field "name" should show the new "name"
+    And the field "email" should show the new "email"
+    And the field "função" should show "Cuidador"
+    And the field "birthDate" should show the new "birthDate"
+    And the field "location" should show the new "location"
+    And the field "gender" should show the new "gender"
+    And the field "experienceTime" should show the new "experienceTime"
     And the field "Nº Profissionais de Saúde" should show "1/2"
     And the field "Criador" should show "admin"
-    And the field "Data da criação" should show "2018-04-14 10:41:04"
-    And the field "Data da última atualização" should different from the previous
     And should be present a log at the "Registos" section
 
   #ERRORS

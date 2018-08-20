@@ -108,6 +108,12 @@ public class US3StepDefs {
             driver.get("http://35.240.44.156/users/create/healthcarepro");
         } else if (arg0.equals("new caregiver")) {
             driver.get("http://35.240.44.156/users/create/caregiver");
+        } else if (arg0.equals("edit healthcare professional")) {
+            driver.get("http://35.240.44.156/users/25/edit");
+        } else if (arg0.equals("edit admin")) {
+            driver.get("http://35.240.44.156/users/102/edit");
+        } else if (arg0.equals("edit caregiver")) {
+            driver.get("http://35.240.44.156/users/71/edit");
         }
     }
 
@@ -117,15 +123,21 @@ public class US3StepDefs {
         Select select = null;
         Random rand = new Random();
         if (arg0.equals("username")) {
-            this.random = rand.nextInt(9000000) + 1000000;
-            arg1 = arg1 + this.random;
+            if (!arg1.equals("non") && !arg1.equals("admin")) {
+                this.random = rand.nextInt(9000000) + 1000000;
+                arg1 = arg1 + this.random;
+            }
             field = driver.findElement(By.id("inputUsername"));
         } else if (arg0.equals("name")) {
-            arg1 = arg1 + this.random;
+            if (!arg1.equals("non")) {
+                arg1 = arg1 + this.random;
+            }
             field = driver.findElement(By.id("inputName"));
         } else if (arg0.equals("email")) {
+            if (!arg1.equals("non") && !arg1.equals("zecoroados@gmail.com")) {
+                arg1 = new StringBuilder(arg1).insert(arg1.length() - 10, this.random).toString();
+            }
             field = driver.findElement(By.id("inputEmail"));
-            arg1 = new StringBuilder(arg1).insert(arg1.length()-10, this.random).toString();
         } else if (arg0.equals("password")) {
             field = driver.findElement(By.id("inputPassword"));
         } else if (arg0.equals("password_confirmation")) {
@@ -419,4 +431,53 @@ public class US3StepDefs {
             ExpectedConditions.textToBePresentInElement(driver.findElement(By.name("experiencePeriod")), arg1);
         }
     }
+
+    @Then("^the \"([^\"]*)\" error message should be shown - USthree$")
+    public void theErrorMessageShouldBeShownUSthree(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
+    }
+
+    @When("^the \"([^\"]*)\" field is empty - USthree$")
+    public void theFieldIsEmptyUSthree(String arg0) throws Throwable {
+        WebElement webElement = null;
+        Select select = null;
+        if (arg0.equals("username")) {
+            webElement = driver.findElement(By.id("inputUsername"));
+        } else if (arg0.equals("name")) {
+            webElement = driver.findElement(By.id("inputName"));
+        } else if (arg0.equals("email")) {
+            webElement = driver.findElement(By.id("inputEmail"));
+        } else if (arg0.equals("gender")) {
+            select =  new Select(driver.findElement(By.name("gender")));
+            select.selectByVisibleText("Selecione uma opção");
+        } else if (arg0.equals("birthDate")) {
+            webElement = driver.findElement(By.id("inputBirthDate"));
+        } else if (arg0.equals("job")) {
+            webElement = driver.findElement(By.id("inputJob"));
+        } else if (arg0.equals("facility")) {
+            webElement = driver.findElement(By.id("inputFacility"));
+        }  else if (arg0.equals("location")) {
+            webElement = driver.findElement(By.id("inputLocation"));
+        } else if (arg0.equals("experiencePeriod")) {
+            select =  new Select(driver.findElement(By.name("experiencePeriod")));
+            select.selectByVisibleText("Selecione um período de tempo");
+        } else if (arg0.equals("password")) {
+            webElement = driver.findElement(By.id("inputPassword"));
+        } else if (arg0.equals("password_confirmation")) {
+            webElement = driver.findElement(By.id("inputPasswordConfirmation"));
+        }
+
+        if (!arg0.equals("gender") && !arg0.equals("experiencePeriod")) {
+            webElement.clear();
+        }
+
+    }
+
+    @And("^I press the \"([^\"]*)\" button$")
+    public void iPressTheButton(String arg0) throws Throwable {
+        WebElement webElement = driver.findElement(By.xpath("//button[@name='save']"));
+        webElement.click();
+    }
+
 }

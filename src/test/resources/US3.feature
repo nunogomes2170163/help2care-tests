@@ -270,7 +270,7 @@ Feature: Manage Users
 
   #ERRORS
   Scenario Outline: Username field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "username" field is empty - USthree
     And I press the "Criar" button - USthree
     Then the "O username tem que ser preenchido." error message should be shown - USthree
@@ -281,7 +281,7 @@ Feature: Manage Users
       | new caregiver                 |
 
   Scenario Outline: Username field min length
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "username" field with "non" - USthree
     And I press the "Criar" button - USthree
     Then the "O username tem que ter pelo menos 4 letras ou dígitos." error message should be shown - USthree
@@ -292,7 +292,7 @@ Feature: Manage Users
       | new caregiver                 |
 
   Scenario Outline: Username field already in use
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "username" field with "admin" - USthree
     And I press the "Criar" button - USthree
     Then the "Username já existente. Escolha outro." error message should be shown - USthree
@@ -303,23 +303,23 @@ Feature: Manage Users
       | new caregiver                 |
 
   Scenario Outline: Name field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "name" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "O nome tem que ser preenchido." error message should be shown - USthree
     Examples:
-      | page                          | button  |
-      | new admin                     | Criar   |
-      | new healthcare professional   | Criar   |
-      | new caregiver                 | Criar   |
-      | edit admin                    | Guardar |
-      | edit healthcare professional  | Guardar |
-      | edit caregiver                | Guardar |
+      | page                          | button                           |
+      | new admin                     | new admin                        |
+      | new healthcare professional   | new healthcare professional      |
+      | new caregiver                 | new caregiver                    |
+      | edit admin                    | edit admin                       |
+      | edit healthcare professional  | edit healthcare professional     |
+      | edit caregiver                | edit caregiver                   |
 
   Scenario Outline: Name field min length
-    Given I access the <page> page
-    When I fill the "username" field with "non" - USthree
-    And I press the <button> button
+    Given I access the "<page>" page
+    When I fill the "name" field with "non" - USthree
+    And I press the "<button>" button
     Then the "O nome tem que ter pelo menos 4 letras." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -331,9 +331,9 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Email field already in use
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "email" field with "zecoroados@gmail.com" - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "Email já existente. Escolha outro." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -345,9 +345,9 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Email field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "email" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "O email tem que ser preenchido." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -359,9 +359,9 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Gender field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "gender" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "O género tem que ser preenchido." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -369,9 +369,9 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Birth Date field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "birthDate" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A data de nascimento tem que ser preenchida." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -379,9 +379,9 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Job field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "job" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A profissão tem que ser preenchida." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -389,9 +389,9 @@ Feature: Manage Users
       | edit healthcare professional  | Guardar |
 
   Scenario Outline: Job field min length
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "job" field with "non" - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A profissão tem que ter pelo menos 4 letras." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -399,9 +399,9 @@ Feature: Manage Users
       | edit healthcare professional  | Guardar |
 
   Scenario Outline: Facility field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "facility" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "O local de trabalho tem que ser preenchido." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -409,9 +409,9 @@ Feature: Manage Users
       | edit healthcare professional  | Guardar |
 
   Scenario Outline: Facility field min length
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "facility" field with "non" - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "O local de trabalho tem que ter pelo menos 4 letras." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -419,9 +419,9 @@ Feature: Manage Users
       | edit healthcare professional  | Guardar |
 
   Scenario Outline: Location field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "location" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A localização tem que ser preenchida." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -429,9 +429,9 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Location field min length
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "location" field with "non" - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A localização tem que ter pelo menos 4 letras." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -439,33 +439,29 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Experience Period field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "experiencePeriod" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "O tempo de experiência como cuidador tem que ser preenchido." error message should be shown - USthree
     Examples:
       | page                          | button  |
       | new caregiver                 | Criar   |
-      | edit caregiver                | Guardar |
 
   Scenario Outline: Password field empty
-    Given I access the <page> page
+    Given I access the "<page>" page
     When the "password" field is empty - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A password tem que ser preenchida." error message should be shown - USthree
     Examples:
       | page                          | button  |
       | new admin                     | Criar   |
       | new healthcare professional   | Criar   |
       | new caregiver                 | Criar   |
-      | edit admin                    | Guardar |
-      | edit healthcare professional  | Guardar |
-      | edit caregiver                | Guardar |
 
   Scenario Outline: Password field min length
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "password" field with "123" - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "A password tem que ter pelo menos 6 letras ou digitos." error message should be shown - USthree
     Examples:
       | page                          | button  |
@@ -477,10 +473,10 @@ Feature: Manage Users
       | edit caregiver                | Guardar |
 
   Scenario Outline: Password confirmation field does not match password field
-    Given I access the <page> page
+    Given I access the "<page>" page
     When I fill the "password" field with "123123" - USthree
     And I fill the "password_confirmation" field with "123456" - USthree
-    And I press the <button> button
+    And I press the "<button>" button
     Then the "As passwords têm que ser iguais nos dois campos." error message should be shown - USthree
     Examples:
       | page                          | button  |

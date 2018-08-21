@@ -101,11 +101,17 @@ public class US4StepDefs {
     @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\"$")
     public void iFillTheFieldWith(String arg0, String arg1) throws Throwable {
         WebElement field = driver.findElement(By.id("inputDescription"));
-        Random rand = new Random();
-        this.random = rand.nextInt(9000000) + 1000000;
-        arg1 = arg1 + this.random;
-        field.clear();
-        field.sendKeys(arg1);
+        if (arg1.equals("Cucumber")) {
+            Random rand = new Random();
+            this.random = rand.nextInt(9000000) + 1000000;
+            field.clear();
+            field.sendKeys(arg1 + this.random);
+        } else {
+            field.clear();
+            field.sendKeys(arg1);
+        }
+
+
     }
 
     @And("^the \"([^\"]*)\" need should be present in the \"([^\"]*)\" table$")
@@ -162,8 +168,6 @@ public class US4StepDefs {
     public void iAccessThePageOfThe(String arg0, String arg1) throws Throwable {
         if (arg0.equals("details")) {
             driver.get("http://35.240.44.156/needs/29");
-            WebDriverWait wait = new WebDriverWait(driver, 3);
-            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Necessidade: Alimentation"));
         } else if (arg0.equals("edit need")) {
             driver.get("http://35.240.44.156/needs/29/edit");
             WebDriverWait wait = new WebDriverWait(driver, 3);
@@ -201,14 +205,21 @@ public class US4StepDefs {
 
     @Given("^I access the \"([^\"]*)\" page of the \"([^\"]*)\" need$")
     public void iAccessThePageOfTheNeed(String arg0, String arg1) throws Throwable {
-        driver.get("http://35.240.44.156/needs");
-        WebElement searchbox  = driver.findElement(By.id("searchbox"));
-        searchbox.clear();
-        searchbox.sendKeys(arg1 + this.random);
+        driver.get("http://35.240.44.156/needs/create");
+        WebElement field = driver.findElement(By.id("inputDescription"));
+        field.clear();
+        Random rand = new Random();
+        this.random = rand.nextInt(9000000) + 1000000;
+        field.sendKeys(arg1 + this.random);
+        field = driver.findElement(By.xpath("//button[@name='save']"));
+        field.click();
+        field = driver.findElement(By.id("searchbox"));
+        field.clear();
+        field.sendKeys(arg1 + this.random);
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//table[@id='needs']/tbody/tr/td")), arg1 + this.random));
-        WebElement webElement = driver.findElement(By.xpath("//table[@id='needs']/tbody/tr/td[3]/div/div/a"));
-        webElement.click();
+        field = driver.findElement(By.xpath("//td[3]/div/div/a"));
+        field.click();
     }
 
     @And("^I press the \"([^\"]*)\" button from the modal$")
@@ -222,7 +233,8 @@ public class US4StepDefs {
         WebElement searchbox = driver.findElement(By.id("searchbox"));
         searchbox.clear();
         searchbox.sendKeys(arg0 + this.random);
-        assertEquals("Não foram encontrados resultados", driver.findElement(By.xpath("//table[@id='needs']")));
+        assertEquals("Não foram encontrados resultados", driver.findElement(By.className("dataTables_empty")).getText());
+
     }
 
 

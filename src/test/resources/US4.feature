@@ -17,6 +17,14 @@ Feature: Manage Needs
     Then I should be redirected to the "needs" page - USfour
     And the "Cucumber" need should be present in the "needs" table
 
+    #DELETE
+  Scenario: Delete Need
+    Given I access the "details" page of the "random" need
+    When I press the "delete" button - USfour
+    And I press the "Sim" button from the modal
+    Then I should be redirected to the "needs" page - USfour
+    And the "random" need should not be present in the "needs" table
+
   #DETAILS
   Scenario: Access Need Details
     Given I access the "needs" page - USfour
@@ -45,13 +53,6 @@ Feature: Manage Needs
     And the field "Necessidade" should show the new need - USfour
     And should be present a log at the "Registos" section - USfour
 
-  #DELETE
-  Scenario: Delete Need
-    Given I access the "details" page of the "Cucumber" need
-    When I press the "delete" button - USfour
-    And I press the "Sim" button from the modal
-    Then I should be redirected to the "needs" page - USfour
-    And the "Cucumber" need should not be present in the "needs" table
 
   #ERRORS
   Scenario Outline: Description field already exists

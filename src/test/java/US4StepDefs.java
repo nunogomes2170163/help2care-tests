@@ -95,7 +95,6 @@ public class US4StepDefs {
         } else if (arg0.equals("needs")) {
             driver.get("http://35.240.44.156/needs");
         }
-
     }
 
     @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\"$")
@@ -110,8 +109,6 @@ public class US4StepDefs {
             field.clear();
             field.sendKeys(arg1);
         }
-
-
     }
 
     @And("^the \"([^\"]*)\" need should be present in the \"([^\"]*)\" table$")
@@ -173,7 +170,6 @@ public class US4StepDefs {
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Necessidade"));
         }
-
     }
 
     @Then("^I should be redirected to the \"([^\"]*)\" page of the need$")

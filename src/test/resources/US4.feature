@@ -53,7 +53,6 @@ Feature: Manage Needs
     And the field "Necessidade" should show the new need - USfour
     And should be present a log at the "Registos" section - USfour
 
-
   #ERRORS
   Scenario Outline: Description field already exists
     Given I access the "<page>" page - USfour

@@ -170,8 +170,6 @@ public class US6StepDefs {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("edit")) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]")));
-        } else if (arg0.equals("block")) {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Bloquear')]")));
         } else if (arg0.equals("back")) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]")));
         } else if (arg0.equals("save")) {
@@ -239,7 +237,7 @@ public class US6StepDefs {
 
     @And("^should be present a \"([^\"]*)\" log at the beggining of the logs section - USsix$")
     public void shouldBePresentALogAtTheBegginingOfTheLogsSectionUSsix(String arg0) throws Throwable {
-        String lastLog = driver.findElements(By.xpath("//table[@id='logs']/tbody/tr")).get(0).findElement(By.xpath("td[0]")).getText();
+        String lastLog = driver.findElements(By.xpath("//table[@id='logs']/tbody/tr")).get(0).findElement(By.xpath(".//td")).getText();
         assertEquals(arg0, lastLog);
     }
 

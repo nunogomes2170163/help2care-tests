@@ -115,8 +115,8 @@ Feature: Manage Quizs
     Then I should be redirected to the "details" page of the "Avaliação das necessidades do utente dependente - Autocuidado: Alimentar-se" quiz
     And the "unblock" button should be present - USseven
 
-  Scenario: Unblock Question
-    Given I access the "quizs" page - USseven
+  Scenario: Unblock Quiz
+    Given I access the "details" page of the "Avaliação das necessidades do utente dependente - Autocuidado: Alimentar-se" quiz
     And the quiz is blocked
     When I press the "unblock" button - USseven
     Then I should be redirected to the "details" page of the "Avaliação das necessidades do utente dependente - Autocuidado: Alimentar-se" quiz

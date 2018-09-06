@@ -77,6 +77,8 @@ public class US7StepDefs {
             webElement = driver.findElement(By.xpath("//button[@name='block']"));
         } else if (arg0.equals("unblock")) {
             webElement = driver.findElement(By.xpath("//button[@name='unblock']"));
+        } else if (arg0.equals("questions")) {
+            webElement = driver.findElement(By.xpath("//div[@id='dashboard']/div/div[2]/div/div[2]/div[2]/div/a"));
         }
 
         webElement.click();
@@ -337,13 +339,12 @@ public class US7StepDefs {
             this.millsDetails = date.getTime();
             WebElement webElement = driver.findElement(By.xpath("//div[2]/div/div/a"));
             webElement.click();
-            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Questão"));
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Questionário"));
         }
     }
 
     @And("^the field \"([^\"]*)\" should different from the previous - USseven$")
     public void theFieldShouldDifferentFromThePreviousUSseven(String arg0) throws Throwable {
-        WebDriverWait wait = new WebDriverWait(driver, 3);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(2).getAttribute("value").split(" ");
         Date date = sdf.parse(lastUpdateString[4] + " " + lastUpdateString[5]);

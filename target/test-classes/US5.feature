@@ -6,9 +6,9 @@ Feature: Manage Materials
   #CREATES
   Scenario Outline: Access New Text Material Page
     Given I access the "materials" page - USfive
-    When I press the "<page>" button
+    When I press the "<page>" material button -USfive
     Then I should be redirected to the "<page>" page - USfive
-    And the "<page>" text should be shown
+    And the "<page>" text should be shown - USfive
     Examples:
       | page                  |
       | new text              |
@@ -23,9 +23,9 @@ Feature: Manage Materials
 
   Scenario: Create New Text Successfully
     Given I access the "new text" page - USfive
-    When I fill the "name" field with "Cucumber Text"
-    And I fill the "description" field with "Cucumber Text Description"
-    And I fill the "body" field with "Cucumber Text Very Detailed Text"
+    When I fill the "name" field with "Cucumber Text" - USfive
+    And I fill the "description" field with "Cucumber Text Description" - USfive
+    And I fill the "body" field with "Cucumber Text Very Detailed Text" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Text" material - USfive
     And the field "material" should show "Cucumber Text" - USfive
@@ -40,9 +40,9 @@ Feature: Manage Materials
 
   Scenario: Create New Image Successfully
     Given I access the "new image" page - USfive
-    When I fill the "name" field with "Cucumber Image"
-    And I fill the "description" field with "Cucumber Image Description"
-    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.jpg"
+    When I fill the "name" field with "Cucumber Image" - USfive
+    And I fill the "description" field with "Cucumber Image Description" - USfive
+    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.jpg" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Image" material - USfive
     And the field "material" should show "Cucumber Image" - USfive
@@ -57,9 +57,9 @@ Feature: Manage Materials
 
   Scenario: Create New Video Successfully
     Given I access the "new video" page - USfive
-    When I fill the "name" field with "Cucumber Video"
-    And I fill the "description" field with "Cucumber Video Description"
-    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp4"
+    When I fill the "name" field with "Cucumber Video" - USfive
+    And I fill the "description" field with "Cucumber Video Description" - USfive
+    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp4" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Video" material - USfive
     And the field "material" should show "Cucumber Video" - USfive
@@ -74,9 +74,9 @@ Feature: Manage Materials
 
   Scenario: Create New Audio Guide Successfully
     Given I access the "new audioGuide" page - USfive
-    When I fill the "name" field with "Cucumber Audio Guide"
-    And I fill the "description" field with "Cucumber Audio Guide Description"
-    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp3"
+    When I fill the "name" field with "Cucumber Audio Guide" - USfive
+    And I fill the "description" field with "Cucumber Audio Guide Description" - USfive
+    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp3" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Audio Guide" material - USfive
     And the field "material" should show "Cucumber Audio Guide" - USfive
@@ -91,10 +91,10 @@ Feature: Manage Materials
 
   Scenario: Create New List Item Successfully
     Given I access the "new listItem" page - USfive
-    When I fill the "name" field with "Cucumber List Item"
-    And I fill the "listItemMarker" field with "*"
-    And I fill the "description" field with "Cucumber List Item Description"
-    And I fill the "listItemDetailedDescription" field with "Cucumber List Item Very Detailed Text"
+    When I fill the "name" field with "Cucumber List Item" - USfive
+    And I fill the "listItemMarker" field with "*" - USfive
+    And I fill the "description" field with "Cucumber List Item Description" - USfive
+    And I fill the "listItemDetailedDescription" field with "Cucumber List Item Very Detailed Text" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "List Item" material - USfive
     And the field "material" should show "Cucumber List Item" - USfive
@@ -110,9 +110,9 @@ Feature: Manage Materials
 
   Scenario: Create New Emergency Contact Successfully
     Given I access the "new emergencyContact" page - USfive
-    When I fill the "name" field with "Cucumber Emergency Contact"
-    And I fill the "description" field with "Cucumber Emergency Contact Description"
-    And I fill the "number" field with "999999999"
+    When I fill the "name" field with "Cucumber Emergency Contact" - USfive
+    And I fill the "description" field with "Cucumber Emergency Contact Description" - USfive
+    And I fill the "number" field with "999999999" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Emergency Contact" material - USfive
     And the field "material" should show "Cucumber Emergency Contact" - USfive
@@ -127,10 +127,10 @@ Feature: Manage Materials
 
   Scenario: Create New Annex Link Successfully
     Given I access the "new annex" page - USfive
-    When I fill the "name" field with "Cucumber Annex Link"
-    And I fill the "description" field with "Cucumber Annex Link Description"
-    And I fill the "selectType" field with "Link (Website, Video externo)"
-    And I fill the "url" field with "https://www.youtube.com/watch?v=FTQbiNvZqaY"
+    When I fill the "name" field with "Cucumber Annex Link" - USfive
+    And I fill the "description" field with "Cucumber Annex Link Description" - USfive
+    And I fill the "selectType" field with "Link (Website, Video externo)" - USfive
+    And I fill the "url" field with "https://www.youtube.com/watch?v=FTQbiNvZqaY" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Annex Link" material - USfive
     And the field "material" should show "Cucumber Annex Link" - USfive
@@ -146,10 +146,10 @@ Feature: Manage Materials
 
   Scenario: Create New Annex File Successfully
     Given I access the "new annex" page - USfive
-    When I fill the "name" field with "Cucumber Annex File"
-    And I fill the "description" field with "Cucumber Annex File Description"
-    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)"
-    And I fill the "pathAnnex" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.pdf"
+    When I fill the "name" field with "Cucumber Annex File" - USfive
+    And I fill the "description" field with "Cucumber Annex File Description" - USfive
+    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)" - USfive
+    And I fill the "pathAnnex" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.pdf" - USfive
     And I press the "create" button - USfive
     Then I should be redirected to the "details" page of the "Annex File" material - USfive
     And the field "material" should show "Cucumber Annex File" - USfive
@@ -165,15 +165,15 @@ Feature: Manage Materials
 
   Scenario: Create New Composite Successfully - part 1(create)
     Given I access the "new composite" page - USfive
-    When I fill the "name" field with "Cucumber Composite"
-    And I fill the "description" field with "Cucumber Composite Description"
+    When I fill the "name" field with "Cucumber Composite" - USfive
+    And I fill the "description" field with "Cucumber Composite Description" - USfive
     And I press the "Adicionar Materiais" button - USfive
     Then I should be redirected to the "add materials" page of the material
     And a table with the title "Outros Materiais" should be displayed
     And the "Outros Materiais" table should have more than 1 entry
     And a table with the title "Outros Materiais" should be displayed
-    And the "Materiais Associados ao Material Cucumber Composite" text should be shown
-    And the "Não existem materiais neste Material Composto." text should be shown
+    And the "Materiais Associados ao Material Cucumber Composite" text should be shown - USfive
+    And the "Não existem materiais neste Material Composto." text should be shown - USfive
 
   Scenario: Create New Composite Successfully - part 2(add materials)
     Given I access the "composite add materials" page - USfive
@@ -410,10 +410,10 @@ Feature: Manage Materials
 
   Scenario: Edit Text Material Successfully
     Given I access the "edit" page of the "Cucumber Text" material
-    When I fill the "type" field with "Texto"
-    And I fill the "name" field with "Cucumber Text Edit"
-    And I fill the "description" field with "Cucumber Text Description Edit"
-    And I fill the "body" field with "Cucumber Text Very Detailed Text Edit"
+    When I fill the "type" field with "Texto" - USfive
+    And I fill the "name" field with "Cucumber Text Edit" - USfive
+    And I fill the "description" field with "Cucumber Text Description Edit" - USfive
+    And I fill the "body" field with "Cucumber Text Very Detailed Text Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Text Edit" material
     And the field "Material" should show "Cucumber Text Edit" - USfive
@@ -438,9 +438,9 @@ Feature: Manage Materials
 
   Scenario: Edit Image Material Successfully Without New Image
     Given I access the "edit" page of the "Cucumber Image" material
-    When I fill the "type" field with "Imagem"
-    And I fill the "name" field with "Cucumber Image Edit"
-    And I fill the "description" field with "Cucumber Image Description Edit"
+    When I fill the "type" field with "Imagem" - USfive
+    And I fill the "name" field with "Cucumber Image Edit" - USfive
+    And I fill the "description" field with "Cucumber Image Description Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Image Edit" material
     And the field "Material" should show "Cucumber Image Edit" - USfive
@@ -454,10 +454,10 @@ Feature: Manage Materials
 
   Scenario: Edit Image Material Successfully With New Image
     Given I access the "edit" page of the "Cucumber Image Edit" material
-    When I fill the "type" field with "Imagem"
-    And I fill the "name" field with "Cucumber Image Edit Edit"
-    And I fill the "description" field with "Cucumber Image Description Edit Edit"
-    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.jpg"
+    When I fill the "type" field with "Imagem" - USfive
+    And I fill the "name" field with "Cucumber Image Edit Edit" - USfive
+    And I fill the "description" field with "Cucumber Image Description Edit Edit" - USfive
+    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.jpg" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Image Edit Edit" material
     And the field "Material" should show "Cucumber Image Edit Edit" - USfive
@@ -482,9 +482,9 @@ Feature: Manage Materials
 
   Scenario: Edit Video Material Successfully Without New Video
     Given I access the "edit" page of the "Cucumber Video" material
-    When I fill the "type" field with "Video"
-    And I fill the "name" field with "Cucumber Video Edit"
-    And I fill the "description" field with "Cucumber Video Description Edit"
+    When I fill the "type" field with "Video" - USfive
+    And I fill the "name" field with "Cucumber Video Edit" - USfive
+    And I fill the "description" field with "Cucumber Video Description Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Video Edit" material
     And the field "Material" should show "Cucumber Video Edit" - USfive
@@ -498,10 +498,10 @@ Feature: Manage Materials
 
   Scenario: Edit Video Material Successfully With New Video
     Given I access the "edit" page of the "Cucumber Video Edit" material
-    When I fill the "type" field with "Video"
-    And I fill the "name" field with "Cucumber Video Edit Edit"
-    And I fill the "description" field with "Cucumber Video Description Edit Edit"
-    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.mp4"
+    When I fill the "type" field with "Video" - USfive
+    And I fill the "name" field with "Cucumber Video Edit Edit" - USfive
+    And I fill the "description" field with "Cucumber Video Description Edit Edit" - USfive
+    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.mp4" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Video Edit Edit" material
     And the field "Material" should show "Cucumber Video Edit Edit" - USfive
@@ -526,9 +526,9 @@ Feature: Manage Materials
 
   Scenario: Edit Audio Guide Material Successfully Without New Audio Guide
     Given I access the "edit" page of the "Cucumber Audio Guide" material
-    When I fill the "type" field with "Áudio-guia"
-    And I fill the "name" field with "Cucumber Audio Guide Edit"
-    And I fill the "description" field with "Cucumber Audio Guide Description Edit"
+    When I fill the "type" field with "Áudio-guia" - USfive
+    And I fill the "name" field with "Cucumber Audio Guide Edit" - USfive
+    And I fill the "description" field with "Cucumber Audio Guide Description Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Audio Guide Edit" material
     And the field "Material" should show "Cucumber Audio Guide Edit" - USfive
@@ -542,10 +542,10 @@ Feature: Manage Materials
 
   Scenario: Edit Audio Guide Material Successfully With New Audio Guide
     Given I access the "edit" page of the "Cucumber Audio Guide Edit" material
-    When I fill the "type" field with "Áudio-guia"
-    And I fill the "name" field with "Cucumber Audio Guide Edit Edit"
-    And I fill the "description" field with "Cucumber Audio Guide Description Edit Edit"
-    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.mp3"
+    When I fill the "type" field with "Áudio-guia" - USfive
+    And I fill the "name" field with "Cucumber Audio Guide Edit Edit" - USfive
+    And I fill the "description" field with "Cucumber Audio Guide Description Edit Edit" - USfive
+    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.mp3" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Audio Guide Edit Edit" material
     And the field "Material" should show "Cucumber Audio Guide Edit Edit" - USfive
@@ -571,11 +571,11 @@ Feature: Manage Materials
 
   Scenario: Edit List Item Material Successfully
     Given I access the "edit" page of the "Cucumber List Item" material
-    When I fill the "type" field with "Item de Lista"
-    And I fill the "name" field with "Cucumber List Item Edit"
-    And I fill the "listItemMarker" field with "1"
-    And I fill the "description" field with "Cucumber List Item Description Edit"
-    And I fill the "listItemDetailedDescription" field with "Cucumber List Item Very Detailed Text Edit"
+    When I fill the "type" field with "Item de Lista" - USfive
+    And I fill the "name" field with "Cucumber List Item Edit" - USfive
+    And I fill the "listItemMarker" field with "1" - USfive
+    And I fill the "description" field with "Cucumber List Item Description Edit" - USfive
+    And I fill the "listItemDetailedDescription" field with "Cucumber List Item Very Detailed Text Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber List Item Edit" material
     And the field "Material" should show "Cucumber List Item Edit" - USfive
@@ -601,10 +601,10 @@ Feature: Manage Materials
 
   Scenario: Edit Emergency Contact Material Successfully
     Given I access the "edit" page of the "Cucumber Emergency Contact" material
-    When I fill the "type" field with "Contacto de Emergência"
-    And I fill the "name" field with "Cucumber Emergency Contact Edit"
-    And I fill the "description" field with "Cucumber Emergency Contact Description Edit"
-    And I fill the "number" field with "888888888"
+    When I fill the "type" field with "Contacto de Emergência" - USfive
+    And I fill the "name" field with "Cucumber Emergency Contact Edit" - USfive
+    And I fill the "description" field with "Cucumber Emergency Contact Description Edit" - USfive
+    And I fill the "number" field with "888888888" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Emergency Contact Edit" material
     And the field "Material" should show "Cucumber Emergency Contact Edit" - USfive
@@ -630,11 +630,11 @@ Feature: Manage Materials
 
   Scenario: Edit Annex Link Material Successfully
     Given I access the "edit" page of the "Cucumber Annex Link" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "name" field with "Cucumber Annex Link Edit"
-    And I fill the "description" field with "Cucumber Annex Link Description Edit"
-    And I fill the "selectType" field with "Link (Website, Video externo)"
-    And I fill the "url" field with "https://www.youtube.com/watch?v=n_GL84Rp0aA"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "name" field with "Cucumber Annex Link Edit" - USfive
+    And I fill the "description" field with "Cucumber Annex Link Description Edit" - USfive
+    And I fill the "selectType" field with "Link (Website, Video externo)" - USfive
+    And I fill the "url" field with "https://www.youtube.com/watch?v=n_GL84Rp0aA" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Annex Link Edit" material
     And the field "Material" should show "Cucumber Annex Link Edit" - USfive
@@ -660,9 +660,9 @@ Feature: Manage Materials
 
   Scenario: Edit Annex File Material Successfully Without New Annex File
     Given I access the "edit" page of the "Cucumber Annex File" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "name" field with "Cucumber Annex File Edit"
-    And I fill the "description" field with "Cucumber Annex File Description Edit"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "name" field with "Cucumber Annex File Edit" - USfive
+    And I fill the "description" field with "Cucumber Annex File Description Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Annex File Edit" material
     And the field "Material" should show "Cucumber Annex File Edit" - USfive
@@ -676,10 +676,10 @@ Feature: Manage Materials
 
   Scenario: Edit Annex File Material Successfully With New Annex File
     Given I access the "edit" page of the "Cucumber Annex File Edit" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "name" field with "Cucumber Annex File Edit Edit"
-    And I fill the "description" field with "Cucumber Annex File Description Edit Edit"
-    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.docx"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "name" field with "Cucumber Annex File Edit Edit" - USfive
+    And I fill the "description" field with "Cucumber Annex File Description Edit Edit" - USfive
+    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.docx" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Annex File Edit Edit" material
     And the field "Material" should show "Cucumber Annex File Edit Edit" - USfive
@@ -703,9 +703,9 @@ Feature: Manage Materials
 
   Scenario: Edit Composite Material Successfully
     Given I access the "edit" page of the "Cucumber Composite" material
-    When I fill the "type" field with "Composto"
-    And I fill the "name" field with "Cucumber Composite Edit"
-    And I fill the "description" field with "Cucumber Composite Description Edit"
+    When I fill the "type" field with "Composto" - USfive
+    And I fill the "name" field with "Cucumber Composite Edit" - USfive
+    And I fill the "description" field with "Cucumber Composite Description Edit" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Composite Edit" material
     And the field "Material" should show "Cucumber Composite Edit" - USfive
@@ -719,7 +719,7 @@ Feature: Manage Materials
   #CHANGE TYPE EDITS
   Scenario: Edit Text Material to Image Material - part 1
     Given I access the "edit" page of the "Cucumber Text Edit" material
-    When I fill the "type" field with "Imagem"
+    When I fill the "type" field with "Imagem" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -738,10 +738,10 @@ Feature: Manage Materials
 
   Scenario: Edit Text Material to Image Material - part 2
     Given I access the "edit" page of the "Cucumber Text Edit" material
-    When I fill the "type" field with "Imagem"
-    And I fill the "name" field with "Cucumber Text Image"
-    And I fill the "description" field with "Cucumber Text Image Description"
-    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.jpg"
+    When I fill the "type" field with "Imagem" - USfive
+    And I fill the "name" field with "Cucumber Text Image" - USfive
+    And I fill the "description" field with "Cucumber Text Image Description" - USfive
+    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.jpg" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Text Image" material
     And the field "Material" should show "Cucumber Text Image" - USfive
@@ -755,7 +755,7 @@ Feature: Manage Materials
 
   Scenario: Edit Image Material to Video Material - part 1
     Given I access the "edit" page of the "Cucumber Text Image" material
-    When I fill the "type" field with "Video"
+    When I fill the "type" field with "Video" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -774,10 +774,10 @@ Feature: Manage Materials
 
   Scenario: Edit Image Material to Video Material - part 2
     Given I access the "edit" page of the "Cucumber Text Image" material
-    When I fill the "type" field with "Video"
-    And I fill the "name" field with "Cucumber Image Video"
-    And I fill the "description" field with "Cucumber Image Video Description"
-    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp4"
+    When I fill the "type" field with "Video" - USfive
+    And I fill the "name" field with "Cucumber Image Video" - USfive
+    And I fill the "description" field with "Cucumber Image Video Description" - USfive
+    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp4" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Image Video" material
     And the field "Material" should show "Cucumber Image Video" - USfive
@@ -791,7 +791,7 @@ Feature: Manage Materials
 
   Scenario: Edit Video Material to Audio Guide Material - part 1
     Given I access the "edit" page of the "Cucumber Image Video" material
-    When I fill the "type" field with "Áudio-guia"
+    When I fill the "type" field with "Áudio-guia" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -810,10 +810,10 @@ Feature: Manage Materials
 
   Scenario: Edit Video Material to Audio Guide Material - part 2
     Given I access the "edit" page of the "Cucumber Image Video" material
-    When I fill the "type" field with "Áudio-guia"
-    And I fill the "name" field with "Cucumber Video Audio Guide"
-    And I fill the "description" field with "Cucumber Video Audio Guide Description"
-    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp3"
+    When I fill the "type" field with "Áudio-guia" - USfive
+    And I fill the "name" field with "Cucumber Video Audio Guide" - USfive
+    And I fill the "description" field with "Cucumber Video Audio Guide Description" - USfive
+    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp3" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Video Audio Guide" material
     And the field "Material" should show "Cucumber Video Audio Guide" - USfive
@@ -827,7 +827,7 @@ Feature: Manage Materials
 
   Scenario: Edit Audio Guide Material to List Item Material - part 1
     Given I access the "edit" page of the "Cucumber Video Audio Guide" material
-    When I fill the "type" field with "Item de Lista"
+    When I fill the "type" field with "Item de Lista" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -846,11 +846,11 @@ Feature: Manage Materials
 
   Scenario: Edit Audio Guide Material to List Item Material - part 2
     Given I access the "edit" page of the "Cucumber Video Audio Guide" material
-    When I fill the "type" field with "Item de Lista"
-    And I fill the "name" field with "Cucumber Audio Guide List Item"
-    And I fill the "listItemMarker" field with "*"
-    And I fill the "description" field with "Cucumber Audio Guide List Item Description"
-    And I fill the "listItemDetailedDescription" field with "Cucumber Audio Guide List Item Very Detailed Description"
+    When I fill the "type" field with "Item de Lista" - USfive
+    And I fill the "name" field with "Cucumber Audio Guide List Item" - USfive
+    And I fill the "listItemMarker" field with "*" - USfive
+    And I fill the "description" field with "Cucumber Audio Guide List Item Description" - USfive
+    And I fill the "listItemDetailedDescription" field with "Cucumber Audio Guide List Item Very Detailed Description" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Audio Guide List Item" material
     And the field "Material" should show "Cucumber Audio Guide List Item" - USfive
@@ -865,7 +865,7 @@ Feature: Manage Materials
 
   Scenario: Edit List Item Material to Emergency Contact Material - part 1
     Given I access the "edit" page of the "Cucumber Audio Guide List Item" material
-    When I fill the "type" field with "Contacto de Emergência"
+    When I fill the "type" field with "Contacto de Emergência" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -884,10 +884,10 @@ Feature: Manage Materials
 
   Scenario: Edit List Item Material to Emergency Contact Material - part 2
     Given I access the "edit" page of the "Cucumber Audio Guide List Item" material
-    When I fill the "type" field with "Contacto de Emergência"
-    And I fill the "name" field with "Cucumber List Item Emergency Contact"
-    And I fill the "description" field with "Cucumber List Item Emergency Contact Description"
-    And I fill the "number" field with "999999999"
+    When I fill the "type" field with "Contacto de Emergência" - USfive
+    And I fill the "name" field with "Cucumber List Item Emergency Contact" - USfive
+    And I fill the "description" field with "Cucumber List Item Emergency Contact Description" - USfive
+    And I fill the "number" field with "999999999" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber List Item Emergency Contact" material
     And the field "Material" should show "Cucumber List Item Emergency Contact" - USfive
@@ -901,8 +901,8 @@ Feature: Manage Materials
 
   Scenario: Edit Emergency Contact Material to Annex Link Material - part 1
     Given I access the "edit" page of the "Cucumber List Item Emergency Contact" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "selectType" field with "Link (Website, Video externo)"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "selectType" field with "Link (Website, Video externo)" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -921,11 +921,11 @@ Feature: Manage Materials
 
   Scenario: Edit Emergency Contact Material to Annex Link Material - part 2
     Given I access the "edit" page of the "Cucumber List Item Emergency Contact" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "name" field with "Cucumber Emergency Contact Annex Link"
-    And I fill the "description" field with "Cucumber Emergency Contact Annex Link Description"
-    And I fill the "selectType" field with "Link (Website, Video externo)"
-    And I fill the "url" field with "https://www.youtube.com/watch?v=RoXmMD1rVP0&t=3s"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "name" field with "Cucumber Emergency Contact Annex Link" - USfive
+    And I fill the "description" field with "Cucumber Emergency Contact Annex Link Description" - USfive
+    And I fill the "selectType" field with "Link (Website, Video externo)" - USfive
+    And I fill the "url" field with "https://www.youtube.com/watch?v=RoXmMD1rVP0&t=3s" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Emergency Contact Annex Link" material
     And the field "Material" should show "Cucumber Emergency Contact Annex Link" - USfive
@@ -940,8 +940,8 @@ Feature: Manage Materials
 
   Scenario: Edit Annex Link Material to Annex File Material - part 1
     Given I access the "edit" page of the "Cucumber Emergency Contact Annex Link" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -960,11 +960,11 @@ Feature: Manage Materials
 
   Scenario: Edit Annex Link Material to Annex File Material - part 2
     Given I access the "edit" page of the "Cucumber Emergency Contact Annex Link" material
-    When I fill the "type" field with "Anexo"
-    And I fill the "name" field with "Cucumber Annex Link Annex File"
-    And I fill the "description" field with "Cucumber Annex Link Annex File Description"
-    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)"
-    And I fill the "pathAnnex" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.pdf"
+    When I fill the "type" field with "Anexo" - USfive
+    And I fill the "name" field with "Cucumber Annex Link Annex File" - USfive
+    And I fill the "description" field with "Cucumber Annex Link Annex File Description" - USfive
+    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)" - USfive
+    And I fill the "pathAnnex" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.pdf" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Annex Link Annex File" material
     And the field "Material" should show "Cucumber Annex Link Annex File" - USfive
@@ -979,7 +979,7 @@ Feature: Manage Materials
 
   Scenario: Edit Annex File Material to Composite Material - part 1
     Given I access the "edit" page of the "Cucumber Annex Link Annex File" material
-    When I fill the "type" field with "Composto"
+    When I fill the "type" field with "Composto" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -998,9 +998,9 @@ Feature: Manage Materials
 
   Scenario: Edit Annex File Material to Composite Material - part 2
     Given I access the "edit" page of the "Cucumber Annex Link Annex File" material
-    When I fill the "type" field with "Composto"
-    And I fill the "name" field with "Cucumber Annex File Composite"
-    And I fill the "description" field with "Cucumber Annex File Composite Description"
+    When I fill the "type" field with "Composto" - USfive
+    And I fill the "name" field with "Cucumber Annex File Composite" - USfive
+    And I fill the "description" field with "Cucumber Annex File Composite Description" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Annex File Composite" material
     And the field "Material" should show "Cucumber Annex File Composite" - USfive
@@ -1013,7 +1013,7 @@ Feature: Manage Materials
 
   Scenario: Edit Composite Material to Text Material - part 1
     Given I access the "edit" page of the "Cucumber Annex File Composite" material
-    When I fill the "type" field with "Texto"
+    When I fill the "type" field with "Texto" - USfive
     Then the field "type" should be displayed
     And the field "name" should be displayed
     And the field "description" should be displayed
@@ -1032,10 +1032,10 @@ Feature: Manage Materials
 
   Scenario: Edit Composite Material to Text Material - part 2
     Given I access the "edit" page of the "Cucumber Annex File Composite" material
-    When I fill the "type" field with "Texto"
-    And I fill the "name" field with "Cucumber Composite Text"
-    And I fill the "description" field with "Cucumber Composite Text Description"
-    And I fill the "body" field with "Cucumber Composite Text Very Detailed Text"
+    When I fill the "type" field with "Texto" - USfive
+    And I fill the "name" field with "Cucumber Composite Text" - USfive
+    And I fill the "description" field with "Cucumber Composite Text Description" - USfive
+    And I fill the "body" field with "Cucumber Composite Text Very Detailed Text" - USfive
     And I press the "Guardar" button - USfive
     Then I should be redirected to the "details" page of the "Cucumber Composite Text" material
     And the field "Material" should show "Cucumber Composite Text" - USfive
@@ -1060,7 +1060,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "name" field is empty
     And I press the <button> button
-    Then the "O nome tem que ser preenchido." error message should be shown
+    Then the "O nome tem que ser preenchido." error message should be shown - USfive
     Examples:
       | page                  | button  |
       | new text              | Criar   |
@@ -1082,9 +1082,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material name field min length
     Given I access the <page> page
-    When I fill the "name" field with "12"
+    When I fill the "name" field with "12" - USfive
     And I press the <button> button
-    Then the "O nome tem que ser preenchido." error message should be shown
+    Then the "O nome tem que ser preenchido." error message should be shown - USfive
     Examples:
       | page                  | button  |
       | new text              | Criar   |
@@ -1106,9 +1106,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material name field unique
     Given I access the <page> page
-    When I fill the "name" field with "Alimentação por PEG"
+    When I fill the "name" field with "Alimentação por PEG" - USfive
     And I press the <button> button
-    Then the "Esse nome já existe. Escolha outro." error message should be shown
+    Then the "Esse nome já existe. Escolha outro." error message should be shown - USfive
     Examples:
       | page                  | button  |
       | new text              | Criar   |
@@ -1132,7 +1132,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "description" field is empty
     And I press the <button> button
-    Then the "A descrição tem que ser preenchida." error message should be shown
+    Then the "A descrição tem que ser preenchida." error message should be shown - USfive
     Examples:
       | page                  | button  |
       | new text              | Criar   |
@@ -1154,9 +1154,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material description field min length
     Given I access the <page> page
-    When I fill the "description" field with "12"
+    When I fill the "description" field with "12" - USfive
     And I press the <button> button
-    Then the "Esse nome já existe. Escolha outro." error message should be shown
+    Then the "Esse nome já existe. Escolha outro." error message should be shown - USfive
     Examples:
       | page                  | button  |
       | new text              | Criar   |
@@ -1180,7 +1180,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "body" field is empty
     And I press the <button> button
-    Then the "O campo texto não pode ser vazio." error message should be shown
+    Then the "O campo texto não pode ser vazio." error message should be shown - USfive
     Examples:
       | page      | button  |
       | new text  | Criar   |
@@ -1190,7 +1190,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "listItemMarker" field is empty
     And I press the <button> button
-    Then the "O campo marcador do item de lista não pode ser vazio." error message should be shown
+    Then the "O campo marcador do item de lista não pode ser vazio." error message should be shown - USfive
     Examples:
       | page          | button  |
       | new itemList  | Criar   |
@@ -1198,9 +1198,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material Item List marker regex
     Given I access the <page> page
-    When I fill the "listItemMarker" field with "asdasd"
+    When I fill the "listItemMarker" field with "asdasd" - USfive
     And I press the <button> button
-    Then the "O campo marcador do item de lista só pode conter números (1, 2, ..., x), astericos (*) ou hífens (-)." error message should be shown
+    Then the "O campo marcador do item de lista só pode conter números (1, 2, ..., x), astericos (*) ou hífens (-)." error message should be shown - USfive
     Examples:
       | page          | button  |
       | new itemList  | Criar   |
@@ -1210,7 +1210,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "pathImage" field is empty
     And I press the <button> button
-    Then the "Introduza uma imagem com um dos seguintes formatos: jpeg, png, jpg, gif, svg." error message should be shown
+    Then the "Introduza uma imagem com um dos seguintes formatos: jpeg, png, jpg, gif, svg." error message should be shown - USfive
     Examples:
       | page       | button  |
       | new image  | Criar   |
@@ -1218,9 +1218,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material Image Mime regex
     Given I access the <page> page
-    When I fill the "pathImage" field with "video"
+    When I fill the "pathImage" field with "video" - USfive
     And I press the <button> button
-    Then the "A imagem tem que estar num dos seguintes formatos: jpeg, png, jpg, gif, svg." error message should be shown
+    Then the "A imagem tem que estar num dos seguintes formatos: jpeg, png, jpg, gif, svg." error message should be shown - USfive
     Examples:
       | page       | button  |
       | new image  | Criar   |
@@ -1230,7 +1230,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "pathVideo" field is empty
     And I press the <button> button
-    Then the "Introduza um video em formato mp4." error message should be shown
+    Then the "Introduza um video em formato mp4." error message should be shown - USfive
     Examples:
       | page       | button  |
       | new video  | Criar   |
@@ -1238,9 +1238,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material Video Mime regex
     Given I access the <page> page
-    When I fill the "pathVideo" field with "image"
+    When I fill the "pathVideo" field with "image" - USfive
     And I press the <button> button
-    Then the "O video tem que ser em formato mp4." error message should be shown
+    Then the "O video tem que ser em formato mp4." error message should be shown - USfive
     Examples:
       | page       | button  |
       | new video  | Criar   |
@@ -1250,7 +1250,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "pathAudioGuide" field is empty
     And I press the <button> button
-    Then the "Introduza um guia de áudio em formato mp3." error message should be shown
+    Then the "Introduza um guia de áudio em formato mp3." error message should be shown - USfive
     Examples:
       | page            | button  |
       | new audioGuide  | Criar   |
@@ -1258,9 +1258,9 @@ Feature: Manage Materials
 
   Scenario Outline: Material Audio Guide Mime regex
     Given I access the <page> page
-    When I fill the "pathAudioGuide" field with "image"
+    When I fill the "pathAudioGuide" field with "image" - USfive
     And I press the <button> button
-    Then the "O áudio-guia tem que ser em formato mp3." error message should be shown
+    Then the "O áudio-guia tem que ser em formato mp3." error message should be shown - USfive
     Examples:
       | page            | button  |
       | new audioGuide  | Criar   |
@@ -1270,7 +1270,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "number" field is empty
     And I press the <button> button
-    Then the "Introduza um número de contacto." error message should be shown
+    Then the "Introduza um número de contacto." error message should be shown - USfive
     Examples:
       | page                  | button  |
       | new emergencyContact  | Criar   |
@@ -1280,7 +1280,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "pathAnnex" field is empty
     And I press the <button> button
-    Then the "Introduza um anexo." error message should be shown
+    Then the "Introduza um anexo." error message should be shown - USfive
     Examples:
       | page           | button  |
       | new annexFile  | Criar   |
@@ -1290,7 +1290,7 @@ Feature: Manage Materials
     Given I access the <page> page
     When the "url" field is empty
     And I press the <button> button
-    Then the "Introduza um url." error message should be shown
+    Then the "Introduza um url." error message should be shown - USfive
     Examples:
       | page           | button  |
       | new annexLink  | Criar   |
@@ -1298,19 +1298,19 @@ Feature: Manage Materials
 
   Scenario Outline: Material Annex Link link rexeg
     Given I access the <page> page
-    When I fill the "url" field with "asdasd"
+    When I fill the "url" field with "asdasd" - USfive
     And I press the <button> button
-    Then the "Introduza um url válido." error message should be shown
+    Then the "Introduza um url válido." error message should be shown - USfive
     Examples:
       | page           | button  |
       | new annexLink  | Criar   |
       | edit annexLink | Guardar |
 
   Scenario Outline: Material Annex Link link rexeg
-    Given I access the <page> page
-    When I fill the "selectType" field with "Escolha um Tipo"
+    Given I access the <page> material button -USfive
+    When I fill the "selectType" field with "Escolha um Tipo" - USfive
     And I press the <button> button
-    Then the "Escolha um tipo de anexo." error message should be shown
+    Then the "Escolha um tipo de anexo." error message should be shown - USfive
     Examples:
       | page       | button  |
       | new annex  | Criar   |

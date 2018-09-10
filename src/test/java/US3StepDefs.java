@@ -173,7 +173,7 @@ public class US3StepDefs {
             webElement = driver.findElement(By.xpath("//button[@name='save']"));
         } else if (arg0.equals("Editar")) {
             webElement = driver.findElement(By.xpath("//a[contains(text(),'Editar')]"));
-        } else if (arg0.equals("Guardar")) {
+        } else  {
             webElement = driver.findElement(By.xpath("//button[@name='save']"));
         }
         webElement.click();
@@ -474,10 +474,5 @@ public class US3StepDefs {
 
     }
 
-    @And("^I press the \"([^\"]*)\" button$")
-    public void iPressTheButton(String arg0) throws Throwable {
-        WebElement webElement = driver.findElement(By.xpath("//button[@name='save']"));
-        webElement.click();
-    }
 
 }

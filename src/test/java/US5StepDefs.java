@@ -79,103 +79,6 @@ public class US5StepDefs {
 
     }
 
-    @When("^I press the \"([^\"]*)\" button$")
-    public void iPressTheButton(String arg0) throws Throwable {
-        WebElement webElement = null;
-
-        if (arg0.equals("new text")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Texto')]"));
-        } else if (arg0.equals("new image")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Nova Imagem')]"));
-        } else if (arg0.equals("new video")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Video')]"));
-        } else if (arg0.equals("new audioGuide")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Áudio-guia')]"));
-        } else if (arg0.equals("new listItem")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Item de Lista')]"));
-        } else if (arg0.equals("new emergencyContact")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Contacto de Emergência')]"));
-        } else if (arg0.equals("new annex")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Anexo')]"));
-        } else if (arg0.equals("new composite")) {
-            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Composto')]"));
-        }
-
-        webElement.click();
-    }
-
-    @And("^the \"([^\"]*)\" text should be shown$")
-    public void theTextShouldBeShown(String arg0) throws Throwable {
-        if (arg0.equals("new text")) {
-            assertEquals("Novo Texto",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new image")) {
-            assertEquals("Nova Imagem",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new video")) {
-            assertEquals("Novo Video",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new audioGuide")) {
-            assertEquals("Novo Áudio-guia",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new listItem")) {
-            assertEquals("Novo Item de Lista",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new emergencyContact")) {
-            assertEquals("Novo Contacto de Emergência",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new annex")) {
-            assertEquals("Novo Anexo",driver.findElement(By.className("my-caregivers-legend")).getText());
-        } else if (arg0.equals("new composite")) {
-            assertEquals("Novo Material Composto",driver.findElement(By.className("my-caregivers-legend")).getText());
-        }
-    }
-
-    @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\"$")
-    public void iFillTheFieldWith(String arg0, String arg1) throws Throwable {
-        WebElement field = null;
-        Select select = null;
-        Random rand = new Random();
-        if (arg0.equals("name")) {
-            this.random = rand.nextInt(9000000) + 1000000;
-            arg1 = arg1 + this.random;
-            field = driver.findElement(By.id("inputName"));
-        } else if (arg0.equals("description")) {
-            field = driver.findElement(By.id("inputDescription"));
-        } else if (arg0.equals("body")) {
-            field = driver.findElement(By.id("body"));
-        } else if (arg0.equals("pathImage")) {
-            field = driver.findElement(By.name("pathImage"));
-        } else if (arg0.equals("pathVideo")) {
-            field = driver.findElement(By.name("pathVideo"));
-        } else if (arg0.equals("pathAudioGuide")) {
-            field = driver.findElement(By.name("pathAudioGuide"));
-        } else if (arg0.equals("listItemMarker")) {
-            field = driver.findElement(By.name("listItemMarker"));
-        } else  if (arg0.equals("listItemDetailedDescription")) {
-            field = driver.findElement(By.name("listItemDetailedDescription"));
-        } else if (arg0.equals("number")) {
-            field = driver.findElement(By.id("inputNumber"));
-        } else if (arg0.equals("selectType")) {
-            select =  new Select(driver.findElement(By.xpath("//div[3]/div/button")));
-        } else if (arg0.equals("url")) {
-            select =  new Select(driver.findElement(By.id("inputUrl")));
-        } else if (arg0.equals("pathAnnex")) {
-            field = driver.findElement(By.name("pathAnnex"));
-        }
-
-        if (select != null) {
-            select.selectByVisibleText(arg1);
-        }
-
-        if (arg0.equals("pathImage")) {
-            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.jpg");
-        } else if (arg0.equals("pathVideo")){
-            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.mp4");
-        }else if (arg0.equals("pathAudioGuide")){
-            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.mp3");
-        } else if (arg0.equals("pathAnnex")){
-            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.pdf");
-        } else {
-            field.clear();
-            field.sendKeys(arg1);
-        }
-    }
-
     @And("^I press the \"([^\"]*)\" button - USfive$")
     public void iPressTheButtonUSfive(String arg0) throws Throwable {
         WebElement webElement = null;
@@ -185,7 +88,6 @@ public class US5StepDefs {
 
         webElement.click();
     }
-
 
 
     @And("^the field \"([^\"]*)\" should show \"([^\"]*)\" - USfive$")
@@ -264,6 +166,109 @@ public class US5StepDefs {
             ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//div[@id='dashboard']/div/div/h4[3]/a")), "https://www.youtube.com/watch?v=FTQbiNvZqaY");
         } else if (arg0.equals("Ficherio")) {
             ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//div[@id='dashboard']/div/div/h4[3]/a")), "test.pdf");
+        }
+    }
+
+    @And("^the \"([^\"]*)\" text should be shown - USfive$")
+    public void theTextShouldBeShownUSfive(String arg0) throws Throwable {
+        if (arg0.equals("new text")) {
+            assertEquals("Novo Texto",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new image")) {
+            assertEquals("Nova Imagem",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new video")) {
+            assertEquals("Novo Video",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new audioGuide")) {
+            assertEquals("Novo Áudio-guia",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new listItem")) {
+            assertEquals("Novo Item de Lista",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new emergencyContact")) {
+            assertEquals("Novo Contacto de Emergência",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new annex")) {
+            assertEquals("Novo Anexo",driver.findElement(By.className("my-caregivers-legend")).getText());
+        } else if (arg0.equals("new composite")) {
+            assertEquals("Novo Material Composto",driver.findElement(By.className("my-caregivers-legend")).getText());
+        }
+    }
+
+    @Then("^the \"([^\"]*)\" error message should be shown - USfive$")
+    public void theErrorMessageShouldBeShownUSfive(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("help-block")),arg0));
+    }
+
+    @When("^I press the \"([^\"]*)\" material button -USfive$")
+    public void iPressTheMaterialButtonUSfive(String arg0) throws Throwable {
+        WebElement webElement = null;
+
+        if (arg0.equals("new text")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Texto')]"));
+        } else if (arg0.equals("new image")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Nova Imagem')]"));
+        } else if (arg0.equals("new video")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Video')]"));
+        } else if (arg0.equals("new audioGuide")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Áudio-guia')]"));
+        } else if (arg0.equals("new listItem")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Item de Lista')]"));
+        } else if (arg0.equals("new emergencyContact")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Contacto de Emergência')]"));
+        } else if (arg0.equals("new annex")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Anexo')]"));
+        } else if (arg0.equals("new composite")) {
+            webElement = driver.findElement(By.xpath("//a[contains(text(),'Novo Composto')]"));
+        }
+
+        webElement.click();
+    }
+
+    @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\" - USfive$")
+    public void iFillTheFieldWithUSfive(String arg0, String arg1) throws Throwable {
+        WebElement field = null;
+        Select select = null;
+        Random rand = new Random();
+        if (arg0.equals("name")) {
+            this.random = rand.nextInt(9000000) + 1000000;
+            arg1 = arg1 + this.random;
+            field = driver.findElement(By.id("inputName"));
+        } else if (arg0.equals("description")) {
+            field = driver.findElement(By.id("inputDescription"));
+        } else if (arg0.equals("body")) {
+            field = driver.findElement(By.id("body"));
+        } else if (arg0.equals("pathImage")) {
+            field = driver.findElement(By.name("pathImage"));
+        } else if (arg0.equals("pathVideo")) {
+            field = driver.findElement(By.name("pathVideo"));
+        } else if (arg0.equals("pathAudioGuide")) {
+            field = driver.findElement(By.name("pathAudioGuide"));
+        } else if (arg0.equals("listItemMarker")) {
+            field = driver.findElement(By.name("listItemMarker"));
+        } else  if (arg0.equals("listItemDetailedDescription")) {
+            field = driver.findElement(By.name("listItemDetailedDescription"));
+        } else if (arg0.equals("number")) {
+            field = driver.findElement(By.id("inputNumber"));
+        } else if (arg0.equals("selectType")) {
+            select =  new Select(driver.findElement(By.xpath("//div[3]/div/button")));
+        } else if (arg0.equals("url")) {
+            select =  new Select(driver.findElement(By.id("inputUrl")));
+        } else if (arg0.equals("pathAnnex")) {
+            field = driver.findElement(By.name("pathAnnex"));
+        }
+
+        if (select != null) {
+            select.selectByVisibleText(arg1);
+        }
+
+        if (arg0.equals("pathImage")) {
+            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.jpg");
+        } else if (arg0.equals("pathVideo")){
+            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.mp4");
+        }else if (arg0.equals("pathAudioGuide")){
+            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.mp3");
+        } else if (arg0.equals("pathAnnex")){
+            field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.pdf");
+        } else {
+            field.clear();
+            field.sendKeys(arg1);
         }
     }
 }

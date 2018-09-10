@@ -44,8 +44,8 @@ public class US4StepDefs {
         driver.quit();
     }
 
-    @Given("^I access the \"([^\"]*)\" dashboard$")
-    public void iAccessTheDashboard(String arg0) throws Throwable {
+    @Given("^I access the \"([^\"]*)\" dashboard - USfour$")
+    public void iAccessTheDashboardUSfour(String arg0) throws Throwable {
         driver.get("http://35.240.44.156/needs");
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("dashboard")),"Necessidades"));
@@ -97,8 +97,8 @@ public class US4StepDefs {
         }
     }
 
-    @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\"$")
-    public void iFillTheFieldWith(String arg0, String arg1) throws Throwable {
+    @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\" - USfour$")
+    public void iFillTheFieldWithUSfour(String arg0, String arg1) throws Throwable {
         WebElement field = driver.findElement(By.id("inputDescription"));
         if (arg1.equals("Cucumber")) {
             Random rand = new Random();
@@ -127,7 +127,7 @@ public class US4StepDefs {
         searchbox.sendKeys(arg1);
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//table[@id='needs']/tbody/tr/td")), arg1));
-        WebElement webElement = driver.findElement(By.xpath("//td[3]/div/div/a"));
+        WebElement webElement = driver.findElement(By.xpath("//table[@id='needs']/tbody/tr/td[3]/div/div/a"));
         webElement.click();
     }
 
@@ -233,15 +233,14 @@ public class US4StepDefs {
 
     }
 
-
-    @Then("^the \"([^\"]*)\" error message should be shown$")
-    public void theErrorMessageShouldBeShown(String arg0) throws Throwable {
+    @Then("^the \"([^\"]*)\" error message should be shown - USfour$")
+    public void theErrorMessageShouldBeShownUSfour(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
     }
 
-    @When("^the \"([^\"]*)\" field is empty$")
-    public void theFieldIsEmpty(String arg0) throws Throwable {
+    @When("^the \"([^\"]*)\" field is empty - USfour$")
+    public void theFieldIsEmptyUSfour(String arg0) throws Throwable {
         WebElement webElement = driver.findElement(By.id("inputDescription"));
         webElement.clear();
     }

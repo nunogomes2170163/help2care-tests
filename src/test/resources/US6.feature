@@ -20,9 +20,9 @@ Feature: Manage Questions
 
   Scenario: Create New Question Successfully with Multiple Answers
     Given I access the "new question" page - USsix
-    When I fill the "question" field with "Cucumber"
-    And I fill the "selectType" field with "radio"
-    And I fill the "values" field with "Gosto muito;Não gosto;Sim;Não;"
+    When I fill the "question" field with "Cucumber" - USsix
+    And I fill the "selectType" field with "radio" - USsix
+    And I fill the "values" field with "Gosto muito;Não gosto;Sim;Não;" - USsix
     And I press the "create" button - USsix
     Then I should be redirected to the "questions" page - USsix
     And the "Cucumber" question should be present in the "questions" table
@@ -109,6 +109,7 @@ Feature: Manage Questions
   Scenario Outline: Question with Multiple Answers with no options
     Given I access the "<page>" page - USsix
     When I fill the "question" field with "Cucumber" - USsix
+    And I fill the "selectType" field with "radio" "<page>" - USsix
     And the "values" field is empty - USsix
     And I press the "<button>" button - USsix
     Then the "O campo "Opções" tem que terminar com ";"." error message should be shown - USsix
@@ -121,6 +122,7 @@ Feature: Manage Questions
   Scenario Outline: Question of Multiple Answers with options less then min length
     Given I access the "<page>" page - USsix
     When I fill the "question" field with "Cucumber" - USsix
+    And I fill the "selectType" field with "radio" "<page>" - USsix
     And I fill the "values" field with ";sim;;sim ;sim" - USsix
     And I press the "<button>" button - USsix
     Then the "O campo "Opções" não pode começar com ";"." error message should be shown - USsix

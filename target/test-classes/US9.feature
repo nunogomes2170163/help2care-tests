@@ -143,7 +143,6 @@ Feature: Manage Patients
     Then I should be redirected to the "details" page of the "Alberto Seixas" patient
     And there should be an entry on the evaluations table that contains the text "Cucumber New Evaluation Patient"
 
-  # Before running this test it is needed to delete the evaluation that provides the quiz to the patient defined on the test
   Scenario: Provide quiz on evaluations page of patients successfully
     Given I access the "provide quiz" page on the details page of the "Alberto Seixas" patient
     When I fill the "description" field with "Cucumber Provide Quiz Patient" - USnine
@@ -185,7 +184,7 @@ Feature: Manage Patients
     Then I should be redirected to the "details" page of the "Cucumber Provide Quiz Patient" evaluation
     And the field "description" should show "Cucumber Provide Quiz Patient" - USnine
     And the field "type" should show "Através da app" - USnine
-    And the field "model" should show "Questionário Instrumento de avaliação das capacidades do cuidador informal - Cuidar: Mobilidade" - USnine
+    And the field "model" should show "Questionário Instrumento de avaliação das capacidades do cuidador informal - Cuidar: Stress e Burnout" - USnine
     And the field "answerDate" should show "À espera de resposta" - USnine
     And the "edit" button should be present - USnine
     And the "back" button should be present - USnine

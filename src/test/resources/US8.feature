@@ -5,210 +5,226 @@ Feature: Manage Caregivers
 
   #CREATE
   Scenario: Access Caregiver Create Page
-    Given I access the "caregivers" page
-    When I press the "Novo Cuidador" button
-    Then I should be redirected to the "new caregiver" page
-    And the "Novo Cuidador" text should be shown
+    Given I access the "caregivers" dashboard - USeight
+    When I press the "new caregiver" button - USeight
+    Then I should be redirected to the "new caregiver" page - USeight
+    And the "Novo Cuidador" text should be shown - USeight
 
   Scenario: Create New Caregiver Successfully
-    Given I access the "new caregiver" page
-    When I fill the "username" field with "cucumber"
-    And I fill the "name" field with "Cucumber"
-    And I fill the "email" field with "cucumber@gmail.com"
-    And I fill the "gender" field with "male"
-    And I fill the "birthDate" field with "12-12-1994"
-    And I fill the "experienceNumber" field with "7"
-    And I fill the "experiencePeriod" field with "years"
-    And I fill the "password" field with "cucumber"
-    And I fill the "password_confirmation" field with "cucumber"
-    And I press the "Criar" button
-    Then I should be redirected to the "admin" dashboard
+    Given I access the "new caregiver" page - USeight
+    When I fill the "username" field with "cucumber" - USeight
+    And I fill the "name" field with "Cucumber" - USeight
+    And I fill the "email" field with "cucumber@gmail.com" - USeight
+    And I fill the "gender" field with "Masculino" - USeight
+    And I fill the "birthDate" field with "12-12-1994" - USeight
+    And I fill the "experienceNumber" field with "7" - USeight
+    And I fill the "experiencePeriod" field with "years" - USeight
+    And I fill the "password" field with "cucumber" - USeight
+    And I fill the "password_confirmation" field with "cucumber" - USeight
+    And I press the "create" button - USeight
+    Then I should be redirected to the "caregivers" page - USeight
     And the "Cucumber" caregiver should be present in the "caregivers" table
-    And the caregiver should be present in the "my caregivers" table
+    And the "Cucumber" caregiver should be present in the "my caregivers" table
 
   #DETAILS
-  Scenario: Access Caregiver Details Page
-    Given I access the "healthcare professional" dashboard
-    When I press the "Detalhes" button of the first entry of the "my caregivers" table
-    Then I should be redirected to the "details" page of that caregiver
-    And the field "Utilizador" should show "dsfghjk"
-    And the field "Nome" should show "asdfghj"
-    And the field "Função" should show "Cuidador"
-    And the field "Email" should show "joao.e.caroc1o@ipleiria.pt"
-    And the field "Data de Nascimento" should show "26-07-1992"
-    And the field "Localização" should show "Leiria"
-    And the field "Género" should show "Masculino"
-    And the field "Tempo de experiência como cuidador" should show "0 Mês/Meses"
-    And the field "Nº Profissionais de Saúde" should show "1/2"
-    And the field "Criador" should show "admin"
-    And the field "Data da criação" should show "2018-08-07 11:07:10"
-    And the "Editar" button should be present
-    And the "Bloquear" button should be present
-    And the "Materiais" button should be present
-    And the "Utentes" button should be present
-    And the "Avaliações" button should be present
-    And the "Voltar Atrás" button should be present
+  Scenario: Access Caregiver Details Page of the healthcare profissional
+    Given I access the "healthcare professional" dashboard - USeight
+    When I press the details button of the "Caregiver" caregiver on the "my caregivers" table
+    Then I should be redirected to the "details" page of the "Caregiver" caregiver
+    And the field "username" should show "caregiver" - USeight
+    And the field "name" should show "Caregiver" - USeight
+    And the field "email" should show "caregiver@mail.com" - USeight
+    And the field "role" should show "Cuidador" - USeight
+    And the field "birthDate" should show "02-02-2018" - USeight
+    And the field "location" should show "Leiria" - USeight
+    And the field "gender" should show "Masculino" - USeight
+    And the field "experienceTimeAsCaregiver" should show "0 Ano/s" - USeight
+    And the field "nHealthcareProfissionals" should show "2/2" - USeight
+    And the "edit" button should be present - USeight
+    And the "block" button should be present - USeight
+    And the "materials" button should be present - USeight
+    And the "patients" button should be present - USeight
+    And the "evaluations" button should be present - USeight
+    And the "back" button should be present - USeight
+
+  Scenario: Access Caregiver Details Page that does not belong to the healthcare profissional
+    Given I access the "caregivers" page - USeight
+    When I press the details button of the "Ana Peres" caregiver
+    Then I should be redirected to the "details" page of the "Ana Peres" caregiver
+    And the field "username" should show "ana.peres" - USeight
+    And the field "name" should show "Ana Peres" - USeight
+    And the field "email" should show "ana.nar.peres@gmail.com" - USeight
+    And the field "role" should show "Cuidador" - USeight
+    And the field "birthDate" should show "02-02-2018" - USeight
+    And the field "location" should show "Leiria" - USeight
+    And the field "gender" should show "Feminino" - USeight
+    And the field "experienceTimeAsCaregiver" should show "0 Ano/s" - USeight
+    And the field "nHealthcareProfissionals" should show "0/2" - USeight
+    And the "edit" button should be present - USeight
+    And the "block" button should be present - USeight
+    And the "back" button should be present - USeight
 
   #EDIT
   Scenario: Access Caregiver Edit Page
     Given I access the "details" page of the "Helena Carvalho" caregiver
-    When I press the "Editar" button
-    Then I should be redirected to the "edit" page of the user
-    And the field "name" should show "Helena Carvalho"
-    And the field "email" should show "helena.carvalho@mail.com"
-    And the field "gender" should show "Feminino"
-    And the field "birthDate" should show "26-07-1992"
-    And the field "location" should show "Leiria"
-    And the field "experienceNumber" should show "0"
-    And the field "experiencePeriod" should show "Ano/s"
-    And the field "password" should be empty
-    And the field "password_confirmation" should be empty
-    And the "Guardar" button should be present
-    And the "Cancelar" button should be present
+    When I press the "edit" button - USeight
+    Then I should be redirected to the "edit" page of the "Helena Carvalho" caregiver
+    And the field "name edit" should show "Helena Carvalho" - USeight
+    And the field "email edit" should show "helena.carvalho@mail.com" - USeight
+    And the field "gender edit" should show "Feminino" - USeight
+    And the field "birthDate edit" should show "02-02-2018" - USeight
+    And the field "location edit" should show "Leiria" - USeight
+    And the field "experienceNumber edit" should show "0" - USeight
+    And the field "experiencePeriod edit" should show "Ano/s" - USeight
+    And the field "password" should be empty - USeight
+    And the field "password_confirmation" should be empty - USeight
+    And the "save" button should be present - USeight
+    And the "cancel" button should be present - USeight
 
   Scenario: Edit Caregiver User Successfully Without Password
-    Given I access the "edit" page of the "Helena Carvalho"
-    When I fill the "name" field with "Helena Carvalho"
-    And I fill the "email" field with "helena.carvalho@mail.com"
-    And I fill the "gender" field with "Feminino"
-    And I fill the "birthDate" field with "26-07-1992"
-    And I fill the "location" field with "Leiria"
-    And I fill the "experienceNumber" field with "1"
-    And I fill the "experiencePeriod" field with "Ano/s"
-    And I press the "Guardar" button
-    Then I should be redirected to the "details" page of the "Helena Carvalho"
-    And the field "Utilizador" should show "helena.carvalho"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Cuidador"
-    And the field "Data de Nascimento" should show the new birthDate
-    And the field "Localização" should show the new location
-    And the field "Género" should show the new gender
-    And the field "Tempo de experiência como cuidador" should show the new experienceNumber and experiencePeriod
-    And the field "Nº Profissionais de Saúde" should show "1/2"
-    And the field "Criador" should show "admin"
-    And the field "Data da última atualização" should different from the previous
-    And should be present a log at the "Registos" section
+    Given I access the "edit" page of the "Ana Silva" caregiver
+    When I fill the "name" field with "Ana Catarina Silva" - USeight
+    And I fill the "email" field with "ana.catarina272@hotmail.com" - USeight
+    And I fill the "gender" field with "Feminino" - USeight
+    And I fill the "birthDate" field with "26-07-1992" - USeight
+    And I fill the "location" field with "Lisboa" - USeight
+    And I fill the "experienceNumber" field with "1" - USeight
+    And I fill the "experiencePeriod" field with "Ano/s" - USeight
+    And I press the "save" button - USeight
+    Then I should be redirected to the "details" page of the "Ana Silva" caregiver
+    And the field "username" should show "ana.silva" - USeight
+    And the field "name" should show "Ana Catarina Silva" - USeight
+    And the field "email edit succ" should show "ana.catarina272@hotmail.com" - USeight
+    And the field "role" should show "Cuidador" - USeight
+    And the field "birthDate" should show "26-07-1992" - USeight
+    And the field "location" should show "Lisboa" - USeight
+    And the field "gender" should show "Feminino" - USeight
+    And the field "experienceTimeAsCaregiver" should show "1 Ano/s" - USeight
+    And the field "nHealthcareProfissionals" should show "0/2" - USeight
+    And the field "Data da última atualização" should different from the previous - USeight
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USeight
 
   Scenario: Edit Caregiver User Successfully With Password
-    Given I access the "edit" page of the "Helena Carvalho"
-    When I fill the "name" field with "Helena Carvalho"
-    And I fill the "email" field with "helena.carvalho@mail.com"
-    And I fill the "gender" field with "Feminino"
-    And I fill the "birthDate" field with "26-07-1992"
-    And I fill the "location" field with "Leiria"
-    And I fill the "experienceNumber" field with "0"
-    And I fill the "experiencePeriod" field with "Ano/s"
-    And I fill the "facility" field with "Leiria"
-    And I fill the "password_confirmation" field with "123123"
-    And I press the "Guardar" button
-    Then I should be redirected to the "details" page of the "Helena Carvalho"
-    And the field "Utilizador" should show "helena.carvalho"
-    And the field "Nome" should show the new name
-    And the field "Email" should show the new email
-    And the field "Função" should show "Cuidador"
-    And the field "Data de Nascimento" should show the new birthDate
-    And the field "Localização" should show the new location
-    And the field "Género" should show the new gender
-    And the field "Tempo de experiência como cuidador" should show the new experienceNumber and experiencePeriod
-    And the field "Nº Profissionais de Saúde" should show "1/2"
-    And the field "Criador" should show "admin"
-    And the field "Data da criação" should show "2018-04-14 10:41:04"
-    And the field "Data da última atualização" should different from the previous
-    And should be present a log at the "Registos" section
+    Given I access the "edit" page of the "Ana Catarina Silva" caregiver
+    When I fill the "name" field with "Ana Silva" - USeight
+    And I fill the "email" field with "ana.catarina272@hotmail.com" - USeight
+    And I fill the "gender" field with "Feminino" - USeight
+    And I fill the "birthDate" field with "20-09-1992" - USeight
+    And I fill the "location" field with "Leiria" - USeight
+    And I fill the "experienceNumber" field with "2" - USeight
+    And I fill the "experiencePeriod" field with "Ano/s" - USeight
+    And I fill the "password" field with "123123" - USeight
+    And I fill the "password_confirmation" field with "123123" - USeight
+    And I press the "save" button - USeight
+    Then I should be redirected to the "details" page of the "Ana Silva" caregiver
+    And the field "username" should show "helena.carvalho" - USeight
+    And the field "name" should show "Ana Silva" - USeight
+    And the field "email edit succ" should show "ana.catarina272@hotmail.com" - USeight
+    And the field "role" should show "Cuidador" - USeight
+    And the field "birthDate" should show "20-09-1992" - USeight
+    And the field "location" should show "Leiria" - USeight
+    And the field "gender" should show "Feminino" - USeight
+    And the field "experienceTimeAsCaregiver" should show "2 Ano/s" - USeight
+    And the field "nHealthcareProfissionals" should show "0/2" - USeight
+    And the field "Data da última atualização" should different from the previous - USeight
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USeight
 
-  #ASSOCIATING and DESASSOCIATING CAREGIVERS
+  #ASSOCIATING and DISASSOCIATING CAREGIVERS
   Scenario: Associating Caregiver to Healthcare Professional
-    Given I access the "healthcare professional" dashboard
-    And the "my caregivers" table have 4 entries
-    When I press the "Associar" button from the first entry of the "other caregivers" table
-    Then I should have one more caregiver in the "my caregivers" table
+    Given I access the "healthcare professional" dashboard - USeight
+    And the my caregivers table have 2 entries
+    When I press the "associate" button of the "Ana Luisa Roque" caregiver on the "other caregivers" table
+    Then the my caregivers table should have 3 entries
+    And the "Ana Luisa Roque" caregiver should be on the "my caregivers" table
+    And each "my caregivers" table entry should have the "disassociate" button
 
-  Scenario: Desassociating Caregiver to Healthcare Professional
-    Given I access the "healthcare professional" dashboard
-    And the "my caregivers" table have 5 entries
-    When I press the "Desassociar" button from the first entry of the "my caregivers" table
-    Then I should have one less caregiver in the "my caregivers" table
+  Scenario: Disassociating Caregiver to Healthcare Professional
+    Given I access the "healthcare professional" dashboard - USeight
+    And the my caregivers table have 3 entries
+    When I press the "disassociate" button of the "Ana Luisa Roque" caregiver on the "my caregivers" table
+    Then the my caregivers table should have 2 entries
+    And the "Ana Luisa Roque" caregiver should be on the "other caregivers" table
+    And each "other caregivers" table entry should have the "associate" button
 
   #ANSWER HELP REQUESTS
   Scenario: Access the Help Request Answer Page
-    Given I access the "healthcare professional" dashboard
-    And the "help requests" table have atleast one entry
-    When I press the "Ver pedido de ajuda" button
-    Then I should be redirected to the "answer help request" page
-    And the "Mensagem de ajuda do Cuidador: Caregiver" text should be present
+    Given I access the "healthcare professional" dashboard - USeight
+    And the "help requests" table have at least 1 entry
+    When I press the check help request button on the first entry of the help requests table
+    Then I should be redirected to the "answer help request" page of the "ELIMINAÇAO VESICAL - 2" material of the "Caregiver" caregiver
+    And the field "messageTitle" should show "Mensagem de ajuda do Cuidador: Caregiver" - USeight
+    And the field "material" should show "ELIMINAÇAO VESICAL - 2" - USeight
 
   Scenario: Answer the Help Request with text
-    Given I access the "answer help request" page
-    When I fill the "name" field with "Cucumber message"
-    And I press the "send" button
-    Then I should be in the same page
-    And the "Cucumber message" should be present in the "chat"
-    And the "name" field should be clear
+    Given I access the "answer help request" page - USeight
+    When I fill the "message" field with "Cucumber message" - USeight
+    And I press the "send" button - USeight
+    Then the "Cucumber message" text should be present in the last chat bubble
+    And the "message" field should be clear
 
   Scenario: Answer the Help Request with image
-    Given I access the "answer help request" page
-    When I fill the "image" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.jpg"
-    And I press the "send" button
-    Then I should be in the same page
-    And the image should be present in the "chat"
-    And the "name" field should be clear
+    Given I access the "answer help request" page - USeight
+    When I fill the "image" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.jpg" - USeight
+    Then the image should be present in the last chat bubble
+    And the "message" field should be clear
 
   Scenario: Answer the Help Request with image and text
-    Given I access the "answer help request" page
-    When I fill the "image" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.jpg"
-    And I fill the "name" field with "Cucumber message"
-    And I press the "send" button
-    Then I should be in the same page
-    And the image should be present in the "chat"
-    And the "Cucumber message" should be present in the "chat"
-    And the "name" field should be clear
+    Given I access the "answer help request" page - USeight
+    When I fill the "message" field with "Cucumber message" - USeight
+    And I fill the "image" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test_edit.jpg" - USeight
+    Then the image should be present in the last chat bubble
+    And the "Cucumber message" text should be present in the last chat bubble
+    And the "message" field should be clear
 
   #ASSOCIATING and DESASSOCIATING MATERIALS
   Scenario: Access Caregiver Materials Association Page
-    Given I access the "details" page of my "caregiver"
-    When I press the "Materiais" button
-    Then I should be redirected to the "caregiver materials" page
-    And the "Materiais de Caregiver" table should be present
-    And the "Associar Materiais" table should be present
+    Given I access the "details" page of the "Caregiver" caregiver
+    When I press the "materials" button - USeight
+    Then I should be redirected to the "caregiver materials" page of the "Caregiver" caregiver
+    And the "my materials" table should be present - USeight
+    And the "associate materials" section should be present
+    And the "need" select box should be present
+    And the "material" select box should be present
 
   Scenario: Associate Material to Caregiver
-    Given I access the "caregiver materials" page
-    And I have one materials in the "Materiais de Caregiver" table
-    When I select the "needtest1" need
-    And I select the "ELEMINAÇAO VESICAL 7"
-    And I press the "Associar" button
-    Then I should be in the same page
-    And I should have the "ELEMINAÇAO VESICAL 7" in the "Materiais de Caregiver" table
+    Given I access the "caregiver materials" page of the "Caregiver" caregiver
+    And the my materials table have 2 entries
+    When I fill the "need" field with "Mobilidade" - USeight
+    And I fill the "material" field with "Levantar uma pessoa do leito para a cadeira" - USeight
+    And I press the "associate" button - USeight
+    Then the my materials table should have 3 entries
+    And the "Levantar uma pessoa do leito para a cadeira" material should be on the "my materials" table
+    And each "my materials" table entry should have the "disassociate" button
 
-  Scenario: Desassociate Material from Caregiver
-    Given I access the "caregiver materials" page
-    And I have two materials in the "Materiais de Caregiver" table
-    When I press the "Desassociar" button of the last entry in the "Materiais de Caregiver" table
-    Then I should be in the same page
-    And I should have only one entry in the "Materiais de Caregiver" table
+  Scenario: Disassociate Material from Caregiver
+    Given I access the "caregiver materials" page of the "Caregiver" caregiver
+    And the my materials table have 3 entries
+    When I press the "disassociate" button of the "Levantar uma pessoa do leito para a cadeira" material on the "my materials" table
+    Then the my materials table should have 2 entries
 
   #ASSOCIATING and DESASSOCIATING PATIENTS
   Scenario: Access Caregiver Patients Association Page
-    Given I access the "details" page of my "caregiver"
-    When I press the "Utentes" button
-    Then I should be redirected to the "caregiver patients" page
-    And the "Utentes de Caregiver" table should be present
-    And the "Utentes Sem Cuidador" table should be present
+    Given I access the "details" page of my "Caregiver" caregiver
+    When I press the "patients" button - USeight
+    Then I should be redirected to the "caregiver patients" page of the "Caregiver" caregiver
+    And the "my patients" table should be present - USeight
+    And the "other patients" table should be present - USeight
 
   Scenario: Associate Patient to Caregiver
-    Given I access the "caregiver patients" page
-    And I have two patients in the "Utentes de Caregiver" table
-    When I press the "Associar" button of the first entry of the "Utentes Sem Cuidador" table
-    Then I should be in the same page
-    And I should have three entries in the "Utentes Sem Cuidador" table
+    Given I access the "caregiver patients" page of the "Helena Carvalho" caregiver
+    And the my patients table have 2 entries
+    When I press the "associate" button of the "Maria João" patient on the "other patients" table
+    Then the my patients table should have 3 entries
+    And the "Maria João" patient should be on the "my patients" table
+    And each "my patients" table entry should have the "disassociate" button
 
   Scenario: Desassociate Patient from Caregiver
-    Given I access the "caregiver patients" page
-    And I have two patients in the "Utentes de Caregiver" table
-    When I press the "Desassociar" button of the last entry in the "Utentes de Caregiver" table
-    Then I should be in the same page
-    And I should have only two entries in the "Utentes de Caregiver" table
+    Given I access the "caregiver patients" page of the "Helena Carvalho" caregiver
+    And the my patients table have 3 entries
+    When I press the "disassociate" button of the "Maria João" patient on the "my patients" table
+    Then the my patients table should have 2 entries
+    And the "Maria João" patient should be on the "other patients" table
+    And each "other patients" table entry should have the "associate" button
 
   #EVALUATION
   # CREATES

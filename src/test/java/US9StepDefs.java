@@ -72,8 +72,6 @@ public class US9StepDefs {
             webElement = driver.findElement(By.xpath("//button[@name='block']"));
         } else if (arg0.equals("unblock")) {
             webElement = driver.findElement(By.xpath("//button[@name='unblock']"));
-        } else if (arg0.equals("unblock")) {
-            webElement = driver.findElement(By.xpath("//button[@name='unblock']"));
         } else if (arg0.equals("needs")) {
             webElement = driver.findElement(By.xpath("//div[@id='dashboard']/div/div[2]/div/div[2]/div/div[2]/a"));
         } else if (arg0.equals("answerQuiz")) {
@@ -326,7 +324,6 @@ public class US9StepDefs {
         } else if (arg0.equals("model edit succ")){
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(1), "Modelo: " + arg1 + this.randomEval));
         }
-
     }
 
     @And("^the \"([^\"]*)\" button should be present - USnine$")

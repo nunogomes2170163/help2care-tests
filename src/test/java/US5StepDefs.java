@@ -247,15 +247,18 @@ public class US5StepDefs {
         } else if (arg0.equals("number")) {
             field = driver.findElement(By.id("inputNumber"));
         } else if (arg0.equals("selectType")) {
-            select =  new Select(driver.findElement(By.xpath("//div[3]/div/button")));
+            select =  new Select(driver.findElement(By.name("selectType")));
         } else if (arg0.equals("url")) {
-            select =  new Select(driver.findElement(By.id("inputUrl")));
+            select = null;
+            field = driver.findElement(By.name("url"));
         } else if (arg0.equals("pathAnnex")) {
             field = driver.findElement(By.name("pathAnnex"));
         }
 
         if (select != null) {
+            System.out.println("ABCD: " + arg1);
             select.selectByVisibleText(arg1);
+            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa :" + select.getFirstSelectedOption().getText());
         }
 
         if (arg0.equals("pathImage")) {
@@ -266,9 +269,10 @@ public class US5StepDefs {
             field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.mp3");
         } else if (arg0.equals("pathAnnex")){
             field.sendKeys("C:\\Users\\Joao Caroco\\Documents\\help2careservertests\\testFiles\\test.pdf");
-        } else {
-            field.clear();
+        } else if (select == null) {
+            //field.clear();
             field.sendKeys(arg1);
+            System.out.println("EFG: " + arg1);
         }
     }
 }

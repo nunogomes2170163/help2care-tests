@@ -51,7 +51,7 @@ Feature: Manage Needs
     And I press the "save" button - USfour
     Then I should be redirected to the "details" page of the "need" - USfour
     And the field "Necessidade" should show the new need - USfour
-    And should be present a log at the "Registos" section - USfour
+    And should be present a "Foi atualizada." log at the beggining of the logs section - USfour
 
   #ERRORS
   Scenario Outline: Description field already exists

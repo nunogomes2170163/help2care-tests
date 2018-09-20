@@ -80,7 +80,7 @@ Feature: Manage Users
     And the field "função" should show "Profissional de Saúde"
     And the field "job" should show "Enfermeira"
     And the field "facility" should show "Leiria"
-    And the field "created_at" should show "2018-06-13 14:34:58"
+    And the field "created_at" should show "2018-09-20 12:38:27"
     And the "edit" button should be present
     And the "block" button should be present
     And the "back" button should be present
@@ -141,7 +141,7 @@ Feature: Manage Users
     And the field "name" should show the new "name"
     And the field "email" should show the new "email"
     And the field "função" should show "Administador"
-    And should be present a log at the "Registos" section
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USfour
 
   Scenario: Edit Admin User Successfully With Password
     Given I access the "edit" page of the Cucumber "admin"
@@ -155,7 +155,7 @@ Feature: Manage Users
     And the field "name" should show the new "name"
     And the field "email" should show the new "email"
     And the field "função" should show "Administador"
-    And should be present a log at the "Registos" section
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USfour
 
   Scenario: Access Healthcare Professional Edit Page
     Given I access the "details" page of the Cucumber "healthcare professional"
@@ -184,7 +184,7 @@ Feature: Manage Users
     And the field "função" should show "Profissional de Saúde"
     And the field "job" should show the new "job"
     And the field "facility" should show the new "facility"
-    And should be present a log at the "Registos" section
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USfour
 
   Scenario: Edit Healthcare Professional User Successfully With Password
     Given I access the "edit" page of the Cucumber "healthcare professional"
@@ -202,7 +202,7 @@ Feature: Manage Users
     And the field "função" should show "Profissional de Saúde"
     And the field "job" should show the new "job"
     And the field "facility" should show the new "facility"
-    And should be present a log at the "Registos" section
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USfour
 
   Scenario: Access Caregiver Edit Page
     Given I access the "details" page of the Cucumber "caregiver"
@@ -241,7 +241,7 @@ Feature: Manage Users
     And the field "experienceTime" should show the new "experienceTime"
     And the field "Nº Profissionais de Saúde" should show "1/2"
     And the field "Criador" should show "admin"
-    And should be present a log at the "Registos" section
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USfour
 
   Scenario: Edit Caregiver User Successfully With Password
     Given I access the "edit" page of the Cucumber "caregiver"
@@ -266,7 +266,7 @@ Feature: Manage Users
     And the field "experienceTime" should show the new "experienceTime"
     And the field "Nº Profissionais de Saúde" should show "1/2"
     And the field "Criador" should show "admin"
-    And should be present a log at the "Registos" section
+    And should be present a "Foi atualizado." log at the beggining of the logs section - USfour
 
   #ERRORS
   Scenario Outline: Username field empty
@@ -332,7 +332,7 @@ Feature: Manage Users
 
   Scenario Outline: Email field already in use
     Given I access the "<page>" page
-    When I fill the "email" field with "zecoroados@gmail.com" - USthree
+    When I fill the "email" field with "caregiver@mail.com" - USthree
     And I press the "<button>" button - USthree
     Then the "Email já existente. Escolha outro." error message should be shown - USthree
     Examples:

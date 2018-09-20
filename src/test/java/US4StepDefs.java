@@ -164,9 +164,9 @@ public class US4StepDefs {
     @Given("^I access the \"([^\"]*)\" page of the \"([^\"]*)\"$")
     public void iAccessThePageOfThe(String arg0, String arg1) throws Throwable {
         if (arg0.equals("details")) {
-            driver.get("http://35.240.44.156/needs/29");
+            driver.get("http://35.240.44.156/needs/27");
         } else if (arg0.equals("edit need")) {
-            driver.get("http://35.240.44.156/needs/29/edit");
+            driver.get("http://35.240.44.156/needs/27/edit");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Necessidade"));
         }
@@ -194,10 +194,6 @@ public class US4StepDefs {
         ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Alimentation" + this.random);
     }
 
-    @And("^should be present a log at the \"([^\"]*)\" section - USfour$")
-    public void shouldBePresentALogAtTheSectionUSfour(String arg0) throws Throwable {
-        //REVERSE ORDER
-    }
 
     @Given("^I access the \"([^\"]*)\" page of the \"([^\"]*)\" need$")
     public void iAccessThePageOfTheNeed(String arg0, String arg1) throws Throwable {
@@ -243,5 +239,11 @@ public class US4StepDefs {
     public void theFieldIsEmptyUSfour(String arg0) throws Throwable {
         WebElement webElement = driver.findElement(By.id("inputDescription"));
         webElement.clear();
+    }
+
+    @And("^should be present a \"([^\"]*)\" log at the beggining of the logs section - USfour$")
+    public void shouldBePresentALogAtTheBegginingOfTheLogsSectionUSfour(String arg0) throws Throwable {
+        String lastLog = driver.findElements(By.xpath("//table[@id='logs']/tbody/tr")).get(0).findElement(By.xpath(".//td")).getText();
+        assertEquals(arg0, lastLog);
     }
 }

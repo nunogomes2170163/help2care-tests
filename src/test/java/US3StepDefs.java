@@ -134,7 +134,7 @@ public class US3StepDefs {
             }
             field = driver.findElement(By.id("inputName"));
         } else if (arg0.equals("email")) {
-            if (!arg1.equals("non") && !arg1.equals("zecoroados@gmail.com")) {
+            if (!arg1.equals("non") && !arg1.equals("caregiver@mail.com")) {
                 arg1 = new StringBuilder(arg1).insert(arg1.length() - 10, this.random).toString();
             }
             field = driver.findElement(By.id("inputEmail"));
@@ -302,11 +302,11 @@ public class US3StepDefs {
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Utilizador: admin"));
         } else if (arg0.equals("edit") && arg1.equals("admin")) {
-            driver.get("http://35.240.44.156/users/104/edit");
+            driver.get("http://35.240.44.156/users/102/edit");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Administrador cucumber"));
         } else if (arg0.equals("details") && arg1.equals("healthcare professional")) {
-            driver.get("http://35.240.44.156/users/94");
+            driver.get("http://35.240.44.156/users/101");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Utilizador: alexandra.teixeira"));
         } else if (arg0.equals("edit") && arg1.equals("healthcare professional")) {
@@ -435,7 +435,7 @@ public class US3StepDefs {
     @Then("^the \"([^\"]*)\" error message should be shown - USthree$")
     public void theErrorMessageShouldBeShownUSthree(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert-danger")), arg0));
     }
 
     @When("^the \"([^\"]*)\" field is empty - USthree$")
@@ -475,4 +475,9 @@ public class US3StepDefs {
     }
 
 
+    @And("^should be present a \"([^\"]*)\" log at the beggining of the logs section - USfour$")
+    public void shouldBePresentALogAtTheBegginingOfTheLogsSectionUSfour(String arg0) throws Throwable {
+        String lastLog = driver.findElements(By.xpath("//table[@id='logs']/tbody/tr")).get(0).findElement(By.xpath(".//td")).getText();
+        assertEquals(arg0, lastLog);
+    }
 }

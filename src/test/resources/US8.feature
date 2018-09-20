@@ -130,6 +130,20 @@ Feature: Manage Caregivers
     And the field "Data da última atualização" should different from the previous - USeight
     And should be present a "Foi atualizado." log at the beggining of the logs section - USeight
 
+  #BLOCK AND UNBLOCK
+  Scenario: Block Quiz
+    Given I access the "details" page of the "caregiver" caregiver
+    When I press the "block" button - USeight
+    Then I should be redirected to the "details" page of the "caregiver" caregiver
+    And the "unblock" button should be present - USeight
+
+  Scenario: Unblock Quiz
+    Given I access the "details" page of the "caregiver" caregiver
+    And the caregiver is blocked
+    When I press the "unblock" button - USeight
+    Then I should be redirected to the "details" page of the "caregiver" caregiver
+    And the "block" button should be present - USeight
+
   #ASSOCIATING and DISASSOCIATING CAREGIVERS
   Scenario: Associating Caregiver to Healthcare Professional
     Given I access the "healthcare professional" dashboard - USeight
@@ -236,7 +250,7 @@ Feature: Manage Caregivers
   Scenario: Access evaluations page of caregivers
     Given I access the "details" page of the "caregiver" caregiver
     When I press the "evaluations" button - USeight
-    Then a table with the title "Avaliações de Caregiver" should be displayed
+    Then a table with the title "Avaliações de Caregiver" should be displayed - USeight
     And the "answerQuiz" button should be present - USeight
     And the "newEvaluation" button should be present - USeight
     And the "provideQuiz" button should be present - USeight

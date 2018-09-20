@@ -115,6 +115,12 @@ public class US8StepDefs {
         }
     }
 
+    @And("^the caregiver is blocked$")
+    public void theCaregiverIsBlocked() throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='unblock']")));
+    }
+
     @And("^the \"([^\"]*)\" text should be shown - USeight$")
     public void theTextShouldBeShownUSeight(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
@@ -738,8 +744,8 @@ public class US8StepDefs {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@id='messages']/ul/li[" + (allMessages - 1) + "]/span/a/img"))));
     }
 
-    @Then("^a table with the title \"([^\"]*)\" should be displayed$")
-    public void aTableWithTheTitleShouldBeDisplayed(String arg0) throws Throwable {
+    @Then("^a table with the title \"([^\"]*)\" should be displayed - USeight$")
+    public void aTableWithTheTitleShouldBeDisplayedUSeight(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.className("my-caregivers-legend"), arg0));
         assertTrue(driver.findElements(By.xpath("//table[@id='evaluations']/tbody/tr")).size() > 0);
@@ -989,4 +995,6 @@ public class US8StepDefs {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
     }
+
+
 }

@@ -6,726 +6,214 @@ formatter.feature({
   "id": "manage-caregivers",
   "keyword": "Feature"
 });
-formatter.scenarioOutline({
-  "line": 6,
-  "name": "Evaluation model min length",
-  "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 7,
-  "name": "I access the \"\u003cpage\u003e\" page - USeight",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "I fill the \"model\" field with \"12\" - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "I press the \"\u003cbutton\u003e\" button - USeight",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "the \"O modelo tem que ter pelo menos 3 letras\" error message should be shown - USeight",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 11,
-  "name": "",
-  "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length;",
-  "rows": [
-    {
-      "cells": [
-        "page",
-        "button"
-      ],
-      "line": 12,
-      "id": "manage-caregivers;evaluation-model-min-length;;1"
-    },
-    {
-      "cells": [
-        "new evaluation",
-        "save"
-      ],
-      "line": 13,
-      "id": "manage-caregivers;evaluation-model-min-length;;2"
-    },
-    {
-      "cells": [
-        "edit answer quiz",
-        "save"
-      ],
-      "line": 14,
-      "id": "manage-caregivers;evaluation-model-min-length;;3"
-    },
-    {
-      "cells": [
-        "edit evaluation",
-        "save"
-      ],
-      "line": 15,
-      "id": "manage-caregivers;evaluation-model-min-length;;4"
-    },
-    {
-      "cells": [
-        "edit provide quiz",
-        "save"
-      ],
-      "line": 16,
-      "id": "manage-caregivers;evaluation-model-min-length;;5"
-    },
-    {
-      "cells": [
-        "edit provide quiz material",
-        "save"
-      ],
-      "line": 17,
-      "id": "manage-caregivers;evaluation-model-min-length;;6"
-    }
-  ],
-  "keyword": "Examples"
-});
 formatter.before({
-  "duration": 4575182819,
+  "duration": 4620919273,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 13,
-  "name": "Evaluation model min length",
-  "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 7,
-  "name": "I access the \"new evaluation\" page - USeight",
-  "matchedColumns": [
-    0
+  "comments": [
+    {
+      "line": 7,
+      "value": "#BLOCK AND UNBLOCK"
+    }
   ],
-  "keyword": "Given "
-});
-formatter.step({
   "line": 8,
-  "name": "I fill the \"model\" field with \"12\" - USeight",
-  "keyword": "When "
+  "name": "Block Quiz",
+  "description": "",
+  "id": "manage-caregivers;block-quiz",
+  "type": "scenario",
+  "keyword": "Scenario"
 });
 formatter.step({
   "line": 9,
-  "name": "I press the \"save\" button - USeight",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "And "
+  "name": "I access the \"details\" page of the \"caregiver\" caregiver",
+  "keyword": "Given "
 });
 formatter.step({
   "line": 10,
-  "name": "the \"O modelo tem que ter pelo menos 3 letras\" error message should be shown - USeight",
+  "name": "I press the \"block\" button - USeight",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 11,
+  "name": "I should be redirected to the \"details\" page of the \"caregiver\" caregiver",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 12,
+  "name": "the \"unblock\" button should be present - USeight",
+  "keyword": "And "
+});
 formatter.match({
   "arguments": [
     {
-      "val": "new evaluation",
+      "val": "details",
       "offset": 14
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageUSeight(String)"
-});
-formatter.result({
-  "duration": 243049257,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "model",
-      "offset": 12
     },
     {
-      "val": "12",
-      "offset": 31
+      "val": "caregiver",
+      "offset": 36
     }
   ],
-  "location": "US8StepDefs.iFillTheFieldWithUSeight(String,String)"
+  "location": "US8StepDefs.iAccessThePageOfTheCaregiver(String,String)"
 });
 formatter.result({
-  "duration": 57737086,
+  "duration": 547682891,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "save",
+      "val": "block",
       "offset": 13
     }
   ],
   "location": "US8StepDefs.iPressTheButtonUSeight(String)"
 });
 formatter.result({
-  "duration": 347868071,
+  "duration": 1364619288,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "O modelo tem que ter pelo menos 3 letras",
+      "val": "details",
+      "offset": 31
+    },
+    {
+      "val": "caregiver",
+      "offset": 53
+    }
+  ],
+  "location": "US8StepDefs.iShouldBeRedirectedToThePageOfTheCaregiver(String,String)"
+});
+formatter.result({
+  "duration": 43157492,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "unblock",
       "offset": 5
     }
   ],
-  "location": "US8StepDefs.theErrorMessageShouldBeShownUSeight(String)"
+  "location": "US8StepDefs.theButtonShouldBePresentUSeight(String)"
 });
 formatter.result({
-  "duration": 28952417,
+  "duration": 14214921,
   "status": "passed"
 });
 formatter.after({
-  "duration": 537352094,
+  "duration": 535757747,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3490895777,
+  "duration": 3000880319,
   "status": "passed"
 });
 formatter.scenario({
   "line": 14,
-  "name": "Evaluation model min length",
+  "name": "Unblock Quiz",
   "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length;;3",
+  "id": "manage-caregivers;unblock-quiz",
   "type": "scenario",
-  "keyword": "Scenario Outline"
+  "keyword": "Scenario"
 });
 formatter.step({
-  "line": 7,
-  "name": "I access the \"edit answer quiz\" page - USeight",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "I fill the \"model\" field with \"12\" - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "I press the \"save\" button - USeight",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "the \"O modelo tem que ter pelo menos 3 letras\" error message should be shown - USeight",
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "edit answer quiz",
-      "offset": 14
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageUSeight(String)"
-});
-formatter.result({
-  "duration": 222094830,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "model",
-      "offset": 12
-    },
-    {
-      "val": "12",
-      "offset": 31
-    }
-  ],
-  "location": "US8StepDefs.iFillTheFieldWithUSeight(String,String)"
-});
-formatter.result({
-  "duration": 59163682,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "save",
-      "offset": 13
-    }
-  ],
-  "location": "US8StepDefs.iPressTheButtonUSeight(String)"
-});
-formatter.result({
-  "duration": 333316194,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "O modelo tem que ter pelo menos 3 letras",
-      "offset": 5
-    }
-  ],
-  "location": "US8StepDefs.theErrorMessageShouldBeShownUSeight(String)"
-});
-formatter.result({
-  "duration": 26480304,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 530490422,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 3004495678,
-  "status": "passed"
-});
-formatter.scenario({
   "line": 15,
-  "name": "Evaluation model min length",
-  "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length;;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 7,
-  "name": "I access the \"edit evaluation\" page - USeight",
-  "matchedColumns": [
-    0
-  ],
+  "name": "I access the \"details\" page of the \"caregiver\" caregiver",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 8,
-  "name": "I fill the \"model\" field with \"12\" - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "I press the \"save\" button - USeight",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "the \"O modelo tem que ter pelo menos 3 letras\" error message should be shown - USeight",
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "edit evaluation",
-      "offset": 14
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageUSeight(String)"
-});
-formatter.result({
-  "duration": 237405226,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "model",
-      "offset": 12
-    },
-    {
-      "val": "12",
-      "offset": 31
-    }
-  ],
-  "location": "US8StepDefs.iFillTheFieldWithUSeight(String,String)"
-});
-formatter.result({
-  "duration": 57776105,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "save",
-      "offset": 13
-    }
-  ],
-  "location": "US8StepDefs.iPressTheButtonUSeight(String)"
-});
-formatter.result({
-  "duration": 328913507,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "O modelo tem que ter pelo menos 3 letras",
-      "offset": 5
-    }
-  ],
-  "location": "US8StepDefs.theErrorMessageShouldBeShownUSeight(String)"
-});
-formatter.result({
-  "duration": 26024829,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 530405089,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 3974930612,
-  "status": "passed"
-});
-formatter.scenario({
   "line": 16,
-  "name": "Evaluation model min length",
-  "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length;;5",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 7,
-  "name": "I access the \"edit provide quiz\" page - USeight",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "I fill the \"model\" field with \"12\" - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "I press the \"save\" button - USeight",
-  "matchedColumns": [
-    1
-  ],
+  "name": "the caregiver is blocked",
   "keyword": "And "
 });
 formatter.step({
-  "line": 10,
-  "name": "the \"O modelo tem que ter pelo menos 3 letras\" error message should be shown - USeight",
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "edit provide quiz",
-      "offset": 14
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageUSeight(String)"
-});
-formatter.result({
-  "duration": 239759185,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "model",
-      "offset": 12
-    },
-    {
-      "val": "12",
-      "offset": 31
-    }
-  ],
-  "location": "US8StepDefs.iFillTheFieldWithUSeight(String,String)"
-});
-formatter.result({
-  "duration": 55584790,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "save",
-      "offset": 13
-    }
-  ],
-  "location": "US8StepDefs.iPressTheButtonUSeight(String)"
-});
-formatter.result({
-  "duration": 392729312,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "O modelo tem que ter pelo menos 3 letras",
-      "offset": 5
-    }
-  ],
-  "location": "US8StepDefs.theErrorMessageShouldBeShownUSeight(String)"
-});
-formatter.result({
-  "duration": 25832647,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 531578239,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 3077147490,
-  "status": "passed"
-});
-formatter.scenario({
   "line": 17,
-  "name": "Evaluation model min length",
-  "description": "",
-  "id": "manage-caregivers;evaluation-model-min-length;;6",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 7,
-  "name": "I access the \"edit provide quiz material\" page - USeight",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "I fill the \"model\" field with \"12\" - USeight",
+  "name": "I press the \"unblock\" button - USeight",
   "keyword": "When "
 });
 formatter.step({
-  "line": 9,
-  "name": "I press the \"save\" button - USeight",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "the \"O modelo tem que ter pelo menos 3 letras\" error message should be shown - USeight",
+  "line": 18,
+  "name": "I should be redirected to the \"details\" page of the \"caregiver\" caregiver",
   "keyword": "Then "
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "edit provide quiz material",
-      "offset": 14
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageUSeight(String)"
-});
-formatter.result({
-  "duration": 251908603,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "model",
-      "offset": 12
-    },
-    {
-      "val": "12",
-      "offset": 31
-    }
-  ],
-  "location": "US8StepDefs.iFillTheFieldWithUSeight(String,String)"
-});
-formatter.result({
-  "duration": 58016789,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "save",
-      "offset": 13
-    }
-  ],
-  "location": "US8StepDefs.iPressTheButtonUSeight(String)"
-});
-formatter.result({
-  "duration": 281644336,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "O modelo tem que ter pelo menos 3 letras",
-      "offset": 5
-    }
-  ],
-  "location": "US8StepDefs.theErrorMessageShouldBeShownUSeight(String)"
-});
-formatter.result({
-  "duration": 26252385,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 531804335,
-  "status": "passed"
-});
-formatter.scenarioOutline({
+formatter.step({
   "line": 19,
-  "name": "Evaluation file empty",
-  "description": "",
-  "id": "manage-caregivers;evaluation-file-empty",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 20,
-  "name": "I access the \"\u003cpage\u003e\" page - USeight",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 21,
-  "name": "the \"path\" field is empty - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 22,
-  "name": "I press the \"\u003cbutton\u003e\" button - USeight",
+  "name": "the \"block\" button should be present - USeight",
   "keyword": "And "
 });
-formatter.step({
-  "line": 23,
-  "name": "the \"Introduza um ficheiro de avaliação.\" error message should be shown - USeight",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 24,
-  "name": "",
-  "description": "",
-  "id": "manage-caregivers;evaluation-file-empty;",
-  "rows": [
+formatter.match({
+  "arguments": [
     {
-      "cells": [
-        "page",
-        "button"
-      ],
-      "line": 25,
-      "id": "manage-caregivers;evaluation-file-empty;;1"
+      "val": "details",
+      "offset": 14
     },
     {
-      "cells": [
-        "new evaluation",
-        "save"
-      ],
-      "line": 26,
-      "id": "manage-caregivers;evaluation-file-empty;;2"
+      "val": "caregiver",
+      "offset": 36
     }
   ],
-  "keyword": "Examples"
-});
-formatter.before({
-  "duration": 4076049827,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 26,
-  "name": "Evaluation file empty",
-  "description": "",
-  "id": "manage-caregivers;evaluation-file-empty;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 20,
-  "name": "I access the \"new evaluation\" page - USeight",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 21,
-  "name": "the \"path\" field is empty - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 22,
-  "name": "I press the \"save\" button - USeight",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 23,
-  "name": "the \"Introduza um ficheiro de avaliação.\" error message should be shown - USeight",
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "new evaluation",
-      "offset": 14
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageUSeight(String)"
+  "location": "US8StepDefs.iAccessThePageOfTheCaregiver(String,String)"
 });
 formatter.result({
-  "duration": 203442579,
+  "duration": 460496341,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "path",
-      "offset": 5
-    }
-  ],
-  "location": "US8StepDefs.theFieldIsEmptyUSeight(String)"
+  "location": "US8StepDefs.theCaregiverIsBlocked()"
 });
 formatter.result({
-  "duration": 40602234,
+  "duration": 12939662,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "save",
+      "val": "unblock",
       "offset": 13
     }
   ],
   "location": "US8StepDefs.iPressTheButtonUSeight(String)"
 });
 formatter.result({
-  "duration": 349444185,
+  "duration": 376389447,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "Introduza um ficheiro de avaliação.",
+      "val": "details",
+      "offset": 31
+    },
+    {
+      "val": "caregiver",
+      "offset": 53
+    }
+  ],
+  "location": "US8StepDefs.iShouldBeRedirectedToThePageOfTheCaregiver(String,String)"
+});
+formatter.result({
+  "duration": 175363186,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "block",
       "offset": 5
     }
   ],
-  "location": "US8StepDefs.theErrorMessageShouldBeShownUSeight(String)"
+  "location": "US8StepDefs.theButtonShouldBePresentUSeight(String)"
 });
 formatter.result({
-  "duration": 28340132,
+  "duration": 12064449,
   "status": "passed"
 });
 formatter.after({
-  "duration": 532052677,
+  "duration": 534491605,
   "status": "passed"
 });
 });

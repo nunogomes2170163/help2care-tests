@@ -3,369 +3,6 @@ Feature: Manage Materials
   I want to managing all the training materials
   So that them can be used/viewed on the Mobile app
 
-  #CREATES
-  Scenario Outline: Access New Text Material Page
-    Given I access the "materials" page - USfive
-    When I press the "<page>" material button -USfive
-    Then I should be redirected to the "<page>" page - USfive
-    And the "<page>" text should be shown - USfive
-    Examples:
-      | page                  |
-      | new text              |
-      | new image             |
-      | new video             |
-      | new audioGuide        |
-      | new listItem          |
-      | new emergencyContact  |
-      | new annex             |
-      | new composite         |
-
-  Scenario: Create New Text Successfully
-    Given I access the "new text" page - USfive
-    When I fill the "name" field with "Cucumber Text" - USfive
-    And I fill the "description" field with "Cucumber Text Description" - USfive
-    And I fill the "body" field with "Cucumber Text Very Detailed Text" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Text" material - USfive
-    And the field "material" should show "Cucumber Text" - USfive
-    And the field "type" should show "Texto" - USfive
-    And the field "description" should show "Cucumber Text Description" - USfive
-    And the field "text" should show "Cucumber Text Very Detailed Text" - USfive
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Image Successfully
-    Given I access the "new image" page - USfive
-    When I fill the "name" field with "Cucumber Image" - USfive
-    And I fill the "description" field with "Cucumber Image Description" - USfive
-    And I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.jpg" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Image" material - USfive
-    And the field "material" should show "Cucumber Image" - USfive
-    And the field "type" should show "Imagem" - USfive
-    And the field "description" should show "Cucumber Image Description" - USfive
-    And the field "file" should show a "image"
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Video Successfully
-    Given I access the "new video" page - USfive
-    When I fill the "name" field with "Cucumber Video" - USfive
-    And I fill the "description" field with "Cucumber Video Description" - USfive
-    And I fill the "pathVideo" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp4" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Video" material - USfive
-    And the field "material" should show "Cucumber Video" - USfive
-    And the field "type" should show "Video" - USfive
-    And the field "drescription" should show "Cucumber Video Description" - USfive
-    And the field "file" should show a "video"
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Audio Guide Successfully
-    Given I access the "new audioGuide" page - USfive
-    When I fill the "name" field with "Cucumber Audio Guide" - USfive
-    And I fill the "description" field with "Cucumber Audio Guide Description" - USfive
-    And I fill the "pathAudioGuide" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp3" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Audio Guide" material - USfive
-    And the field "material" should show "Cucumber Audio Guide" - USfive
-    And the field "type" should show "Áudio-guia" - USfive
-    And the field "description" should show "Cucumber Audio Guide Description" - USfive
-    And the field "file" should show a "sound"
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New List Item Successfully
-    Given I access the "new listItem" page - USfive
-    When I fill the "name" field with "Cucumber List Item" - USfive
-    And I fill the "listItemMarker" field with "*" - USfive
-    And I fill the "description" field with "Cucumber List Item Description" - USfive
-    And I fill the "listItemDetailedDescription" field with "Cucumber List Item Very Detailed Text" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "List Item" material - USfive
-    And the field "material" should show "Cucumber List Item" - USfive
-    And the field "type" should show "Item de Lista" - USfive
-    And the field "listItemMarker" should show "*" - USfive
-    And the field "description" should show "Cucumber List Item Description" - USfive
-    And the field "listItemDetailedDescription" should show "Cucumber List Item Very Detailed Text" - USfive
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Emergency Contact Successfully
-    Given I access the "new emergencyContact" page - USfive
-    When I fill the "name" field with "Cucumber Emergency Contact" - USfive
-    And I fill the "description" field with "Cucumber Emergency Contact Description" - USfive
-    And I fill the "number" field with "999999999" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Emergency Contact" material - USfive
-    And the field "material" should show "Cucumber Emergency Contact" - USfive
-    And the field "type" should show "Contacto de Emergência" - USfive
-    And the field "description" should show "Cucumber Emergency Contact Description" - USfive
-    And the field "number" should show "999999999" - USfive
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Annex Link Successfully
-    Given I access the "new annex" page - USfive
-    When I fill the "name" field with "Cucumber Annex Link" - USfive
-    And I fill the "description" field with "Cucumber Annex Link Description" - USfive
-    And I fill the "selectType" field with "Link (Website, Video externo)" - USfive
-    And I fill the "url" field with "https://www.youtube.com/watch?v=FTQbiNvZqaY" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Annex Link" material - USfive
-    And the field "material" should show "Cucumber Annex Link" - USfive
-    And the field "type" should show "Anexo" - USfive
-    And the field "description" should show "Cucumber Annex Link Description" - USfive
-    And the field "url" should show "https://www.youtube.com/watch?v=FTQbiNvZqaY" - USfive
-    And the field "URL" must be clickable
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Annex File Successfully
-    Given I access the "new annex" page - USfive
-    When I fill the "name" field with "Cucumber Annex File" - USfive
-    And I fill the "description" field with "Cucumber Annex File Description" - USfive
-    And I fill the "selectType" field with "Ficheiro (PDF, docx, ...)" - USfive
-    And I fill the "pathAnnex" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.pdf" - USfive
-    And I press the "create" button - USfive
-    Then I should be redirected to the "details" page of the "Annex File" material - USfive
-    And the field "material" should show "Cucumber Annex File" - USfive
-    And the field "type" should show "Anexo" - USfive
-    And the field "description" should show "Cucumber Annex File Description" - USfive
-    And the field "file" should show "Cucumber Annex File.pdf" - USfive
-    And the field "Ficheiro" must be clickable
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-    And the first entry of the "Registos" table should contain the text "Foi criado."
-
-  Scenario: Create New Composite Successfully - part 1(create)
-    Given I access the "new composite" page - USfive
-    When I fill the "name" field with "Cucumber Composite" - USfive
-    And I fill the "description" field with "Cucumber Composite Description" - USfive
-    And I press the "add materials" button - USfive
-    Then I should be redirected to the "add materials" page - USfive
-    And the "other materials" table should be present - USfive
-    And the "material materials" table should be present - USfive
-
-  Scenario: Create New Composite Successfully - part 2(add materials)
-    Given I access the "composite add materials" page - USfive
-    And the other materials table have more than 2 entries
-    When I press the add button of the first row of the other materials table twice
-    Then the material materials table should have 2 entries
-    And the "first" entry of the material materials table should contain the text "Adad"
-    And the "first" entry of the material materials table should display "down" button
-    And the "first" entry of the material materials table should display "remove" button
-    And the "second" entry of the material materials table should contain the text "Administrar comprimidos por sonda"
-    And the "second" entry of the material materials table should display "up" button
-    And the "second" entry of the material materials table should display "remove" button
-
-  Scenario: Create New Composite Successfully - part 3(arrow down)
-    Given I access the "composite add materials" page - USfive
-    And the material materials table have 2 entries
-    When I press the "down" button of the first entry of the material materials table
-    Then the new "first" entry of the material materials table should be the "second" entry
-    And the new "second" entry of the material materials table should be the "first" entry
-
-  Scenario: Create New Composite Successfully - part 4(arrow up)
-    Given I access the "composite add materials" page - USfive
-    And the material materials table have 2 entries
-    When I press the "up" button of the second entry of the material materials table
-    Then the new "second" entry of the material materials table should be the "first" entry
-    And the new "first" entry of the material materials table should be the "second" entry
-
-  Scenario: Create New Composite Successfully - part 5(remove)
-    Given I access the "composite add materials" page - USfive
-    And the material materials table have 2 entries
-    When I press the "remove" button of the first entry of the material materials table
-    Then the material materials table should have 1 entry
-    And the new first entry of the material materials table should contain the text of the previous second entry
-
-  Scenario: Create New Composite Successfully - part 6(conclude)
-    Given I access the "composite add materials" page - USfive
-    When I press the "conclude" button - USfive
-    Then I should be redirected to the details page of the material
-    And the field "material composite" should show "Cucumber Composite" - USfive
-    And the field "type" should show "Composto" - USfive
-    And the field "description" should show "Cucumber Composite Description" - USfive
-    And a table with the title "Materiais Associados" should be displayed - USfive
-    And the materials associated table should have at least 1 entry
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-
-
-    #DETAILS
-  Scenario: Access Text Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Alimentação por sonda de gastrostomia" material - USfive
-    Then I should be redirected to the "details" page of "Alimentação por sonda de gastrostomia" material - USfive
-    And the field from details "materail" should show "Alimentação por sonda de gastrostomia" - USfive
-    And the field from details "type" should show "Texto" - USfive
-    And the field from details "description" should show "Alimentação por sonda de gastrostomia" - USfive
-    And the field from details "text" should show "oi :D o nuno é engraçado!" - USfive
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Image Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "ELIMINAÇAO VESICAL - 2" material - USfive
-    Then I should be redirected to the "details" page of "ELIMINAÇAO VESICAL - 2" material - USfive
-    And the field from details "material" should show "ELIMINAÇAO VESICAL - 2" - USfive
-    And the field from details "type" should show "Imagem" - USfive
-    And the field from details "description" should show "O esquema seguinte apresenta –nos os vários tipos de tratamento" - USfive
-    And the field from details "file" should show an image - USfive
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Video Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Administrar comprimidos por sonda" material - USfive
-    Then I should be redirected to the "details" page of "Administrar comprimidos por sonda" material - USfive
-    And the field from details "material" should show "Administrar comprimidos por sonda" - USfive
-    And the field from details "type" should show "Video" - USfive
-    And the field from details "description" should show "Administrar comprimidos por sonda" - USfive
-    And the field "file" should show a video - USfive
-    And the field "Criador" should show "admin" - USfive
-    And the field "Disponibilidade para o site público" should show "Não está disponível" - USfive
-    And the field "Disponibilidade para a aplicação móvel" should show "Está disponível" - USfive
-    And the field "Data da criação" should show "2018-06-14 22:29:08" - USfive
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Audio Guide Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Cucumber Audio Guide1425538" material - USfive
-    Then I should be redirected to the "details" page of "Cucumber Audio Guide1425538" material - USfive
-    And the field from details "material" should show "Cucumber Audio Guide1425538" - USfive
-    And the field from details "type" should show "Áudio-guia" - USfive
-    And the field from details "description" should show "Cucumber Audio Guide Description" - USfive
-    And the field from details "file" should show a sound - USfive
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access List Item Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Cucumber List Item1380840" material - USfive
-    Then I should be redirected to the "details" page of "Cucumber List Item1380840" material - USfive
-    And the field from details "material" should show "Cucumber List Item1380840" - USfive
-    And the field from details "type" should show "Item de Lista" - USfive
-    And the field from details "itemMarker" should show "*" - USfive
-    And the field from details "description" should show "Cucumber List Item Description" - USfive
-    And the field from details "detail_description" should show "Cucumber List Item Very Detailed Text" - USfive
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Emergency Contact Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Cucumber Emergency Contact4030181" material - USfive
-    Then I should be redirected to the "details" page of "Cucumber Emergency Contact4030181" material - USfive
-    And the field from details "material" should show "Cucumber Emergency Contact4030181" - USfive
-    And the field from details "type" should show "Contacto de Emergência" - USfive
-    And the field from details "description" should show "Cucumber Emergency Contact Description" - USfive
-    And the field from details "number" should show "999999999" - USfive
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Annex Link Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Cucumber Annex Link8490043" material - USfive
-    Then I should be redirected to the "details" page of "Cucumber Annex Link8490043" material - USfive
-    And the field from details "material" should show "Cucumber Annex Link8490043" - USfive
-    And the field from details "type" should show "Anexo" - USfive
-    And the field from details "description" should show "Cucumber Annex Link Description" - USfive
-    And the field from details "url" should show "https://www.youtube.com/watch?v=FTQbiNvZqaY" - USfive
-    And the field "URL" must be clickable
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Annex File Material Details
-    Given I access the "materials" page - USfive
-    When I press the "Detalhes" button of the "Cucumber Annex File2724209" material - USfive
-    Then I should be redirected to the "details" page of "Cucumber Annex File2724209" material - USfive
-    And the field from details "material" should show "Cucumber Annex File2724209" - USfive
-    And the field from details "type" should show "Anexo" - USfive
-    And the field from details "description" should show "Cucumber Annex File Description" - USfive
-    And the field from details "file" should show "Cucumber Annex File2724209.pdf" - USfive
-    And the field "Ficheiro" must be clickable
-    And the "Editar" button should be present - USfive
-    And the "Bloquear" button should be present - USfive
-    And the "Apagar" button should be present - USfive
-    And the "Voltar Atrás" button should be present - USfive
-
-  Scenario: Access Composite Material Details
-    Given I access the "materials" page - USfive
-    When I press the details button of the "TRANFERÊNCIAS v2" material
-    Then I should be redirected to the "details" page of "TRANFERÊNCIAS v2" material
-    And the field "material composite" should show "TRANFERÊNCIAS v2" - USfive
-    And the field "type" should show "Composto" - USfive
-    And the field "description" should show "TRANFERÊNCIAS" - USfive
-    And the "TRANFERÊNCIAS - 1" material should be present in the materials associated table - USfive
-    And the "TRANFERÊNCIAS - 2" material should be present in the materials associated table - USfive
-    And the "TRANFERÊNCIAS - 3" material should be present in the materials associated table - USfive
-    And the "TRANFERÊNCIAS - 4" material should be present in the materials associated table - USfive
-    And the "TRANFERÊNCIAS - 5" material should be present in the materials associated table - USfive
-    And the "Materiais relacionados" material should be present in the materials associated table - USfive
-    And the "Vídeo sobre como levantar uma pessoa do leito para a cadeira" material should be present in the materials associated table - USfive
-    And the "edit" button should be present - USfive
-    And the "block" button should be present - USfive
-    And the "delete" button should be present - USfive
-    And the "back" button should be present - USfive
-
-
-  #MATERIAL BLOCK & UNBLOCK
-  Scenario: Block Material on the Materials page
-    Given I access the "materials" page - USfive
-    And the "Cucumber Text2263972" material is unblocked - USfive
-    When I press the "Bloquear" button of the "Cucumber Text2263972" material - USfive
-    Then I should be redirected to the "materials" page - USfive
-    And the "Desbloquear" button should be present in the "Cucumber Text" material options
-
-  Scenario: Unblock Material on the Materials page
-    Given I access the "materials" page - USfive
-    And the "Cucumber Text2263972" material is blocked
-    When I press the "Desbloquear" button of the "Cucumber Text2263972" material - USfive
-    Then I should be redirected to the "materials" page - USfive
-    And the "Bloquear" button should be present in the "Cucumber Text" material options
-
   #NORMAL EDITS
   Scenario: Access Text Material Edit Page
     Given I access the "details" page of the "text" "Cucumber Text2263972" material - USfive
@@ -1022,174 +659,174 @@ Feature: Manage Materials
 
   #ERRORS
   Scenario Outline: Material name field empty
-    Given I access the "<page>" page - USfive
-    When the "name" field is empty - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When the "name" field is empty
+    And I press the <button> button
     Then the "O nome tem que ser preenchido." error message should be shown - USfive
     Examples:
       | page                  | button  |
-      | new text              | create  |
-      | new image             | create  |
-      | new video             | create  |
-      | new audioGuide        | create  |
-      | new listItem          | create  |
-      | new emergencyContact  | create  |
-      | new annex             | create  |
-      | new composite         | create  |
-      | edit text             | save    |
-      | edit image            | save    |
-      | edit video            | save    |
-      | edit audioGuide       | save    |
-      | edit listItem         | save    |
-      | edit emergencyContact | save    |
-      | edit annex            | save    |
-      | edit composite        | save    |
+      | new text              | Criar   |
+      | new image             | Criar   |
+      | new video             | Criar   |
+      | new audioGuide        | Criar   |
+      | new listItem          | Criar   |
+      | new emergencyContact  | Criar   |
+      | new annex             | Criar   |
+      | new composite         | Criar   |
+      | edit text             | Guardar |
+      | edit image            | Guardar |
+      | edit video            | Guardar |
+      | edit audioGuide       | Guardar |
+      | edit listItem         | Guardar |
+      | edit emergencyContact | Guardar |
+      | edit annex            | Guardar |
+      | edit composite        | Guardar |
 
   Scenario Outline: Material name field min length
-    Given I access the "<page>" page - USfive
-    When I fill the "name error" field with "12" - USfive
-    And I press the "<button>" button - USfive
-    Then the "O nome tem que ser maior que 4 letras." error message should be shown - USfive
+    Given I access the <page> page
+    When I fill the "name" field with "12" - USfive
+    And I press the <button> button
+    Then the "O nome tem que ser preenchido." error message should be shown - USfive
     Examples:
       | page                  | button  |
-      | new text              | create  |
-      | new image             | create  |
-      | new video             | create  |
-      | new audioGuide        | create  |
-      | new listItem          | create  |
-      | new emergencyContact  | create  |
-      | new annex             | create  |
-      | new composite         | create  |
-      | edit text             | save    |
-      | edit image            | save    |
-      | edit video            | save    |
-      | edit audioGuide       | save    |
-      | edit listItem         | save    |
-      | edit emergencyContact | save    |
-      | edit annex            | save    |
-      | edit composite        | save    |
+      | new text              | Criar   |
+      | new image             | Criar   |
+      | new video             | Criar   |
+      | new audioGuide        | Criar   |
+      | new listItem          | Criar   |
+      | new emergencyContact  | Criar   |
+      | new annex             | Criar   |
+      | new composite         | Criar   |
+      | edit text             | Guardar |
+      | edit image            | Guardar |
+      | edit video            | Guardar |
+      | edit audioGuide       | Guardar |
+      | edit listItem         | Guardar |
+      | edit emergencyContact | Guardar |
+      | edit annex            | Guardar |
+      | edit composite        | Guardar |
 
   Scenario Outline: Material name field unique
-    Given I access the "<page>" page - USfive
-    When I fill the "name error" field with "Alimentação por sonda" - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When I fill the "name" field with "Alimentação por PEG" - USfive
+    And I press the <button> button
     Then the "Esse nome já existe. Escolha outro." error message should be shown - USfive
     Examples:
       | page                  | button  |
-      | new text              | create  |
-      | new image             | create  |
-      | new video             | create  |
-      | new audioGuide        | create  |
-      | new listItem          | create  |
-      | new emergencyContact  | create  |
-      | new annex             | create  |
-      | new composite         | create  |
-      | edit text             | save    |
-      | edit image            | save    |
-      | edit video            | save    |
-      | edit audioGuide       | save    |
-      | edit listItem         | save    |
-      | edit emergencyContact | save    |
-      | edit annex            | save    |
-      | edit composite        | save    |
+      | new text              | Criar   |
+      | new image             | Criar   |
+      | new video             | Criar   |
+      | new audioGuide        | Criar   |
+      | new listItem          | Criar   |
+      | new emergencyContact  | Criar   |
+      | new annex             | Criar   |
+      | new composite         | Criar   |
+      | edit text             | Guardar |
+      | edit image            | Guardar |
+      | edit video            | Guardar |
+      | edit audioGuide       | Guardar |
+      | edit listItem         | Guardar |
+      | edit emergencyContact | Guardar |
+      | edit annex            | Guardar |
+      | edit composite        | Guardar |
 
   Scenario Outline: Material description field empty
-    Given I access the "<page>" page - USfive
-    When the "description" field is empty - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When the "description" field is empty
+    And I press the <button> button
     Then the "A descrição tem que ser preenchida." error message should be shown - USfive
     Examples:
       | page                  | button  |
-      | new text              | create  |
-      | new image             | create  |
-      | new video             | create  |
-      | new audioGuide        | create  |
-      | new listItem          | create  |
-      | new emergencyContact  | create  |
-      | new annex             | create  |
-      | new composite         | create  |
-      | edit text             | save    |
-      | edit image            | save    |
-      | edit video            | save    |
-      | edit audioGuide       | save    |
-      | edit listItem         | save    |
-      | edit emergencyContact | save    |
-      | edit annex            | save    |
-      | edit composite        | save    |
+      | new text              | Criar   |
+      | new image             | Criar   |
+      | new video             | Criar   |
+      | new audioGuide        | Criar   |
+      | new listItem          | Criar   |
+      | new emergencyContact  | Criar   |
+      | new annex             | Criar   |
+      | new composite         | Criar   |
+      | edit text             | Guardar |
+      | edit image            | Guardar |
+      | edit video            | Guardar |
+      | edit audioGuide       | Guardar |
+      | edit listItem         | Guardar |
+      | edit emergencyContact | Guardar |
+      | edit annex            | Guardar |
+      | edit composite        | Guardar |
 
   Scenario Outline: Material description field min length
-    Given I access the "<page>" page - USfive
+    Given I access the <page> page
     When I fill the "description" field with "12" - USfive
-    And I press the "<button>" button - USfive
-    Then the "A descrição tem que ser maior que 4 letras." error message should be shown - USfive
+    And I press the <button> button
+    Then the "Esse nome já existe. Escolha outro." error message should be shown - USfive
     Examples:
       | page                  | button  |
-      | new text              | create  |
-      | new image             | create  |
-      | new video             | create  |
-      | new audioGuide        | create  |
-      | new listItem          | create  |
-      | new emergencyContact  | create  |
-      | new annex             | create  |
-      | new composite         | create  |
-      | edit text             | save    |
-      | edit image            | save    |
-      | edit video            | save    |
-      | edit audioGuide       | save    |
-      | edit listItem         | save    |
-      | edit emergencyContact | save    |
-      | edit annex            | save    |
-      | edit composite        | save    |
+      | new text              | Criar   |
+      | new image             | Criar   |
+      | new video             | Criar   |
+      | new audioGuide        | Criar   |
+      | new listItem          | Criar   |
+      | new emergencyContact  | Criar   |
+      | new annex             | Criar   |
+      | new composite         | Criar   |
+      | edit text             | Guardar |
+      | edit image            | Guardar |
+      | edit video            | Guardar |
+      | edit audioGuide       | Guardar |
+      | edit listItem         | Guardar |
+      | edit emergencyContact | Guardar |
+      | edit annex            | Guardar |
+      | edit composite        | Guardar |
 
   Scenario Outline: Material Text body description empty
-    Given I access the "<page>" page - USfive
-    When the "body" field is empty - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When the "body" field is empty
+    And I press the <button> button
     Then the "O campo texto não pode ser vazio." error message should be shown - USfive
     Examples:
       | page      | button  |
-      | new text  | create  |
-      | edit text | save    |
+      | new text  | Criar   |
+      | edit text | Guardar |
 
   Scenario Outline: Material Item List marker empty
-    Given I access the "<page>" page - USfive
-    When the "listItemMarker" field is empty - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When the "listItemMarker" field is empty
+    And I press the <button> button
     Then the "O campo marcador do item de lista não pode ser vazio." error message should be shown - USfive
     Examples:
       | page          | button  |
-      | new itemList  | create  |
-      | edit itemList | save    |
+      | new itemList  | Criar   |
+      | edit itemList | Guardar |
 
   Scenario Outline: Material Item List marker regex
-    Given I access the "<page>" page - USfive
+    Given I access the <page> page
     When I fill the "listItemMarker" field with "asdasd" - USfive
-    And I press the "<button>" button - USfive
+    And I press the <button> button
     Then the "O campo marcador do item de lista só pode conter números (1, 2, ..., x), astericos (*) ou hífens (-)." error message should be shown - USfive
     Examples:
       | page          | button  |
-      | new itemList  | create  |
-      | edit itemList | save    |
+      | new itemList  | Criar   |
+      | edit itemList | Guardar |
 
   Scenario Outline: Material Image file empty
-    Given I access the "<page>" page - USfive
-    When the "pathImage" field is empty - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When the "pathImage" field is empty
+    And I press the <button> button
     Then the "Introduza uma imagem com um dos seguintes formatos: jpeg, png, jpg, gif, svg." error message should be shown - USfive
     Examples:
       | page       | button  |
-      | new image  | create  |
-      | edit image | save    |
+      | new image  | Criar   |
+      | edit image | Guardar |
 
   Scenario Outline: Material Image Mime regex
-    Given I access the "<page>" page - USfive
-    When I fill the "pathImage" field with "/home/zecoroados/apps/jenkins/jenkins_home/workspace/WebApp - Publish website to staging/testFiles/test.mp4" - USfive
-    And I press the "<button>" button - USfive
+    Given I access the <page> page
+    When I fill the "pathImage" field with "video" - USfive
+    And I press the <button> button
     Then the "A imagem tem que estar num dos seguintes formatos: jpeg, png, jpg, gif, svg." error message should be shown - USfive
     Examples:
       | page       | button  |
-      | new image  | create  |
-      | edit image | save    |
+      | new image  | Criar   |
+      | edit image | Guardar |
 
   Scenario Outline: Material Video file empty
     Given I access the <page> page

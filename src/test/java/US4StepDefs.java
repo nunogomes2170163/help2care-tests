@@ -100,7 +100,7 @@ public class US4StepDefs {
     @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\" - USfour$")
     public void iFillTheFieldWithUSfour(String arg0, String arg1) throws Throwable {
         WebElement field = driver.findElement(By.id("inputDescription"));
-        if (arg1.equals("Cucumber")) {
+        if (arg1.equals("Cucumber") || arg1.equals("Alimentation")) {
             Random rand = new Random();
             this.random = rand.nextInt(9000000) + 1000000;
             field.clear();
@@ -139,25 +139,11 @@ public class US4StepDefs {
 
     @And("^the field \"([^\"]*)\" should show \"([^\"]*)\" - USfour$")
     public void theFieldShouldShowUSfour(String arg0, String arg1) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("need")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Necessidade: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h2")).get(0), "Necessidade: " + arg1));
         } else if (arg0.equals("created_by")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h4")), "Criador: " + arg1);
-        }
-    }
-
-    @And("^the \"([^\"]*)\" button should be present - USfour$")
-    public void theButtonShouldBePresentUSfour(String arg0) throws Throwable {
-        if (arg0.equals("edit")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]"));
-        } else if (arg0.equals("delete")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]/button"));
-        } else if (arg0.equals("back")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]"));
-        } else if (arg0.equals("save")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']"));
-        } else if (arg0.equals("cancel")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]"));
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(1), "Criador: " + arg1));
         }
     }
 
@@ -178,9 +164,26 @@ public class US4StepDefs {
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Necessidade"));
     }
 
+    @And("^the \"([^\"]*)\" button should be present - USfour$")
+    public void theButtonShouldBePresentUSfour(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        if (arg0.equals("edit")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]")));
+        } else if (arg0.equals("delete")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]/button")));
+        } else if (arg0.equals("back")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]")));
+        } else if (arg0.equals("save")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']")));
+        } else if (arg0.equals("cancel")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]")));
+        }
+    }
+
     @And("^the editable field \"([^\"]*)\" should show \"([^\"]*)\" - USfour$")
     public void theEditableFieldShouldShowUSfour(String arg0, String arg1) throws Throwable {
-        ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputDescription")), arg1);
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputDescription")), arg1));
     }
 
     @Then("^I should be redirected to the \"([^\"]*)\" page of the \"([^\"]*)\" - USfour$")
@@ -191,7 +194,8 @@ public class US4StepDefs {
 
     @And("^the field \"([^\"]*)\" should show the new need - USfour$")
     public void theFieldShouldShowTheNewNeedUSfour(String arg0) throws Throwable {
-        ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Alimentation" + this.random);
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Alimentation" + this.random));
     }
 
 

@@ -96,7 +96,7 @@ public class US12StepDefs {
         }
     }
 
-    @Then("^the \"([^\"]*)\" error message should be shown on session (\\d+)$")
+    @Then("^the \"([^\"]*)\" error message should be shown on session (\\d+) - UStwelve$")
     public void theErrorMessageShouldBeShownOnSession(String arg0, int arg1) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver2, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver2.findElement(By.className("alert-warning")), arg0));

@@ -5,18 +5,18 @@ Feature: Observe Needs
 
   #DETAILS
   Scenario: Access Need Details
-    Given I access the "needs" page
-    When I press the "Detalhes" button of the "Acamado" need
-    Then I should be redirected to the "details" page of "Acamado" need
-    And the field "Necessidade" should show "Acamado"
-    And the field "Criador" should show "jose.silva"
-    And the "Materiais" button should be present
-    And the "Voltar Atrás" button should be present
+    Given I access the "needs" page - USten
+    When I press the "details" button of the "Acamado" need - USten
+    Then I should be redirected to the "details" page of "Acamado" need - USten
+    And the field "need" should show "Acamado" - USten
+    And the field "creator" should show "jose.silva" - USten
+    And the "materials" button should be present - USten
+    And the "back" button should be present - USten
 
   #MATERIALS
   Scenario: Access Need Materials Page
-  Given I access the "details" page of the "Acamado" need
-  When I press the "Materiais" button
-  Then I should be redirected to the "materials" page of the "need"
-  And should be present the text "Materiais de Acamado"
-  And should be present the "Alimentação por sonda de gastrostomia" material
+  Given I access the "details" page of the "Acamado" need - USten
+  When I press the "materials" button - USten
+  Then I should be redirected to the "materials" page of the "Acamado" need
+  And a table with the title "Materiais de Acamado" should be displayed - USten
+  And the "ELIMINAÇAO VESICAL - 2" material should be present on the table

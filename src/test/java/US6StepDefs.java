@@ -99,7 +99,7 @@ public class US6StepDefs {
         if (arg0.equals("new question")) {
             driver.get("http://35.240.44.156/questions/create");
         } else if (arg0.equals("edit question")) {
-            driver.get("http://35.240.44.156/questions/21/edit");
+            driver.get("http://35.240.44.156/questions/122/edit");
         } else if (arg0.equals("questions")) {
             driver.get("http://35.240.44.156/questions");
         }
@@ -162,7 +162,7 @@ public class US6StepDefs {
     @And("^the \"([^\"]*)\" answer should be in the answer options section as option (\\d+)$")
     public void theAnswerShouldBeInTheAnswerOptionsSectionAsOption(String arg0, int arg1) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h5")).get(arg1), arg0));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h5")).get(arg1 - 1), arg0));
     }
 
     @And("^the \"([^\"]*)\" button should be present - USsix$")
@@ -203,7 +203,7 @@ public class US6StepDefs {
     }
 
     @And("^the question is blocked$")
-    public void theQuestionIsBlocked(String arg0) throws Throwable {
+    public void theQuestionIsBlocked() throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='unblock']")));
     }
@@ -216,8 +216,8 @@ public class US6StepDefs {
             driver.get("http://35.240.44.156/questions/119");
         }
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(3).getAttribute("value").split(" ");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(3).getText().split(" ");
         Date date = sdf.parse(lastUpdateString[4] + " " + lastUpdateString[5]);
         this.millsDetails = date.getTime();
         WebElement webElement = driver.findElement(By.xpath("//div[2]/div/div/a"));
@@ -228,8 +228,8 @@ public class US6StepDefs {
     @And("^the field \"([^\"]*)\" should different from the previous$")
     public void theFieldShouldDifferentFromThePrevious(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(3).getAttribute("value").split(" ");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(3).getText().split(" ");
         Date date = sdf.parse(lastUpdateString[4] + " " + lastUpdateString[5]);
         long millsNew = date.getTime();
         assertTrue(millsNew > this.millsDetails);
@@ -256,5 +256,13 @@ public class US6StepDefs {
     public void theErrorMessageShouldBeShownUSsix(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
+    }
+
+    @And("^I fill the \"([^\"]*)\" field with \"([^\"]*)\" \"([^\"]*)\" - USsix$")
+    public void iFillTheFieldWithUSsix(String arg0, String arg1, String arg2) throws Throwable {
+        if (arg0.equals("selectType") && arg1.equals("radio") && arg2.equals("new question")) {
+            Select select = new Select(driver.findElement(By.id(arg0)));
+            select.selectByValue(arg1);
+        }
     }
 }

@@ -114,7 +114,7 @@ public class US7StepDefs {
         } else if (arg0.equals("quizs")) {
             driver.get("http://35.240.44.156/quizs");
         } else if (arg0.equals("questions associate")) {
-            driver.get("http://35.240.44.156/quizs/" + this.newQuizId + "/questions");
+            driver.get("http://35.240.44.156/quizs/29/questions");
         }
     }
 
@@ -149,6 +149,8 @@ public class US7StepDefs {
 
     @And("^the other questions table have more than 2 entries$")
     public void theTableHaveMoreThanEntries() throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")),"Outras Questões"));
         assertTrue(driver.findElements(By.xpath("//table[@id='questions']/tbody/tr")).size() > 2);
     }
 
@@ -158,6 +160,7 @@ public class US7StepDefs {
         webElement.click();
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//table[@id='questions']/tbody/tr/td")),"(Apoiar no andar) - Sinto-me capaz de identificar a integridade dos equipamentos auxiliares da marcha?"));
+        webElement = driver.findElement(By.xpath("//table[@id='questions']/tbody/tr/td[2]/form/button"));
         webElement.click();
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//table[@id='questions']/tbody/tr/td")),"(Apoiar no andar) - Sinto-me capaz de identificar o calçado adequado?"));
     }
@@ -195,7 +198,7 @@ public class US7StepDefs {
     }
 
     @And("^the quiz questions table have 2 entries$")
-    public void theQuizQuestionsTableHaveEntries(int arg0) throws Throwable {
+    public void theQuizQuestionsTableHaveEntries() throws Throwable {
         assertTrue(driver.findElements(By.xpath("//table[@id='quizQuestions']/tbody/tr")).size() == 2);
     }
 
@@ -232,7 +235,7 @@ public class US7StepDefs {
     }
 
     @Then("^the quiz questions table should have 1 entry$")
-    public void theQuizQuestionsTableShouldHaveEntry(int arg0) throws Throwable {
+    public void theQuizQuestionsTableShouldHaveEntry() throws Throwable {
         assertTrue(driver.findElements(By.xpath("//table[@id='quizQuestions']/tbody/tr")).size() == 1);
     }
 
@@ -243,9 +246,9 @@ public class US7StepDefs {
     }
 
     @Then("^I should be redirected to the details page of the quiz$")
-    public void iShouldBeRedirectedToThePageOfTheQuiz(String arg0) throws Throwable {
+    public void iShouldBeRedirectedToThePageOfTheQuiz() throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        assertEquals("http://35.240.44.156/quizs/" + this.newQuizId, driver.getCurrentUrl());
+        assertEquals("http://35.240.44.156/quizs/29", driver.getCurrentUrl());
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("h2"), "Questionário"));
     }
 
@@ -279,6 +282,8 @@ public class US7StepDefs {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]")));
         } else if (arg0.equals("save")) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']")));
+        } else if (arg0.equals("conclude")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Concluído')]")));
         } else if (arg0.equals("cancel")) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]")));
         } else if (arg0.equals("block")) {
@@ -313,7 +318,7 @@ public class US7StepDefs {
     @And("^the \"([^\"]*)\" question should be present in the questions associated table - USseven$")
     public void theQuestionShouldBePresentInTheQuestionsAssociatedTableUSseven(String arg0) throws Throwable {
         int count = 0;
-        List<WebElement> webElements = driver.findElements(By.xpath("//table[@id='questionsAssociated']/tbody/tr"));
+        List<WebElement> webElements = driver.findElements(By.xpath("//table[@id='questionsAssociated']/tbody/tr/td[2]"));
         for (WebElement webElement: webElements) {
             if (webElement.getText().equals(arg0)) {
                 count++;
@@ -327,14 +332,15 @@ public class US7StepDefs {
         if (arg0.equals("details")) {
             driver.get("http://35.240.44.156/quizs/20");
             WebDriverWait wait = new WebDriverWait(driver, 3);
-            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")),"Questionário: " + arg0));
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")),"Questionário: " + arg1));
             assertTrue(driver.findElements(By.tagName("h4")).size() == 3);
-            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("others-caregivers-legend")), arg0));
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("others-caregivers-legend")), "Questões Associadas"));
         } else if (arg0.equals("edit")) {
-            driver.get("http://35.240.44.156/quizs/13");
+            driver.get("http://35.240.44.156/quizs/16");
             WebDriverWait wait = new WebDriverWait(driver, 3);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-            String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(2).getAttribute("value").split(" ");
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")),"Questionário: " + arg1));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(2).getText().split(" ");
             Date date = sdf.parse(lastUpdateString[4] + " " + lastUpdateString[5]);
             this.millsDetails = date.getTime();
             WebElement webElement = driver.findElement(By.xpath("//div[2]/div/div/a"));
@@ -345,8 +351,8 @@ public class US7StepDefs {
 
     @And("^the field \"([^\"]*)\" should different from the previous - USseven$")
     public void theFieldShouldDifferentFromThePreviousUSseven(String arg0) throws Throwable {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(2).getAttribute("value").split(" ");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String[] lastUpdateString = driver.findElements(By.tagName("h4")).get(2).getText().split(" ");
         Date date = sdf.parse(lastUpdateString[4] + " " + lastUpdateString[5]);
         long millsNew = date.getTime();
         assertTrue(millsNew > this.millsDetails);
@@ -362,9 +368,8 @@ public class US7StepDefs {
     public void iShouldBeRedirectedToTheQuizQuestionsPageOfTheQuiz() throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         assertEquals("http://35.240.44.156/quizs/20/questions", driver.getCurrentUrl());
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("h2"), "Questionário"));
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.className("my-caregivers-legend")).get(0),"Outras Questões"));
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.className("my-caregivers-legend")).get(1),"Questões Associadas ao Questionário"));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.className("my-caregivers-legend")).get(1),"Questões Associadas ao Questionário Avaliação das necessidades do utente dependente - Autocuidado: Alimentar-se"));
     }
 
     @And("^the quiz is blocked$")

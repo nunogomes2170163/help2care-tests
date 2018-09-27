@@ -4,6 +4,7 @@ Feature: Manage Quizs
   So that I can evaluate the caregivers, patients and materials
 
   #CREATE
+  # CHANGE ID OF QUESTIONS ASSOCIATE PAGE ACCESS ACCORDINGLY TO BD
   Scenario: Access New Quizs Page
     Given I access the quizs dashboard
     When I press the "new quiz" button - USseven
@@ -105,8 +106,7 @@ Feature: Manage Quizs
     Then I should be redirected to the quiz questions page of the quiz
     And the "other questions" table should be present
     And the "quiz questions filled" table should be present
-    And the "save" button should be present - USseven
-    And the "cancel" button should be present - USseven
+    And the "conclude" button should be present - USseven
 
   #BLOCK AND UNBLOCK
   Scenario: Block Quiz

@@ -1,219 +1,113 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("US8.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("US12.feature");
 formatter.feature({
   "line": 1,
-  "name": "Manage Caregivers",
-  "description": "As an healthcare professional\r\nI want to manage my caregivers\r\nSo that I prepare them for the mobile app",
-  "id": "manage-caregivers",
+  "name": "Behavior on conflicts",
+  "description": "As an admin\r\nI want to associate the resources available\r\nSo that I can check the behavior on the association of this resources",
+  "id": "behavior-on-conflicts",
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 4620919273,
+  "duration": 7000344251,
   "status": "passed"
 });
 formatter.scenario({
-  "comments": [
-    {
-      "line": 7,
-      "value": "#BLOCK AND UNBLOCK"
-    }
-  ],
-  "line": 8,
-  "name": "Block Quiz",
+  "line": 6,
+  "name": "Delete the same need in two different sessions",
   "description": "",
-  "id": "manage-caregivers;block-quiz",
+  "id": "behavior-on-conflicts;delete-the-same-need-in-two-different-sessions",
   "type": "scenario",
   "keyword": "Scenario"
+});
+formatter.step({
+  "line": 7,
+  "name": "I access the details page of the \"Tomar a medicação\" \"need\" in two different sessions",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 8,
+  "name": "I delete the \"Tomar a medicação\" need in the session 1",
+  "keyword": "When "
 });
 formatter.step({
   "line": 9,
-  "name": "I access the \"details\" page of the \"caregiver\" caregiver",
-  "keyword": "Given "
+  "name": "I delete the \"Tomar a medicação\" need in the session 2",
+  "keyword": "And "
 });
 formatter.step({
   "line": 10,
-  "name": "I press the \"block\" button - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 11,
-  "name": "I should be redirected to the \"details\" page of the \"caregiver\" caregiver",
+  "name": "the \"A necessidade Tomar a medicação já se encontra apagada.\" error message should be shown on session 2",
   "keyword": "Then "
-});
-formatter.step({
-  "line": 12,
-  "name": "the \"unblock\" button should be present - USeight",
-  "keyword": "And "
 });
 formatter.match({
   "arguments": [
     {
-      "val": "details",
+      "val": "Tomar a medicação",
+      "offset": 34
+    },
+    {
+      "val": "need",
+      "offset": 54
+    }
+  ],
+  "location": "US12StepDefs.iAccessTheDetailsPageOfTheInTwoDifferentSessions(String,String)"
+});
+formatter.result({
+  "duration": 705724192,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Tomar a medicação",
       "offset": 14
     },
     {
-      "val": "caregiver",
-      "offset": 36
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageOfTheCaregiver(String,String)"
-});
-formatter.result({
-  "duration": 547682891,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "block",
-      "offset": 13
-    }
-  ],
-  "location": "US8StepDefs.iPressTheButtonUSeight(String)"
-});
-formatter.result({
-  "duration": 1364619288,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "details",
-      "offset": 31
-    },
-    {
-      "val": "caregiver",
+      "val": "1",
       "offset": 53
     }
   ],
-  "location": "US8StepDefs.iShouldBeRedirectedToThePageOfTheCaregiver(String,String)"
+  "location": "US12StepDefs.iDeleteTheNeedInTheSession(String,int)"
 });
 formatter.result({
-  "duration": 43157492,
+  "duration": 1006848916,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "unblock",
-      "offset": 5
-    }
-  ],
-  "location": "US8StepDefs.theButtonShouldBePresentUSeight(String)"
-});
-formatter.result({
-  "duration": 14214921,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 535757747,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 3000880319,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 14,
-  "name": "Unblock Quiz",
-  "description": "",
-  "id": "manage-caregivers;unblock-quiz",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 15,
-  "name": "I access the \"details\" page of the \"caregiver\" caregiver",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 16,
-  "name": "the caregiver is blocked",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 17,
-  "name": "I press the \"unblock\" button - USeight",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 18,
-  "name": "I should be redirected to the \"details\" page of the \"caregiver\" caregiver",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 19,
-  "name": "the \"block\" button should be present - USeight",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "details",
+      "val": "Tomar a medicação",
       "offset": 14
     },
     {
-      "val": "caregiver",
-      "offset": 36
-    }
-  ],
-  "location": "US8StepDefs.iAccessThePageOfTheCaregiver(String,String)"
-});
-formatter.result({
-  "duration": 460496341,
-  "status": "passed"
-});
-formatter.match({
-  "location": "US8StepDefs.theCaregiverIsBlocked()"
-});
-formatter.result({
-  "duration": 12939662,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "unblock",
-      "offset": 13
-    }
-  ],
-  "location": "US8StepDefs.iPressTheButtonUSeight(String)"
-});
-formatter.result({
-  "duration": 376389447,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "details",
-      "offset": 31
-    },
-    {
-      "val": "caregiver",
+      "val": "2",
       "offset": 53
     }
   ],
-  "location": "US8StepDefs.iShouldBeRedirectedToThePageOfTheCaregiver(String,String)"
+  "location": "US12StepDefs.iDeleteTheNeedInTheSession(String,int)"
 });
 formatter.result({
-  "duration": 175363186,
+  "duration": 445373144,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "block",
+      "val": "A necessidade Tomar a medicação já se encontra apagada.",
       "offset": 5
+    },
+    {
+      "val": "2",
+      "offset": 103
     }
   ],
-  "location": "US8StepDefs.theButtonShouldBePresentUSeight(String)"
+  "location": "US12StepDefs.theErrorMessageShouldBeShownOnSession(String,int)"
 });
 formatter.result({
-  "duration": 12064449,
+  "duration": 52256484,
   "status": "passed"
 });
 formatter.after({
-  "duration": 534491605,
+  "duration": 619775974,
   "status": "passed"
 });
 });

@@ -44,8 +44,8 @@ public class US4StepDefs {
         driver.quit();
     }
 
-    @Given("^I access the \"([^\"]*)\" dashboard$")
-    public void iAccessTheDashboard(String arg0) throws Throwable {
+    @Given("^I access the \"([^\"]*)\" dashboard - USfour$")
+    public void iAccessTheDashboardUSfour(String arg0) throws Throwable {
         driver.get("http://35.240.44.156/needs");
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("dashboard")),"Necessidades"));
@@ -97,10 +97,10 @@ public class US4StepDefs {
         }
     }
 
-    @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\"$")
-    public void iFillTheFieldWith(String arg0, String arg1) throws Throwable {
+    @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\" - USfour$")
+    public void iFillTheFieldWithUSfour(String arg0, String arg1) throws Throwable {
         WebElement field = driver.findElement(By.id("inputDescription"));
-        if (arg1.equals("Cucumber")) {
+        if (arg1.equals("Cucumber") || arg1.equals("Alimentation")) {
             Random rand = new Random();
             this.random = rand.nextInt(9000000) + 1000000;
             field.clear();
@@ -127,7 +127,7 @@ public class US4StepDefs {
         searchbox.sendKeys(arg1);
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//table[@id='needs']/tbody/tr/td")), arg1));
-        WebElement webElement = driver.findElement(By.xpath("//td[3]/div/div/a"));
+        WebElement webElement = driver.findElement(By.xpath("//table[@id='needs']/tbody/tr/td[3]/div/div/a"));
         webElement.click();
     }
 
@@ -139,34 +139,20 @@ public class US4StepDefs {
 
     @And("^the field \"([^\"]*)\" should show \"([^\"]*)\" - USfour$")
     public void theFieldShouldShowUSfour(String arg0, String arg1) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("need")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Necessidade: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h2")).get(0), "Necessidade: " + arg1));
         } else if (arg0.equals("created_by")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h4")), "Criador: " + arg1);
-        }
-    }
-
-    @And("^the \"([^\"]*)\" button should be present - USfour$")
-    public void theButtonShouldBePresentUSfour(String arg0) throws Throwable {
-        if (arg0.equals("edit")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]"));
-        } else if (arg0.equals("delete")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]/button"));
-        } else if (arg0.equals("back")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]"));
-        } else if (arg0.equals("save")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']"));
-        } else if (arg0.equals("cancel")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]"));
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(1), "Criador: " + arg1));
         }
     }
 
     @Given("^I access the \"([^\"]*)\" page of the \"([^\"]*)\"$")
     public void iAccessThePageOfThe(String arg0, String arg1) throws Throwable {
         if (arg0.equals("details")) {
-            driver.get("http://35.240.44.156/needs/29");
+            driver.get("http://35.240.44.156/needs/27");
         } else if (arg0.equals("edit need")) {
-            driver.get("http://35.240.44.156/needs/29/edit");
+            driver.get("http://35.240.44.156/needs/27/edit");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Necessidade"));
         }
@@ -178,9 +164,26 @@ public class US4StepDefs {
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Necessidade"));
     }
 
+    @And("^the \"([^\"]*)\" button should be present - USfour$")
+    public void theButtonShouldBePresentUSfour(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        if (arg0.equals("edit")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]")));
+        } else if (arg0.equals("delete")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]/button")));
+        } else if (arg0.equals("back")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]")));
+        } else if (arg0.equals("save")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']")));
+        } else if (arg0.equals("cancel")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]")));
+        }
+    }
+
     @And("^the editable field \"([^\"]*)\" should show \"([^\"]*)\" - USfour$")
     public void theEditableFieldShouldShowUSfour(String arg0, String arg1) throws Throwable {
-        ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputDescription")), arg1);
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputDescription")), arg1));
     }
 
     @Then("^I should be redirected to the \"([^\"]*)\" page of the \"([^\"]*)\" - USfour$")
@@ -191,13 +194,10 @@ public class US4StepDefs {
 
     @And("^the field \"([^\"]*)\" should show the new need - USfour$")
     public void theFieldShouldShowTheNewNeedUSfour(String arg0) throws Throwable {
-        ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Alimentation" + this.random);
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Alimentation" + this.random));
     }
 
-    @And("^should be present a log at the \"([^\"]*)\" section - USfour$")
-    public void shouldBePresentALogAtTheSectionUSfour(String arg0) throws Throwable {
-        //REVERSE ORDER
-    }
 
     @Given("^I access the \"([^\"]*)\" page of the \"([^\"]*)\" need$")
     public void iAccessThePageOfTheNeed(String arg0, String arg1) throws Throwable {
@@ -233,16 +233,21 @@ public class US4StepDefs {
 
     }
 
-
-    @Then("^the \"([^\"]*)\" error message should be shown$")
-    public void theErrorMessageShouldBeShown(String arg0) throws Throwable {
+    @Then("^the \"([^\"]*)\" error message should be shown - USfour$")
+    public void theErrorMessageShouldBeShownUSfour(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
     }
 
-    @When("^the \"([^\"]*)\" field is empty$")
-    public void theFieldIsEmpty(String arg0) throws Throwable {
+    @When("^the \"([^\"]*)\" field is empty - USfour$")
+    public void theFieldIsEmptyUSfour(String arg0) throws Throwable {
         WebElement webElement = driver.findElement(By.id("inputDescription"));
         webElement.clear();
+    }
+
+    @And("^should be present a \"([^\"]*)\" log at the beggining of the logs section - USfour$")
+    public void shouldBePresentALogAtTheBegginingOfTheLogsSectionUSfour(String arg0) throws Throwable {
+        String lastLog = driver.findElements(By.xpath("//table[@id='logs']/tbody/tr")).get(0).findElement(By.xpath(".//td")).getText();
+        assertEquals(arg0, lastLog);
     }
 }

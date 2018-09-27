@@ -95,6 +95,6 @@ public class US2StepDefs {
     @Then("^the \"([^\"]*)\" message should be shown - UStwo$")
     public void theMessageShouldBeShownUStwo(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert-success")),arg0));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")),arg0));
     }
 }

@@ -5,14 +5,14 @@ Feature: Manage Needs
 
   #CREATE
   Scenario: Access New Need Page
-    Given I access the "needs" dashboard
+    Given I access the "needs" dashboard - USfour
     When I press the "new need" button - USfour
     Then I should be redirected to the "new need" page - USfour
     And the "Nova Necessidade" text should be shown
 
   Scenario: Create New Need Successfully
     Given I access the "new need" page - USfour
-    When I fill the "description" field with "Cucumber"
+    When I fill the "description" field with "Cucumber" - USfour
     And I press the "create" button - USfour
     Then I should be redirected to the "needs" page - USfour
     And the "Cucumber" need should be present in the "needs" table
@@ -41,24 +41,24 @@ Feature: Manage Needs
     Given I access the "details" page of the "need"
     When I press the "edit" button - USfour
     Then I should be redirected to the "edit" page of the need
-    And the editable field "description" should show "Alimentaion" - USfour
+    And the editable field "description" should show "Alimentation" - USfour
     And the "save" button should be present - USfour
     And the "cancel" button should be present - USfour
 
   Scenario: Edit Need Successfully
     Given I access the "edit need" page of the "need"
-    When I fill the "description" field with "Alimentation"
+    When I fill the "description" field with "Alimentation" - USfour
     And I press the "save" button - USfour
     Then I should be redirected to the "details" page of the "need" - USfour
     And the field "Necessidade" should show the new need - USfour
-    And should be present a log at the "Registos" section - USfour
+    And should be present a "Foi atualizada." log at the beggining of the logs section - USfour
 
   #ERRORS
   Scenario Outline: Description field already exists
     Given I access the "<page>" page - USfour
-    When I fill the "description" field with "Acamado"
+    When I fill the "description" field with "Acamado" - USfour
     And I press the "<button>" button - USfour
-    Then the "Já existe uma necessidade com essa descrição. Escolha outra." error message should be shown
+    Then the "Já existe uma necessidade com essa descrição. Escolha outra." error message should be shown - USfour
     Examples:
       | page      | button  |
       | new need  | create  |
@@ -66,9 +66,9 @@ Feature: Manage Needs
 
   Scenario Outline: Description field empty
     Given I access the "<page>" page - USfour
-    When the "description" field is empty
+    When the "description" field is empty - USfour
     And I press the "<button>" button - USfour
-    Then the "A descrição tem que ser preenchida." error message should be shown
+    Then the "A descrição tem que ser preenchida." error message should be shown - USfour
     Examples:
       | page      | button  |
       | new need  | create   |
@@ -76,9 +76,9 @@ Feature: Manage Needs
 
   Scenario Outline: Description field min length
     Given I access the "<page>" page - USfour
-    When I fill the "description" field with "12"
+    When I fill the "description" field with "12" - USfour
     And I press the "<button>" button - USfour
-    Then the "A descrição tem que ter pelo menos 5 letras." error message should be shown
+    Then the "A descrição tem que ter pelo menos 5 letras." error message should be shown - USfour
     Examples:
       | page      | button  |
       | new need  | create   |

@@ -63,12 +63,6 @@ public class US1StepDefs {
 
     }
 
-    @Then("^the \"([^\"]*)\" error message should be shown$")
-    public void theErrorMessageShouldBeShown(String arg0) throws Throwable {
-        WebDriverWait wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("help-block")),arg0));
-    }
-
     @When("^I fill the \"([^\"]*)\" field with \"([^\"]*)\"$")
     public void iFillTheFieldWith(String arg0, String arg1) throws Throwable {
         WebElement field;
@@ -82,6 +76,13 @@ public class US1StepDefs {
         field.clear();
         field.sendKeys(arg1);
     }
+
+    @Then("^the \"([^\"]*)\" error message should be shown$")
+    public void theErrorMessageShouldBeShown(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("help-block")),arg0));
+    }
+
 
     @Then("^I should be redirected to the \"([^\"]*)\" dashboard$")
     public void iShouldBeRedirectedToTheDashboard(String arg0) throws Throwable {

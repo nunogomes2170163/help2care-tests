@@ -134,7 +134,7 @@ public class US3StepDefs {
             }
             field = driver.findElement(By.id("inputName"));
         } else if (arg0.equals("email")) {
-            if (!arg1.equals("non") && !arg1.equals("zecoroados@gmail.com")) {
+            if (!arg1.equals("non") && !arg1.equals("caregiver@mail.com")) {
                 arg1 = new StringBuilder(arg1).insert(arg1.length() - 10, this.random).toString();
             }
             field = driver.findElement(By.id("inputEmail"));
@@ -173,7 +173,7 @@ public class US3StepDefs {
             webElement = driver.findElement(By.xpath("//button[@name='save']"));
         } else if (arg0.equals("Editar")) {
             webElement = driver.findElement(By.xpath("//a[contains(text(),'Editar')]"));
-        } else if (arg0.equals("Guardar")) {
+        } else  {
             webElement = driver.findElement(By.xpath("//button[@name='save']"));
         }
         webElement.click();
@@ -224,45 +224,39 @@ public class US3StepDefs {
 
     @And("^the field \"([^\"]*)\" should show \"([^\"]*)\"$")
     public void theFieldShouldShow(String arg0, String arg1) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("utilizador")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Utilizador: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h2")).get(0), "Utilizador: " + arg1));
         } else if (arg0.equals("nome")){
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Nome: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(0), "Nome: " + arg1));
         } else if (arg0.equals("email")){
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Email: " + arg1);
-        } else if (arg0.equals("função")){
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Função: " + arg1);
-        } else if (arg0.equals("created_at")){
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Data da criação: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(1), "Email: " + arg1));
         } else if (arg0.equals("job")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Trabalho/Estatuto: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(3), "Trabalho/Estatuto: " + arg1));
         } else if (arg0.equals("facility")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Local de Trabalho: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(4), "Local de Trabalho: " + arg1));
         } else if (arg0.equals("birthDate")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Data de Nascimento: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(3), "Data de Nascimento: " + arg1));
         } else if (arg0.equals("gender")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Género: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(5), "Género: " + arg1));
         } else if (arg0.equals("experienceTime")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Tempo de experiência como cuidador: " + arg1);
-        } else if (arg0.equals("healthcareProsCount")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Nº Profissionais de Saúde: " + arg1);
-        }  else if (arg0.equals("created_by")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Criador: " + arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(6), "Tempo de experiência como cuidador: " + arg1));
         }
     }
 
     @And("^the \"([^\"]*)\" button should be present$")
     public void theButtonShouldBePresent(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("edit")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]"));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Editar')]")));
         } else if (arg0.equals("block")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Bloquear')]"));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='block']")));
         } else if (arg0.equals("back")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]"));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Voltar Atrás')]")));
         } else if (arg0.equals("save")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']"));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@name='save']")));
         } else if (arg0.equals("cancel")) {
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]"));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'Cancelar')]")));
         }
     }
 
@@ -302,11 +296,11 @@ public class US3StepDefs {
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Utilizador: admin"));
         } else if (arg0.equals("edit") && arg1.equals("admin")) {
-            driver.get("http://35.240.44.156/users/104/edit");
+            driver.get("http://35.240.44.156/users/102/edit");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")), "Editar Administrador cucumber"));
         } else if (arg0.equals("details") && arg1.equals("healthcare professional")) {
-            driver.get("http://35.240.44.156/users/94");
+            driver.get("http://35.240.44.156/users/101");
             WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Utilizador: alexandra.teixeira"));
         } else if (arg0.equals("edit") && arg1.equals("healthcare professional")) {
@@ -340,10 +334,11 @@ public class US3StepDefs {
 
     @And("^the field \"([^\"]*)\" should be empty$")
     public void theFieldShouldBeEmpty(String arg0) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("password")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputPassword")),"");
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputPassword")),""));
         } else if (arg0.equals("password_confirmation")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputPasswordConfirmation")),"");
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputPasswordConfirmation")),""));
         }
     }
 
@@ -385,57 +380,55 @@ public class US3StepDefs {
 
     @And("^the field \"([^\"]*)\" should show the new \"([^\"]*)\"$")
     public void theFieldShouldShowTheNew(String arg0, String arg1) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("name")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Nome: " + this.newName);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(0), this.newName));
         } else if (arg0.equals("email")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Email: " + this.newEmail);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(1), this.newEmail));
         } else if (arg0.equals("job")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Trabalho/Estatuto: " + this.newJob);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(3), this.newJob));
         } else if (arg0.equals("facility")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Local de Trabalho: " + this.newFacility);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(4), this.newFacility));
         } else if (arg0.equals("location")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Localização: " + this.newLocation);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(4), this.newLocation));
         } else if (arg0.equals("gender")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Género: Feminino");
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAA - " + driver.findElements(By.tagName("h4")).get(5).getText());
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(5), "Género: Masculino"));
         } else if (arg0.equals("experienceTime")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "Tempo de experiência como cuidador: 2 Mês/Meses");
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(6), "Tempo de experiência como cuidador: 2 Mês/Meses"));
         } else if (arg0.equals("birthDate")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.tagName("h2")), "26-07-1991");
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.tagName("h4")).get(3), "26-07-1991"));
         }
-    }
-
-    @And("^should be present a log at the \"([^\"]*)\" section$")
-    public void shouldBePresentALogAtTheSection(String arg0) throws Throwable {
-        //REVERSE LOG ORDER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     @And("^the editable field \"([^\"]*)\" should show \"([^\"]*)\"$")
     public void theEditableFieldShouldShow(String arg0, String arg1) throws Throwable {
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         if (arg0.equals("nome")){
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputName")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputName")), arg1));
         } else if (arg0.equals("email")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputEmail")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputEmail")), arg1));
         } else if (arg0.equals("job")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputJob")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputJob")), arg1));
         } else if (arg0.equals("facility")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputFacility")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputFacility")), arg1));
         } else if (arg0.equals("birthDate")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputBirthDate")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputBirthDate")), arg1));
         } else if (arg0.equals("gender")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.name("gender")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.name("gender")), arg1));
         } else if (arg0.equals("location")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.id("inputLocation")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.id("inputLocation")), arg1));
         } else if (arg0.equals("experienceNumber")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.name("experienceNumber")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.name("experienceNumber")), arg1));
         } else if (arg0.equals("experiencePeriod")) {
-            ExpectedConditions.textToBePresentInElement(driver.findElement(By.name("experiencePeriod")), arg1);
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.name("experiencePeriod")), arg1));
         }
     }
 
     @Then("^the \"([^\"]*)\" error message should be shown - USthree$")
     public void theErrorMessageShouldBeShownUSthree(String arg0) throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert")), arg0));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("alert-danger")), arg0));
     }
 
     @When("^the \"([^\"]*)\" field is empty - USthree$")
@@ -474,10 +467,9 @@ public class US3StepDefs {
 
     }
 
-    @And("^I press the \"([^\"]*)\" button$")
-    public void iPressTheButton(String arg0) throws Throwable {
-        WebElement webElement = driver.findElement(By.xpath("//button[@name='save']"));
-        webElement.click();
+    @And("^should be present a \"([^\"]*)\" log at the beggining of the logs section - USthree$")
+    public void shouldBePresentALogAtTheBegginingOfTheLogsSectionUSthree(String arg0) throws Throwable {
+        String lastLog = driver.findElements(By.xpath("//table[@id='logs']/tbody/tr")).get(0).findElement(By.xpath(".//td")).getText();
+        assertEquals(arg0, lastLog);
     }
-
 }

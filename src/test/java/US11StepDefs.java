@@ -24,14 +24,11 @@ import static junit.framework.TestCase.assertTrue;
 public class US11StepDefs {
     private WebDriver driver1;
     private WebDriver driver2;
-    private int random;
-    private int randomEval;
-    private long millsDetails;
 
     @Before
     public void setUp() {
         System.setProperty("phantomjs.binary.path",
-                "drivers\\phantomjs.exe");
+                "drivers/phantomjs");
         driver1 = new PhantomJSDriver();
         driver2 = new PhantomJSDriver();
 

@@ -32,7 +32,7 @@ public class US7StepDefs {
     @Before
     public void setUp() {
         System.setProperty("phantomjs.binary.path",
-                "drivers\\phantomjs.exe");
+                "drivers/phantomjs");
         driver = new PhantomJSDriver();
 
         driver.get("http://35.240.44.156/");
@@ -114,7 +114,7 @@ public class US7StepDefs {
         } else if (arg0.equals("quizs")) {
             driver.get("http://35.240.44.156/quizs");
         } else if (arg0.equals("questions associate")) {
-            driver.get("http://35.240.44.156/quizs/29/questions");
+            driver.get("http://35.240.44.156/quizs/30/questions");
         }
     }
 
@@ -248,7 +248,7 @@ public class US7StepDefs {
     @Then("^I should be redirected to the details page of the quiz$")
     public void iShouldBeRedirectedToThePageOfTheQuiz() throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        assertEquals("http://35.240.44.156/quizs/29", driver.getCurrentUrl());
+        assertEquals("http://35.240.44.156/quizs/30", driver.getCurrentUrl());
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("h2"), "Questionário"));
     }
 

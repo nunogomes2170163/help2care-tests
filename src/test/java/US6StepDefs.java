@@ -28,7 +28,7 @@ public class US6StepDefs {
     @Before
     public void setUp() {
         System.setProperty("phantomjs.binary.path",
-                "drivers\\phantomjs.exe");
+                "drivers/phantomjs");
         driver = new PhantomJSDriver();
 
         driver.get("http://35.240.44.156/");

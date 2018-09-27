@@ -29,7 +29,7 @@ public class US9StepDefs {
     @Before
     public void setUp() {
         System.setProperty("phantomjs.binary.path",
-                "drivers\\phantomjs.exe");
+                "drivers/phantomjs");
         driver = new PhantomJSDriver();
 
         driver.get("http://35.240.44.156/");
@@ -202,9 +202,7 @@ public class US9StepDefs {
             field.sendKeys(arg1);
         } else if (arg0.equals("path")) {
             WebElement field = driver.findElement(By.xpath("//input[@name='path']"));
-            field.sendKeys("C:\\Users\\Nuno\\IdeaProjects\\help2care-server-tests\\testFiles\\test.pdf");
-            // switch when pushing to test on jenkins
-            //field.sendKeys(arg1);
+            field.sendKeys(arg1);
         } else if (arg0.equals("name error")) {
             WebElement field = driver.findElement(By.id("inputName"));
             field.clear();

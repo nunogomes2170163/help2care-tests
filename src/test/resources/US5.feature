@@ -365,7 +365,7 @@ Feature: Manage Materials
     And the "cancel" button should be present - USfive
 
   Scenario: Edit Text Material Successfully
-    Given I access the "edit" page of the Cucumber Text6474829" material - USfive
+    Given I access the "edit" page of the "Cucumber Text6474829" material - USfive
     And I fill the "name" field with "Cucumber Text6474829" - USfive
     And I fill the "description edit" field with "Cucumber Text Description" - USfive
     And I fill the "body edit" field with "Cucumber Text Very Detailed Text" - USfive
@@ -379,7 +379,7 @@ Feature: Manage Materials
     And should be present a "Foi atualizado." log at the beggining of the logs section - USfive
 
   Scenario: Access Image Material Edit Page
-    Given I access the "details" page of the Cucumber Image2321201" material - USfive
+    Given I access the "details" page of the "Cucumber Image2321201" material - USfive
     When I press the "edit" button - USfive
     Then I should be redirected to the "edit" page of the "Cucumber Image2321201" material - USfive
     And the editable field "type" should show "Imagem" - USfive

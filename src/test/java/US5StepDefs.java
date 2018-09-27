@@ -35,7 +35,7 @@ public class US5StepDefs {
     @Before
     public void setUp() {
         System.setProperty("phantomjs.binary.path",
-                "drivers\\phantomjs.exe");
+                "drivers/phantomjs");
         driver = new PhantomJSDriver();
 
         driver.get("http://35.240.44.156/");
@@ -98,7 +98,7 @@ public class US5StepDefs {
             driver.get("http://35.240.44.156/materials/create/composite");
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("my-caregivers-legend")),"Novo Material Composto"));
         } else if (arg0.equals("composite add materials")) {
-            driver.get("http://35.240.44.156/materials/180/materials");
+            driver.get("http://35.240.44.156/materials/188/materials");
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.className("my-caregivers-legend")).get(0),"Outros Materiais"));
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElements(By.className("my-caregivers-legend")).get(1),"Materiais Associados ao Material Cucumber Composite"));
         } else if (arg0.equals("edit text")) {
@@ -362,14 +362,9 @@ public class US5StepDefs {
             select.selectByVisibleText(arg1);
         }
 
-        if (arg0.equals("pathImage") || arg0.equals("pathVideo error") || arg0.equals("pathAudioGuide error")) {
-            field.sendKeys("C:\\Users\\Nuno\\IdeaProjects\\help2care-server-tests\\testFiles\\test.jpg");
-        } else if (arg0.equals("pathVideo") || arg0.equals("pathImage error")){
-            field.sendKeys("C:\\Users\\Nuno\\IdeaProjects\\help2care-server-tests\\testFiles\\test.mp4");
-        } else if (arg0.equals("pathAudioGuide")){
-            field.sendKeys("C:\\Users\\Nuno\\IdeaProjects\\help2care-server-tests\\testFiles\\test.mp3");
-        } else if (arg0.equals("pathAnnex")){
-            field.sendKeys("C:\\Users\\Nuno\\IdeaProjects\\help2care-server-tests\\testFiles\\test.pdf");
+        if (arg0.equals("pathImage") || arg0.equals("pathVideo error") || arg0.equals("pathAudioGuide error")
+                || arg0.equals("pathVideo") || arg0.equals("pathImage error") || arg0.equals("pathAudioGuide") || arg0.equals("pathAnnex")){
+            field.sendKeys(arg1);
         } else if (select == null) {
             field.clear();
             field.sendKeys(arg1);
@@ -725,7 +720,7 @@ public class US5StepDefs {
     @Then("^I should be redirected to the details page of the material$")
     public void iShouldBeRedirectedToTheDetailsPageOfTheMaterial() throws Throwable {
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        assertEquals("http://35.240.44.156/materials/180", driver.getCurrentUrl());
+        assertEquals("http://35.240.44.156/materials/188", driver.getCurrentUrl());
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("h2"), "Material: Cucumber Composite"));
     }
 

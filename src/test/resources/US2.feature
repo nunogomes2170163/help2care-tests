@@ -3,7 +3,6 @@ Feature: Web Server Forgot Password
   I want to reset my password
   So that I can login if I forgot my password
 
-
   Scenario: Forgot Password Button on the Login Page
     Given I access the login page of the Help2care website - UStwo
     When I press the "Esqueceu-se da sua password?" button - UStwo
